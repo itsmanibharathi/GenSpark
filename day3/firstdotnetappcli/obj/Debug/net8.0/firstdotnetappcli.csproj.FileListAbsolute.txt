@@ -1,0 +1,15 @@
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\bin\Debug\net8.0\firstdotnetappcli.exe
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\bin\Debug\net8.0\firstdotnetappcli.deps.json
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\bin\Debug\net8.0\firstdotnetappcli.runtimeconfig.json
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\bin\Debug\net8.0\firstdotnetappcli.dll
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\bin\Debug\net8.0\firstdotnetappcli.pdb
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\firstdotnetappcli.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\firstdotnetappcli.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\firstdotnetappcli.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\firstdotnetappcli.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\firstdotnetappcli.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\firstdotnetappcli.dll
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\refint\firstdotnetappcli.dll
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\firstdotnetappcli.pdb
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\firstdotnetappcli.genruntimeconfig.cache
+C:\Users\VC\codestack\GenSpark\day3\firstdotnetappcli\obj\Debug\net8.0\ref\firstdotnetappcli.dll
