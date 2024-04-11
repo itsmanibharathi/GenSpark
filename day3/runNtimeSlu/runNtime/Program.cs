@@ -13,7 +13,7 @@ namespace runNtimes
             double result = Double.MinValue;
             while (true)
             {
-                Console.WriteLine("Enter a number: ");
+                Console.Write("Enter a number: ");
                 double n;
                 while (double.TryParse(Console.ReadLine(), out n) == false)
                 {
@@ -44,7 +44,7 @@ namespace runNtimes
             int count = 0;
             while (true)
             {
-                Console.WriteLine("Enter a number: ");
+                Console.Write("Enter a number: ");
 
                 int n;
                 while (int.TryParse(Console.ReadLine(), out n) == false)
@@ -72,22 +72,30 @@ namespace runNtimes
             string longest = "";
             while (true)
             {
+                Console.Write("Enter a name: ");
                 string name = Console.ReadLine();
+                if(name == "exit")
+                {
+                    Console.WriteLine("Longest name is "+longest);
+                    break;
+                }
                 if(longest.Length<name.Length)
                 {
                     longest = name;
                 }
+                Console.WriteLine("for exit enter (exit)");
             }
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Max number");
+            Console.WriteLine("Find Max number");
             maxNumber();
-            Console.WriteLine("Average of number divisible by 7");
+            Console.WriteLine("Find Average of number divisible by 7");
             avgDivBySeven();
-            Console.WriteLine("Fine longest name : ");
+            Console.WriteLine("Find Longest name");
             longestName();
+
 
         }
     }
