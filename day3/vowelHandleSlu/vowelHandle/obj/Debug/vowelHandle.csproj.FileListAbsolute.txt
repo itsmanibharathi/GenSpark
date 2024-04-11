@@ -1,0 +1,7 @@
+C:\Users\VC\codestack\GenSpark\day3\vowelHandleSlu\vowelHandle\bin\Debug\vowelHandle.exe.config
+C:\Users\VC\codestack\GenSpark\day3\vowelHandleSlu\vowelHandle\bin\Debug\vowelHandle.exe
+C:\Users\VC\codestack\GenSpark\day3\vowelHandleSlu\vowelHandle\bin\Debug\vowelHandle.pdb
+C:\Users\VC\codestack\GenSpark\day3\vowelHandleSlu\vowelHandle\obj\Debug\vowelHandle.csproj.AssemblyReference.cache
+C:\Users\VC\codestack\GenSpark\day3\vowelHandleSlu\vowelHandle\obj\Debug\vowelHandle.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day3\vowelHandleSlu\vowelHandle\obj\Debug\vowelHandle.exe
+C:\Users\VC\codestack\GenSpark\day3\vowelHandleSlu\vowelHandle\obj\Debug\vowelHandle.pdb
