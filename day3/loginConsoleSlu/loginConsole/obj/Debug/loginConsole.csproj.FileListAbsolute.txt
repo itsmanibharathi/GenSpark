@@ -1,0 +1,7 @@
+C:\Users\VC\codestack\GenSpark\day3\loginConsoleSlu\loginConsole\bin\Debug\loginConsole.exe.config
+C:\Users\VC\codestack\GenSpark\day3\loginConsoleSlu\loginConsole\bin\Debug\loginConsole.exe
+C:\Users\VC\codestack\GenSpark\day3\loginConsoleSlu\loginConsole\bin\Debug\loginConsole.pdb
+C:\Users\VC\codestack\GenSpark\day3\loginConsoleSlu\loginConsole\obj\Debug\loginConsole.csproj.AssemblyReference.cache
+C:\Users\VC\codestack\GenSpark\day3\loginConsoleSlu\loginConsole\obj\Debug\loginConsole.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day3\loginConsoleSlu\loginConsole\obj\Debug\loginConsole.exe
+C:\Users\VC\codestack\GenSpark\day3\loginConsoleSlu\loginConsole\obj\Debug\loginConsole.pdb
