@@ -1,0 +1,7 @@
+C:\Users\VC\codestack\GenSpark\day3\getNnumberSlu\getNnumber\bin\Debug\getNnumber.exe.config
+C:\Users\VC\codestack\GenSpark\day3\getNnumberSlu\getNnumber\bin\Debug\getNnumber.exe
+C:\Users\VC\codestack\GenSpark\day3\getNnumberSlu\getNnumber\bin\Debug\getNnumber.pdb
+C:\Users\VC\codestack\GenSpark\day3\getNnumberSlu\getNnumber\obj\Debug\getNnumber.csproj.AssemblyReference.cache
+C:\Users\VC\codestack\GenSpark\day3\getNnumberSlu\getNnumber\obj\Debug\getNnumber.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day3\getNnumberSlu\getNnumber\obj\Debug\getNnumber.exe
+C:\Users\VC\codestack\GenSpark\day3\getNnumberSlu\getNnumber\obj\Debug\getNnumber.pdb
