@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "getNnumber", "getNnumber\getNnumber.csproj", "{08CA7F6A-A772-4E70-B8AF-2692CD3EBBBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "runNtime", "getNnumber\runNtime.csproj", "{08CA7F6A-A772-4E70-B8AF-2692CD3EBBBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
