@@ -1,0 +1,15 @@
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\bin\Debug\net8.0\ValidateCreditCardNumber.exe
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\bin\Debug\net8.0\ValidateCreditCardNumber.deps.json
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\bin\Debug\net8.0\ValidateCreditCardNumber.runtimeconfig.json
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\bin\Debug\net8.0\ValidateCreditCardNumber.dll
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\bin\Debug\net8.0\ValidateCreditCardNumber.pdb
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ValidateCreditCardNumber.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ValidateCreditCardNumber.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ValidateCreditCardNumber.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ValidateCreditCardNumber.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ValidateCreditCardNumber.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ValidateCreditCardNumber.dll
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\refint\ValidateCreditCardNumber.dll
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ValidateCreditCardNumber.pdb
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ValidateCreditCardNumber.genruntimeconfig.cache
+C:\Users\VC\codestack\GenSpark\day4\ValidateCreditCardNumber\obj\Debug\net8.0\ref\ValidateCreditCardNumber.dll
