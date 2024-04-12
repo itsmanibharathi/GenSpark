@@ -1,0 +1,15 @@
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\bin\Debug\net8.0\DoctorLists.exe
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\bin\Debug\net8.0\DoctorLists.deps.json
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\bin\Debug\net8.0\DoctorLists.runtimeconfig.json
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\bin\Debug\net8.0\DoctorLists.dll
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\bin\Debug\net8.0\DoctorLists.pdb
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\DoctorLists.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\DoctorLists.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\DoctorLists.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\DoctorLists.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\DoctorLists.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\DoctorLists.dll
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\refint\DoctorLists.dll
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\DoctorLists.pdb
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\DoctorLists.genruntimeconfig.cache
+C:\Users\VC\codestack\GenSpark\day4\DoctorListsSlu\DoctorLists\obj\Debug\net8.0\ref\DoctorLists.dll
