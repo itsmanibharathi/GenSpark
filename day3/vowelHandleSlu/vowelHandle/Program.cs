@@ -48,8 +48,8 @@ namespace vowelHandle
         static void Main(string[] args)
         {
             String[] data = getData();
-            string lastVewel = "";
-            Dictionary<char, int> vowelFreq = vowelcount(data, out lastVewel);
+            string lastVowel = "";
+            Dictionary<char, int> vowelFreq = vowelcount(data, out lastVowel);
             Console.WriteLine("Vowel Frequency");
             foreach (var item in vowelFreq)
             {
@@ -59,7 +59,7 @@ namespace vowelHandle
             char minKey = vowelFreq.Aggregate((x, y) => x.Value < y.Value ? x : y).Key;
             Console.WriteLine(minKey);
             Console.WriteLine("Last Vowel Word");
-            Console.WriteLine(lastVewel);
+            Console.WriteLine(lastVowel);
 
 
         }
