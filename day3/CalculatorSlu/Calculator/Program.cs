@@ -36,11 +36,21 @@ namespace Calculator
 
         static void calculator()
         {
-            Console.WriteLine("Enter the first number: ");
-            int a = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the second number: ");
-            int b = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the operation: ");
+            Console.Write("Enter the first number: ");
+            int a;
+            while (!int.TryParse(Console.ReadLine(), out a))
+            {
+                Console.WriteLine("Invalid input.");
+                Console.Write("Enter the first number: ");
+            }
+            Console.Write("Enter the second number: ");
+            int b;
+            while (!int.TryParse(Console.ReadLine(), out b))
+            {
+                Console.WriteLine("Invalid input.");
+                Console.Write("Enter the second number: ");
+            }
+            Console.Write("Enter the operation: ");
             string operation = Console.ReadLine();
             int result = 0;
             switch (operation)
