@@ -1,11 +1,13 @@
-﻿namespace ReqTrackerModelLibrary
+﻿using System.Globalization;
+
+namespace ReqTrackerModelLibrary
 {
     public class Employee
     {
-        int age;
-        DateTime dob;
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+        int age;
+        DateTime dob;
         public int Age
         {
             get
@@ -39,37 +41,53 @@
             Salary = salary;
         }
 
-        public void BuildEmployeeFromConsole()
+        static public int GetEloyeeIdFromConsole()
         {
-            Console.Write("Please enter the Name : ");
-            Name = Console.ReadLine();
-            while (String.IsNullOrEmpty(Name)) {
-                Console.Write("Name cannot be empty.\nPlease enter the Name : ");
-                Name = Console.ReadLine() ;
+            int id;
+            Console.Write("Enter the Employee Id : ");
+            while (!int.TryParse(Console.ReadLine(), out id) || id <= 0)
+            {
+                Console.Write("Invalid Employee Id.\nPlease enter a valid Employee Id : ");
             }
-            Console.Write("Please enter the Date of birth : ");
-            while (!DateTime.TryParse(Console.ReadLine(), out dob ))
+            return id;
+        }
+        static public string GetEmployeeNameFromConsole()
+        {
+            Console.Write("Enter the Name : ");
+            string name = Console.ReadLine();
+            while (String.IsNullOrEmpty(name))
+            {
+                Console.Write("Name cannot be empty.\nPlease enter the Name : ");
+                name = Console.ReadLine();
+            }
+            return name;
+        }
+        static public DateTime GetEmployeeDOBFromConsole()
+        {
+            DateTime dob;
+            Console.Write("Enter the Date of birth : ");
+            while (!DateTime.TryParse(Console.ReadLine(), out dob))
             {
                 Console.Write("Invalid Date of birth.\nPlease enter the Date of birth : ");
             }
-            DateOfBirth = dob;
-            Console.Write("Please enter the Basic Salary :");
-            while (true)
+            return dob;
+        }
+        static public double GetEmployeeSalaryFromConsole()
+        {
+            double salary;
+            Console.Write("Enter the Basic Salary :");
+            while (!double.TryParse(Console.ReadLine(), out salary) || salary <= 0)
             {
-                double salary;
-                if (double.TryParse(Console.ReadLine(), out salary) && salary > 0)
-                {
-                    if (salary > 0)
-                    {
-                        Salary = salary;
-                        break;
-                    }
-                    else
-                    Console.WriteLine("Salary should be greater than 0");
-                }
-                else 
-                    Console.Write("Invalid Salary.\nPlease enter a valid salary:");
+                Console.Write("Invalid Salary.\nPlease enter a valid salary:");
             }
+            return salary;
+        }
+
+        public void BuildEmployeeFromConsole()
+        {
+            Name = GetEmployeeNameFromConsole();
+            DateOfBirth = GetEmployeeDOBFromConsole();
+            Salary = GetEmployeeSalaryFromConsole();
         }
 
         public void PrintEmployeeDetails()
