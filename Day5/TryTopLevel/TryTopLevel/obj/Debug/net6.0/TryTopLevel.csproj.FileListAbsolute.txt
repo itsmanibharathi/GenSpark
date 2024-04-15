@@ -1,0 +1,15 @@
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\bin\Debug\net6.0\TryTopLevel.exe
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\bin\Debug\net6.0\TryTopLevel.deps.json
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\bin\Debug\net6.0\TryTopLevel.runtimeconfig.json
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\bin\Debug\net6.0\TryTopLevel.dll
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\bin\Debug\net6.0\TryTopLevel.pdb
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\TryTopLevel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\TryTopLevel.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\TryTopLevel.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\TryTopLevel.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\TryTopLevel.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\TryTopLevel.dll
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\refint\TryTopLevel.dll
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\TryTopLevel.pdb
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\TryTopLevel.genruntimeconfig.cache
+C:\Users\VC\codestack\GenSpark\day4\TryTopLevel\TryTopLevel\obj\Debug\net6.0\ref\TryTopLevel.dll

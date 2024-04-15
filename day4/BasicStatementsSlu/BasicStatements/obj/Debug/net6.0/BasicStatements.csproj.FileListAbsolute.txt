@@ -1,0 +1,15 @@
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\bin\Debug\net6.0\BasicStatements.exe
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\bin\Debug\net6.0\BasicStatements.deps.json
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\bin\Debug\net6.0\BasicStatements.runtimeconfig.json
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\bin\Debug\net6.0\BasicStatements.dll
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\bin\Debug\net6.0\BasicStatements.pdb
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\BasicStatements.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\BasicStatements.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\BasicStatements.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\BasicStatements.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\BasicStatements.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\BasicStatements.dll
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\refint\BasicStatements.dll
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\BasicStatements.pdb
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\BasicStatements.genruntimeconfig.cache
+C:\Users\VC\codestack\GenSpark\day4\BasicStatementsSlu\BasicStatements\obj\Debug\net6.0\ref\BasicStatements.dll
