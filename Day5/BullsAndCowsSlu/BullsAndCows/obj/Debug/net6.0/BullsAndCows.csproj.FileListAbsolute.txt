@@ -1,0 +1,15 @@
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\bin\Debug\net6.0\BullsAndCows.exe
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\bin\Debug\net6.0\BullsAndCows.deps.json
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\bin\Debug\net6.0\BullsAndCows.runtimeconfig.json
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\bin\Debug\net6.0\BullsAndCows.dll
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\bin\Debug\net6.0\BullsAndCows.pdb
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\BullsAndCows.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\BullsAndCows.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\BullsAndCows.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\BullsAndCows.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\BullsAndCows.sourcelink.json
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\BullsAndCows.dll
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\refint\BullsAndCows.dll
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\BullsAndCows.pdb
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\BullsAndCows.genruntimeconfig.cache
+C:\Users\VC\codestack\GenSpark\Day5\BullsAndCowsSlu\BullsAndCows\obj\Debug\net6.0\ref\BullsAndCows.dll

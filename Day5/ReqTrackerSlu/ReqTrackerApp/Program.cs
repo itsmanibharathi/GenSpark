@@ -11,7 +11,7 @@ namespace ReqTrackerApp
         {
             employees = new Employee[10];
         }
-        public int i=0 ;
+        public int i = 0;
         void PrintMenu()
         {
             Console.WriteLine("1. Add one Employee");
@@ -62,27 +62,19 @@ namespace ReqTrackerApp
             } while (choice != 0);
         }
         void AddMultipleEmployees()
-        {
-            if (employees[employees.Length - 1] != null)
+        { 
+            int count = 0;
+            Console.Write("Enter the number of employees to be added : ");
+            while (!int.TryParse(Console.ReadLine(), out count) || count <= 0)
             {
-                Console.WriteLine("Sorry we have reached the maximum number of employees");
-                return;
+                Console.Write("Invalid entry.\nPlease enter a valid number of employees : ");
             }
-            Console.Write("Enter the number of employees to add : ");
-            int count;
-            while (!int.TryParse(Console.ReadLine(), out count) || count <= 0 || count < i )
+            for (int i = 0; i < count; i++)
             {
-                Console.Write("Invalid entry.\nPlease enter a valid number of employees to add : ");
-            }
-            for (int j = i; j < count ; j++)
-            {
-                i++;
-                if (employees[i] == null)
-                {
-                    employees[i] = CreateEmployee(i);
-                }
+                AddOneEmployee();
             }
         }
+
 
         void AddOneEmployee()
         {
@@ -91,8 +83,7 @@ namespace ReqTrackerApp
                 Console.WriteLine("Sorry we have reached the maximum number of employees");
                 return;
             }
-            employees[i] = CreateEmployee(i);
-            i++;
+            employees[i] = CreateEmployee(i++);
         }
         void PrintAllEmployees()
         {
@@ -100,8 +91,8 @@ namespace ReqTrackerApp
             {
                 if (employees[i] != null)
                     PrintEmployee(employees[i]);
-                else 
-                Console.WriteLine($"The Employee details is not available in {i} record");
+                else
+                    Console.WriteLine($"The Employee details is not available in {i} record");
             }
         }
         Employee CreateEmployee(int id)
@@ -155,14 +146,14 @@ namespace ReqTrackerApp
             }
             Console.WriteLine("The Existing Name is : " + employee.Name);
             employee.Name = Employee.GetEmployeeNameFromConsole();
-            Console.WriteLine("Employee details updated successfully");   
+            Console.WriteLine("Employee details updated successfully");
         }
 
         void UpdateOneEmployee()
         {
             int id = Employee.GetEloyeeIdFromConsole();
             UpdateEmployeeByID(id);
-        
+
         }
         void DeleteOneEmployee()
         {
