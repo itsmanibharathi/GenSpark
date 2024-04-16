@@ -1,0 +1,12 @@
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\bin\Debug\net6.0\GovProjectLibrays.deps.json
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\bin\Debug\net6.0\GovProjectLibrays.dll
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\bin\Debug\net6.0\GovProjectLibrays.pdb
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\GovProjectLibrays.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\GovProjectLibrays.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\GovProjectLibrays.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\GovProjectLibrays.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\GovProjectLibrays.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\GovProjectLibrays.dll
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\refint\GovProjectLibrays.dll
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\GovProjectLibrays.pdb
+C:\Users\VC\codestack\GenSpark\day5\GovProjectSlu\GovProjectLibrays\obj\Debug\net6.0\ref\GovProjectLibrays.dll
