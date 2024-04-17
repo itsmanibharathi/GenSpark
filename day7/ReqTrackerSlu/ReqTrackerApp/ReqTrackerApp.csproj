@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <StartupObject>ReqTrackerApp.TryCollection</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ReqTrackerModelLibrary\ReqTrackerModelLibrary.csproj" />
+    <ProjectReference Include="..\RequstTrackLib\RequstTrackLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\VC\codestack\GenSpark\day7\ReqTrackerSlu\ReqTrackerApp\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\VC\codestack\GenSpark\day7\ReqTrackerSlu\ReqTrackerApp\.editorconfig" />
+  </ItemGroup>
+
+</Project>

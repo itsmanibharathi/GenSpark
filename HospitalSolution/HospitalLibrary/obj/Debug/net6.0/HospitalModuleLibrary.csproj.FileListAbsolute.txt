@@ -1,0 +1,12 @@
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\bin\Debug\net6.0\HospitalModuleLibrary.deps.json
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\bin\Debug\net6.0\HospitalModuleLibrary.dll
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\bin\Debug\net6.0\HospitalModuleLibrary.pdb
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\HospitalModuleLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\HospitalModuleLibrary.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\HospitalModuleLibrary.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\HospitalModuleLibrary.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\HospitalModuleLibrary.sourcelink.json
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\HospitalModuleLibrary.dll
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\refint\HospitalModuleLibrary.dll
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\HospitalModuleLibrary.pdb
+C:\Users\VC\codestack\GenSpark\HospitalSolution\HospitalLibrary\obj\Debug\net6.0\ref\HospitalModuleLibrary.dll
