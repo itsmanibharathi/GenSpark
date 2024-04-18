@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "OopsStudy/1.0.0": {
+        "dependencies": {
+          "OopsStudy2": "1.0.0"
+        },
+        "runtime": {
+          "OopsStudy.dll": {}
+        }
+      },
+      "OopsStudy2/1.0.0": {
+        "runtime": {
+          "OopsStudy2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OopsStudy/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OopsStudy2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

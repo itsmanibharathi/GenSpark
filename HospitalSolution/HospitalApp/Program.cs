@@ -12,12 +12,15 @@ namespace HospitalApp
             //Doctor doctor = new Doctor(1, "John Doe", "General Physician");
             //Console.WriteLine(doctor);
 
-            // Create a new DoctorRepository object
-            DoctorRepository doctorRepository = new DoctorRepository();
-            // Add the doctor object to the repository
-            doctorRepository.Add(new Doctor("John Doe", "General Physician"));
+            //Create a new DoctorRepository object
+            //DoctorRepository doctorRepository = new DoctorRepository();
+            //// Add the doctor object to the repository
+            //doctorRepository.Add(new Doctor("John Doe", "General Physician"));
 
-            doctorRepository.GetAll().ForEach(Console.WriteLine);
+            //doctorRepository.GetAll().ForEach(Console.WriteLine);
+
+            PatientRepository patientRepository = new PatientRepository();
+            patientRepository.Add(new Patient("John Doe", " "))
         }
     }
 }

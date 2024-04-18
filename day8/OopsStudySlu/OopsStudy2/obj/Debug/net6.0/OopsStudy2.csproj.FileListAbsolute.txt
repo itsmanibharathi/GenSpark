@@ -1,0 +1,12 @@
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\bin\Debug\net6.0\OopsStudy2.deps.json
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\bin\Debug\net6.0\OopsStudy2.dll
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\bin\Debug\net6.0\OopsStudy2.pdb
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\OopsStudy2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\OopsStudy2.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\OopsStudy2.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\OopsStudy2.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\OopsStudy2.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\OopsStudy2.dll
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\refint\OopsStudy2.dll
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\OopsStudy2.pdb
+C:\Users\VC\codestack\GenSpark\day8\OopsStudySlu\OopsStudy2\obj\Debug\net6.0\ref\OopsStudy2.dll
