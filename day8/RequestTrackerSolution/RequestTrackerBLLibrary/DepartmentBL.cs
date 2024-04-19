@@ -3,70 +3,78 @@ using RequestTrakerModelLibrary;
 
 namespace RequestTrackerBLLibrary
 {
-    public class DepartmentBL : IDepartmentService
+    public class DepartmentBL
     {
-        readonly IRepository<int, Department> _departmentRepository;
+        readonly IRepository<int, Department> _repository;
         public DepartmentBL()
         {
-            _departmentRepository = new DepartmentRepository();
+            _repository = new DepartmentRepository();
         }
 
-        public int AddDepartment(Department department)
+        public Department AddDepartment()
         {
-            var result = _departmentRepository.Add(department);
-            
-            if(result != null)
+            try
             {
-                return result.Id;
+                Department department = new Department();
+                department.BuildDepartmentFromConsole();
+                return _repository.Add(department);
             }
-            throw new DuplicateDepartmentNameException();
+            catch (DuplicateDepartmentNameException)
+            {
+                throw new DuplicateDepartmentNameException();
+            }
         }
 
-
-        public Department ChangeDepartmentName(string departmentOldName, string departmentNewName)
+        public List<Department> GetAllDepartments()
         {
-            var department = _departmentRepository.GetAll();
-            foreach (var item in department)
+            try
             {
-                if (item.Name == departmentOldName)
-                {
-                    item.Name = departmentNewName;
-                    _departmentRepository.Update(item);
-                    return item;
-                }
+                return _repository.GetAll();
             }
-            throw new DepartmentNotFoundException();
+            catch (EmptyDBException)
+            {
+                throw new EmptyDBException();
+            }
         }
-
-        public Department GetDepartmentById(int id)
-        { 
-            var department = _departmentRepository.GetById(id);
-            if (department != null)
+        public Department GetDepartment()
+        {
+            try
             {
-                return department;
+                int id = Department.GetDepartmentIdFromConsole();
+                return _repository.Get(id);
             }
-            else
+            catch (DepartmentNotFoundException)
+            {
+                throw new DepartmentNotFoundException();
+            }
+        }
+        public Department RemoveDepartment()
+        {
+            try
+            {
+                int id = Department.GetDepartmentIdFromConsole();
+                return _repository.Delete(id);
+            }
+            catch (DepartmentNotFoundException)
             {
                 throw new DepartmentNotFoundException();
             }
         }
 
-        public Department GetDepartmentByName(string departmentName)
+        public Department UpdateDepartment()
         {
-            throw new NotImplementedException();
-        }
-
-        public int GetDepartmentHeadId(int departmentId)
-        {
-            var department = _departmentRepository.Get(departmentId);
-            if (department != null)
+            try
             {
-                return department.Department_Head_Id;
+                Department department = new Department();
+                department.BuildDepartmentFromConsole();
+                return _repository.Update(department);
             }
-            else
+            catch (DepartmentNotFoundException)
             {
                 throw new DepartmentNotFoundException();
             }
         }
+        
+
     }
 }

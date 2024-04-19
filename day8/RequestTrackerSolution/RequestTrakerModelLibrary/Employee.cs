@@ -24,7 +24,6 @@
             }
         }
         public double Salary { get; set; }
-        public string Type { get; set; }
         public string Role { get; set; }
 
         public Employee()
@@ -33,7 +32,6 @@
             Name = string.Empty;
             Salary = 0.0;
             DateOfBirth = new DateTime();
-            Type = string.Empty;
             Role = "Employee";
         }
         public Employee(int id, string name, DateTime dateOfBirth,string role)
@@ -44,20 +42,9 @@
             Role = role;
         }
 
-        public virtual void BuildEmployeeFromConsole()
-        {
-            Console.WriteLine("Please enter the Name");
-            Name = Console.ReadLine() ?? String.Empty;
-            Console.WriteLine("Please enter the Date of birth");
-            DateOfBirth = Convert.ToDateTime(Console.ReadLine());
-            Role = "Employee";
-        }
-
-
         public override string ToString()
         {
-            return "Employee Type : " + Type
-                + "\nEmployee Id : " + Id
+            return"\nEmployee Id : " + Id
                 + "\nEmployee Name " + Name
                 + "\nDate of birth : " + DateOfBirth
                 + "\nEmployee Age : " + Age
@@ -79,6 +66,29 @@
         public static bool operator !=(Employee a, Employee b)
         {
             return a.Id != b.Id;
+        }
+
+        public void BuildEmployee()
+        {
+            Console.Write("Enter Employee Name : ");
+            Name = Console.ReadLine();
+            Console.Write("Enter Employee Date of Birth : ");
+            DateOfBirth = Convert.ToDateTime(Console.ReadLine());
+            Console.Write("Enter Employee Salary : ");
+            Salary = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter Employee Role : ");
+            Role = Console.ReadLine();
+        }
+        public static int GetEmployeeIdFromConsole()
+        {
+            Console.Write("Enter Employee Id : ");
+            int id;
+            while (!int.TryParse(Console.ReadLine(), out id))
+            {
+                Console.WriteLine("Invalid Id, Please enter a valid Id");
+                Console.Write("Enter Employee Id : ");
+            }
+            return id;
         }
     }
 }

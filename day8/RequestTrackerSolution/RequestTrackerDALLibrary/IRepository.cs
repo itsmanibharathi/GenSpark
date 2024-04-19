@@ -11,8 +11,6 @@ namespace RequestTrackerDALLibrary
     {
         List<T> GetAll();
         T Get(K key);
-        T GetById(K key);
-
         T Add(T item);
         T Update(T item);
         T Delete(K key);

@@ -4,10 +4,10 @@ namespace RequestTrackerDALLibrary
 {
     public class DepartmentRepository : IRepository<int, Department>
     {
-        readonly Dictionary<int, Department>  _departments;
+        readonly Dictionary<int, Department> _departments;
         public DepartmentRepository()
         {
-            _departments= new Dictionary<int, Department>();
+            _departments = new Dictionary<int, Department>();
         }
         int GenerateId()
         {
@@ -18,39 +18,24 @@ namespace RequestTrackerDALLibrary
         }
         public Department Add(Department item)
         {
-            if(_departments.ContainsValue(item))
+            if (_departments.ContainsValue(item))
             {
-                return null;
+                throw new DuplicateDepartmentNameException();
             }
             item.Id = GenerateId();
             _departments.Add(item.Id, item);
             return item;
         }
-
-        public Department Delete(int key)
-        {
-           if(_departments.ContainsKey(key))
-            {
-                var department = _departments[key];
-                _departments.Remove(key);
-                return department;
-            }
-            return null;
-        }
-
         public Department Get(int key)
         {
-            // return _departments.ContainsKey(key) ? _departments[key] : null;
-            return _departments[key] ?? null;
+            return _departments[key] ?? throw new DepartmentNotFoundException();
         }
-
         public List<Department> GetAll()
         {
             if (_departments.Count == 0)
-                return null;
+                throw new EmptyDBException();
             return _departments.Values.ToList();
         }
-
         public Department Update(Department item)
         {
             if (_departments.ContainsKey(item.Id))
@@ -58,12 +43,17 @@ namespace RequestTrackerDALLibrary
                 _departments[item.Id] = item;
                 return item;
             }
-            return null;
+            throw new DepartmentNotFoundException();
         }
-
-        public Department GetById(int key)
+        public Department Delete(int key)
         {
-            return _departments.ContainsKey(key) ? _departments[key] : null;
+            if (_departments.ContainsKey(key))
+            {
+                var department = _departments[key];
+                _departments.Remove(key);
+                return department;
+            }
+            throw new DepartmentNotFoundException();
         }
     }
 }
