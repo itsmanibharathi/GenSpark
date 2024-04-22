@@ -66,12 +66,14 @@ namespace RequestTrackerBLLibrary
                 throw new RequestIDNotFoundException();
             }
         }
-        public Request UpdateRequest()
+        public Request CloseRequest()
         {
             try
             {
-                Request request = new Request();
-                request.BuildRequest();
+                int id = Request.GetRequestIdFromConsole();
+                int e_id = Request.ClosedByFromConsole();
+                Request request = _repository.Get(id);
+                request.Closed_By = e_id;
                 return _repository.Update(request);
             }
             catch (RequestIDNotFoundException)

@@ -10,11 +10,34 @@ namespace RequestTrakerModelLibrary
     {
         public int Id { get; set; }
         public string RequestText { get; set; }
-        public int Raised_By { get; set; }
-        public string Status { get; set; }
-        public int Closed_By { get; set; }
-        public DateTime RaisedDate { get; set; } = DateTime.Now;
-        public DateTime ClosedDate { get; set; }
+        public DateTime RaisedDate;
+        public DateTime? ClosedDate;
+        int _raised_ID;
+        int _closed_ID;
+        public string Status;
+        public int Raised_By { 
+            get{
+                return _raised_ID;
+            }
+            set {
+                _raised_ID = value;
+                RaisedDate = DateTime.Now;
+                Status = "Open";
+            } 
+        }
+        public int Closed_By
+        {
+            get
+            {
+                return _closed_ID;
+            }
+            set
+            {
+                _closed_ID = value;
+                ClosedDate = DateTime.Now;
+                Status = "Closed";
+            }
+        }
 
         public bool Equals(Request? other)
         {
@@ -24,7 +47,7 @@ namespace RequestTrakerModelLibrary
 
         public override string ToString()
         {
-            return Id + " " + RequestText + " " + Raised_By + " " + Status + " " + Closed_By + " " + RaisedDate + " " + ClosedDate;
+            return $"Id : {Id}, Request : {RequestText}, Raised By : {Raised_By}, Status : {Status}, Raised Date : {RaisedDate}, Closed By : {Closed_By}, Closed Date : {ClosedDate}";
         }
 
         public Request()
@@ -33,21 +56,19 @@ namespace RequestTrakerModelLibrary
             RequestText = string.Empty;
             Raised_By = 0;
             Status = string.Empty;
-            Closed_By = 0;
             RaisedDate = DateTime.Now;
-            ClosedDate = DateTime.Now;
+            Closed_By = 0;
+            ClosedDate = null;
         }
 
 
-        public Request(int id, string requestText, int raised_By, string status, int closed_By, DateTime raisedDate, DateTime closedDate)
+        public Request(int id, string requestText, int raised_By, string status, DateTime raisedDate)
         {
             Id = id;
             RequestText = requestText;
             Raised_By = raised_By;
             Status = status;
-            Closed_By = closed_By;
             RaisedDate = raisedDate;
-            ClosedDate = closedDate;
         }
 
         public void BuildRequest()
@@ -56,14 +77,6 @@ namespace RequestTrakerModelLibrary
             RequestText = Console.ReadLine();
             Console.Write("Enter Raised By : ");
             Raised_By = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter Status : ");
-            Status = Console.ReadLine();
-            Console.Write("Enter Closed By : ");
-            Closed_By = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter Raised Date : ");
-            RaisedDate = Convert.ToDateTime(Console.ReadLine());
-            Console.Write("Enter Closed Date : ");
-            ClosedDate = Convert.ToDateTime(Console.ReadLine());
         }
 
         public static int GetRequestIdFromConsole()
@@ -98,6 +111,16 @@ namespace RequestTrakerModelLibrary
                 Console.Write("Enter valid Raised By : ");
             }
             return raisedBy;
+        }
+        public static int ClosedByFromConsole()
+        {
+            Console.Write("Enter Closer ID : ");
+            int closedBy;
+            while (!int.TryParse(Console.ReadLine(), out closedBy))
+            {
+                Console.Write("Enter valid Closer ID : ");
+            }
+            return closedBy;
         }
 
         public static string GetStatusFromConsole()

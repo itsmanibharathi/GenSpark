@@ -34,7 +34,7 @@ namespace RequestTrackerApp
             Console.WriteLine("11. New Request");
             Console.WriteLine("12. Get All Requests");
             Console.WriteLine("13. Get Request By Id");
-            Console.WriteLine("14. Update Request By Id");
+            Console.WriteLine("14. Close Request By Id");
             Console.WriteLine("15. Delete Request By ID");
             Console.WriteLine("0. Exit");
         }
@@ -192,11 +192,11 @@ namespace RequestTrackerApp
                 Console.WriteLine("Request ID not found");
             }
         }
-        public void UpdateRequest()
+        public void CloseRequest()
         {
             try
             {
-                requestBL.UpdateRequest();
+                requestBL.CloseRequest();
             }
             catch (RequestIDNotFoundException)
             {
@@ -294,8 +294,8 @@ namespace RequestTrackerApp
                         GetRequest();
                         break;
                     case 14:
-                        Console.WriteLine("Update Request By Id");
-                        UpdateRequest();
+                        Console.WriteLine("Close Request By Id");
+                        CloseRequest();
                         break;
                     case 15:
                         Console.WriteLine("Delete Request By ID");
