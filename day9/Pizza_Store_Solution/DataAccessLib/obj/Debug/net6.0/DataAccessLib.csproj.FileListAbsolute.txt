@@ -1,0 +1,16 @@
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\bin\Debug\net6.0\DataAccessLib.deps.json
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\bin\Debug\net6.0\DataAccessLib.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\bin\Debug\net6.0\DataAccessLib.pdb
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\bin\Debug\net6.0\Model.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\bin\Debug\net6.0\Model.pdb
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAccessLib.csproj.AssemblyReference.cache
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAccessLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAccessLib.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAccessLib.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAccessLib.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAccessLib.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAcce.C51A9DCA.Up2Date
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAccessLib.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\refint\DataAccessLib.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\DataAccessLib.pdb
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\DataAccessLib\obj\Debug\net6.0\ref\DataAccessLib.dll

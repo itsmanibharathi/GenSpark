@@ -27,6 +27,8 @@ namespace DataAccessLib
         }
         public Order Get(int id)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             return _repository[id] ?? throw new OrderNotFoundException();
         }
 
@@ -34,11 +36,15 @@ namespace DataAccessLib
         {
             if (_repository.Count == 0)
                 throw new EmptyDBException();
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             return _repository.Values.ToList();
         }
 
         public Order Update(Order item)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             if (_repository.ContainsKey(item.Id))
             {
                 _repository[item.Id] = item;
@@ -48,6 +54,8 @@ namespace DataAccessLib
         }
         public Order Delete(int key)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             if (_repository.ContainsKey(key))
             {
                 var Order = _repository[key];

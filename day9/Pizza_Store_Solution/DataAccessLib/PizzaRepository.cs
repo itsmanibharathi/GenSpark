@@ -17,6 +17,8 @@ namespace DataAccessLib
         }
         public Pizza Add(Pizza item)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             if (_repository.ContainsValue(item))
             {
                 throw new DuplicatePizzaDetailsException();
@@ -27,6 +29,8 @@ namespace DataAccessLib
         }
         public Pizza Get(int id)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             return _repository[id] ?? throw new PizzaNotFoundException();
         }
 
@@ -39,6 +43,8 @@ namespace DataAccessLib
 
         public Pizza Update(Pizza item)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             if (_repository.ContainsKey(item.Id))
             {
                 _repository[item.Id] = item;
@@ -48,6 +54,8 @@ namespace DataAccessLib
         }
         public Pizza Delete(int key)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             if (_repository.ContainsKey(key))
             {
                 var Pizza = _repository[key];

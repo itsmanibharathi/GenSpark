@@ -27,7 +27,11 @@ namespace DataAccessLib
         }
         public Customer Get(int id)
         {
-            return _repository[id] ?? throw new CustomerNotFoundException();
+            if( _repository.Count ==0)
+                throw new EmptyDBException();
+            if (!_repository.ContainsKey(id))
+                throw new CustomerNotFoundException();
+            return _repository[id];
         }
 
         public List<Customer> GetAll()
@@ -39,6 +43,8 @@ namespace DataAccessLib
 
         public Customer Update(Customer item)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             if (_repository.ContainsKey(item.Id))
             {
                 _repository[item.Id] = item;
@@ -48,6 +54,8 @@ namespace DataAccessLib
         }
         public Customer Delete(int key)
         {
+            if (_repository.Count == 0)
+                throw new EmptyDBException();
             if (_repository.ContainsKey(key))
             {
                 var Customer = _repository[key];
