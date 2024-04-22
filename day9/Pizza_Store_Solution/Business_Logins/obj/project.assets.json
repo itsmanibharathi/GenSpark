@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "DataAccessLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccessLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccessLib.dll": {}
+        }
+      },
       "Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -15,6 +28,11 @@
     }
   },
   "libraries": {
+    "DataAccessLib/1.0.0": {
+      "type": "project",
+      "path": "../DataAccessLib/DataAccessLib.csproj",
+      "msbuildProject": "../DataAccessLib/DataAccessLib.csproj"
+    },
     "Model/1.0.0": {
       "type": "project",
       "path": "../Model/Model.csproj",
@@ -23,6 +41,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DataAccessLib >= 1.0.0",
       "Model >= 1.0.0"
     ]
   },
@@ -53,6 +72,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\DataAccessLib\\DataAccessLib.csproj": {
+              "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\DataAccessLib\\DataAccessLib.csproj"
+            },
             "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Model\\Model.csproj": {
               "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Model\\Model.csproj"
             }
