@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System.Text;
+
+namespace Model
 {
     /// <summary>
     /// This struct is used to store the price , count of a pizza and Availability of the pizza 
@@ -6,12 +8,19 @@
     public struct PizzaPriceCount
     {
         public double Price;
-        public int Count;
+        public int Count=0;
         public bool isAvailable;
         public PizzaPriceCount(double price, int count)
         {
             Price = price;
-            Count = count;
+            if(count < 0)
+            {
+                Count = 0;
+            }
+            else
+            {
+                Count = count;
+            }
             if (Count > 0)
             {
                 isAvailable = true;
@@ -65,7 +74,30 @@
 
         public override string ToString()
         {
-            return $"Id: {Id}, Name: {Name}, Description: {Description}, Pizza_info: {Pizza_info}";
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"\nId: {Id},\n Name: {Name},\n Description: {Description},\n Pizza_info: ");
+
+            foreach (var entry in Pizza_info)
+            {
+                sb.Append( "\n--------------------------------------" );
+                sb.Append($"\nSize: {entry.Key}, Price: {entry.Value.Price}, Count {entry.Value.Count} ,");
+                if(entry.Value.isAvailable)
+                {
+                    sb.Append("vailable");
+                }
+                else
+                {
+                    sb.Append("Not Available");
+                }
+            }
+
+            // Remove the trailing comma and space
+            if (Pizza_info.Count > 0)
+            {
+                sb.Length -= 2;
+            }
+
+            return sb.ToString();
         }
 
         public static int GetPizzaIdFromConsole()
@@ -75,7 +107,7 @@
             {
                 if (int.TryParse(Console.ReadLine(), out int id))
                 {
-                    if (id > 1 && id < 99)
+                    if (id > 0 && id < 99)
                         return id;
                 }
                 Console.Write("Invalid Id, Enter again: ");
@@ -83,7 +115,7 @@
         }
         public static char GetPizzaSizeFromConsole()
         {
-            Console.Write("Enter Pizza Size: ");
+            Console.Write("Enter Pizza Size: (S,M,L) ");
             while (true)
             {
                 string size = Console.ReadLine().ToUpper();
@@ -96,25 +128,53 @@
         //Pizza.GetPizzaPrice(orderDetails, orderDetails.size);
         public void BuildPizzaFromConsole()
         {
-            Console.WriteLine("Enter Pizza Name: ");
+            Console.Write("Enter Pizza Name: ");
             Name = Console.ReadLine();
-            Console.WriteLine("Enter Pizza Description: ");
+            Console.Write("Enter Pizza Description: ");
             Description = Console.ReadLine();
             Console.WriteLine("Enter pizza Pizza_info: ");
             Pizza_info = new Dictionary<char, PizzaPriceCount>();
             while (true)
             {
                 char size = GetPizzaSizeFromConsole();
-                Console.Write($"Enter Price for {size} size  : ");
-                double price;
-                while (double.TryParse(Console.ReadLine(), out price) == false)
+                if (!Pizza_info.ContainsKey(size))
                 {
-                    Console.Write("Invalid Price, Enter again: ");
+                    Console.Write($"Enter Price for {size} size  : ");
+                    double price;
+                    while (double.TryParse(Console.ReadLine(), out price) == false)
+                    {
+                        Console.Write("Invalid Price, Enter again: ");
+                    }
+                    Pizza_info.Add(size, new PizzaPriceCount(price, 0));
                 }
-                Pizza_info.Add(size, new PizzaPriceCount(price, 0));
-                Console.WriteLine("Do you want to add more Pizza_info? (y/n)");
+                else
+                {
+                    Console.WriteLine("Size already exists");
+                }
+                Console.Write("Do you want to add more Pizza_info? (y/n) ");
                 if (Console.ReadLine().ToLower() == "n")
                     break;
+            }
+        }
+        public void UpdatePizzaCountFromConsole()
+        {
+            char size = GetPizzaSizeFromConsole();
+            Console.Write("Enter Count: ");
+            int count;
+            while (int.TryParse(Console.ReadLine(), out count) == false)
+            {
+                Console.Write("Invalid Count, Enter again: ");
+            }
+            if (Pizza_info.ContainsKey(size))
+            {
+                Pizza_info[size] = new PizzaPriceCount(Pizza_info[size].Price, count);
+            }
+        }
+        public void UpdatePizzaCount(char size,int count)
+        {
+            if (Pizza_info.ContainsKey(size))
+            {
+                Pizza_info[size] = new PizzaPriceCount(Pizza_info[size].Price, count);
             }
         }
     }

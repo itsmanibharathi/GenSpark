@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace Model
 {
@@ -61,6 +62,8 @@ namespace Model
         public List<OrderDetails> OrderDetails { get; set; }
         public bool IsDelivered { get; set; } = false;
         public DateTime? DeliveryDate { get; set; } = null;
+
+        public double TotalPrice => OrderDetails.Sum(od => od.total);
         /// <summary>
         /// Order default constructor
         /// </summary>
@@ -89,7 +92,19 @@ namespace Model
 
         public override string ToString()
         {
-            return $"Id: {Id}, CustomerId: {CustomerId}, OrderDate: {OrderDate}, DeliveryDate: {DeliveryDate}";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($" Order Id: {Id}");
+            sb.AppendLine($" Customer Id: {CustomerId}");
+            sb.AppendLine($" Order Date: {OrderDate}");
+            sb.AppendLine($" Is Delivered: {IsDelivered}");
+            sb.AppendLine($" Delivery Date: {DeliveryDate}");
+            sb.AppendLine($" Total Price: {TotalPrice}");
+            sb.AppendLine(" Order Details:");
+            foreach (var od in OrderDetails)
+            {
+                sb.AppendLine(" "+od.ToString());
+            }
+            return sb.ToString();
         }
         public static int GetOrderIdFromConsole()
         {
@@ -104,40 +119,19 @@ namespace Model
                 Console.Write("Invalid Id, Enter again: ");
             }
         }
-        //public void BuildOrderFromConsole()
-        //{
-        //    Console.WriteLine("Enter Customer Id: ");
-        //    CustomerId = Customer.GetCustomerId();
-        //    Console.WriteLine("Enter Order Details: ");
-        //    OrderDetails = new List<OrderDetails>();
-        //    while (true)
-        //    {
-        //        OrderDetails orderDetails = new OrderDetails();
-        //        Console.WriteLine("Enter Pizza Id: ");
-        //        orderDetails.pizzaId = Pizza.GetPizzaId();
-        //        Console.WriteLine("Enter Pizza Size: ");
-        //        orderDetails.size = Pizza.GetPizzaSizeFromConsole();
-        //        Console.WriteLine("Enter Quantity: ");
-        //        while (true)
-        //        {
-        //            int quantity;
-        //            if (int.TryParse(Console.ReadLine(), out quantity))
-        //            {
-        //                if (quantity > 0)
-        //                {
-        //                    if()
-        //                    orderDetails.quantity = quantity;
-        //                    break;
-        //                }
-        //            }
-        //        }
-        //        orderDetails.price = Pizza.GetPizzaPrice(orderDetails.pizzaId, orderDetails.size);
-        //        orderDetails.total = orderDetails.price * orderDetails.quantity;
-        //        OrderDetails.Add(orderDetails);
-        //        Console.WriteLine("Do you want to add more items (yes/no): ");
-        //        if (Console.ReadLine().ToLower() == "no")
-        //            break;
-        //    }
-        //}
+
+        public static int GetQuantityFromConsole()
+        {
+            Console.Write("Enter Quantity: ");
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int quantity))
+                {
+                    if (quantity > 0)
+                        return quantity;
+                }
+                Console.Write("Invalid Quantity, Enter again: ");
+            }
+        }
     }
 }

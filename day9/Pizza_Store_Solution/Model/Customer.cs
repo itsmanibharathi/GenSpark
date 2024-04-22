@@ -49,7 +49,7 @@ namespace Model
         {
             return $"Id: {Id}, Name: {Name}, Address: {Address}, Phone: {Phone}, Age: {Age}, CreateAt: {CreateAt}, UpdateAt: {UpdateAt}";
         }
-        public static int GetCustomerId()
+        public static int GetCustomerIdFromConsole()
         {
             Console.Write("Enter Customer Id: ");
             while (true)
