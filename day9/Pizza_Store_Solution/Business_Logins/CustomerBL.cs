@@ -1,7 +1,7 @@
 ﻿using DataAccessLib;
 using Model;
 
-namespace BusinessLogins
+namespace BusinessLogics
 {
     public class CustomerBL
     {

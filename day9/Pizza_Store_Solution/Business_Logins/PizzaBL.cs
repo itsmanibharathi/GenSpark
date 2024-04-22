@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogins
+namespace BusinessLogics
 {
     public class PizzaBL
     {
@@ -40,11 +40,10 @@ namespace BusinessLogins
                 throw new EmptyDBException();
             }
         }
-        public Pizza GetPizza()
+        public Pizza GetPizza(int id)
         {
             try
             {
-                int id = Pizza.GetPizzaIdFromConsole();
                 return _repository.Get(id);
             }
             catch (PizzaNotFoundException)
@@ -52,11 +51,10 @@ namespace BusinessLogins
                 throw new PizzaNotFoundException();
             }
         }
-        public Pizza RemovePizza()
+        public Pizza RemovePizza(int id)
         {
             try
             {
-                int id = Pizza.GetPizzaIdFromConsole();
                 return _repository.Delete(id);
             }
             catch (PizzaNotFoundException)
@@ -65,11 +63,11 @@ namespace BusinessLogins
             }
         }
 
-        public Pizza UpdatePizza()
+        public Pizza UpdatePizza(int id)
         {
             try
             {
-                Pizza Pizza = GetPizza();
+                Pizza Pizza = GetPizza(id);
                 Pizza.UpdatePizzaCountFromConsole();
                 return _repository.Update(Pizza);
             }

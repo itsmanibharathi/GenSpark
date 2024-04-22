@@ -19,3 +19,5 @@ C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\obj\Deb
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\obj\Debug\net6.0\Pizza_Store_App.pdb
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\obj\Debug\net6.0\Pizza_Store_App.genruntimeconfig.cache
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\obj\Debug\net6.0\ref\Pizza_Store_App.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\DataAccessLib.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\DataAccessLib.pdb
