@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Business_Logins\\Business_Logins.csproj",
-      "projectName": "Business_Logins",
-      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Business_Logins\\Business_Logins.csproj",
+      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Business_Logins\\BusinessLogins.csproj",
+      "projectName": "BusinessLogins",
+      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Business_Logins\\BusinessLogins.csproj",
       "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Business_Logins\\obj\\",
       "projectStyle": "PackageReference",

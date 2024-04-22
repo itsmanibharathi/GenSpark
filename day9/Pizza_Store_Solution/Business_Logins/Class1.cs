@@ -1,4 +1,4 @@
-﻿namespace Business_Logins
+﻿namespace BusinessLogins
 {
     public class Class1
     {

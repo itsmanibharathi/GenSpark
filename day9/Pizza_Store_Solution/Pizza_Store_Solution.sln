@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLib", "DataAccessLib\DataAccessLib.csproj", "{747B7DDD-A866-4D00-AC9D-5FD27C96E7DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Logins", "Business_Logins\Business_Logins.csproj", "{978F0313-4FE5-425E-89B1-F06836ACC162}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogins", "Business_Logins\BusinessLogins.csproj", "{978F0313-4FE5-425E-89B1-F06836ACC162}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

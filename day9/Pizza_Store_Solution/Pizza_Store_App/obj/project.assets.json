@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "BusinessLogins/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogins.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogins.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BusinessLogins/1.0.0": {
+      "type": "project",
+      "path": "../Business_Logins/BusinessLogins.csproj",
+      "msbuildProject": "../Business_Logins/BusinessLogins.csproj"
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "BusinessLogins >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\VC\\.nuget\\packages\\": {}
@@ -33,7 +70,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Business_Logins\\BusinessLogins.csproj": {
+              "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Business_Logins\\BusinessLogins.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
