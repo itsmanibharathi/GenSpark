@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Pizza_Store_App\\Pizza_Store_App.csproj",
-      "projectName": "Pizza_Store_App",
-      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Pizza_Store_App\\Pizza_Store_App.csproj",
+      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Model\\Model.csproj",
+      "projectName": "Model",
+      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Pizza_Store_App\\obj\\",
+      "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day9\\Pizza_Store_Solution\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",
