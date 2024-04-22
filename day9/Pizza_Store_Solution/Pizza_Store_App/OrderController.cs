@@ -26,10 +26,23 @@ namespace Pizza_Store_App
             {
                 Order order = new Order();
                 order.CustomerId = Customer.GetCustomerIdFromConsole();
-                _customerBL.GetCustomer(order.CustomerId);
+                //_customerBL.GetCustomer(order.CustomerId);
                 order.OrderDetails = GetOrderDetailsFromConsole();
-                
-                _orderBL.AddOrder(order);
+                Console.WriteLine($"Total Price: {order.OrderDetails.Sum(od => od.total)}");
+                while (true)
+                {
+                    Console.Write("Do you want to place the order (y/n): ");
+                    if (Console.ReadLine().ToLower() == "y")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                Order _new = _orderBL.AddOrder(order);
+                Console.WriteLine($"Your Order Id is: {_new.Id}");
                 _pizzaBL.UpdatePizzaCountByOrder(order);
             }
             catch (DuplicateOrderDetailsException ex)
@@ -65,6 +78,7 @@ namespace Pizza_Store_App
                     continue;
                 }
                 od.price = _pizzaBL.GetPizzaPrice(od.pizzaId, od.size);
+                od.total = od.price * od.quantity;
 
                 orderDetails.Add(od);
                 Console.Write("Do you want to add more items (y/n): ");
@@ -111,9 +125,18 @@ namespace Pizza_Store_App
             {
                 int id = Customer.GetCustomerIdFromConsole();
                 List<Order> orders = _orderBL.GetOrderByCustomerId(id);
+                
                 foreach (var order in orders)
                 {
-                    Console.WriteLine(order);
+                    
+                    Console.WriteLine($"Order Id: {order.Id}");
+                    Console.WriteLine($"Customer Id: {order.CustomerId}");
+                    Console.WriteLine("Order Details: ");
+                    foreach (var orderDetails in order.OrderDetails)
+                    {
+                        Console.WriteLine(orderDetails);
+                    }
+                    Console.WriteLine($"Total Price: {order.OrderDetails.Sum(od => od.total)}");
                 }
             }
             catch (OrderNotFoundException ex)

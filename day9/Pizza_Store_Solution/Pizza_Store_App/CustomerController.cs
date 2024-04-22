@@ -22,7 +22,8 @@ namespace Pizza_Store_App
         {
             try
             {
-                _customerBL.AddCustomer();
+                Customer _new = _customerBL.AddCustomer();
+                Console.WriteLine($"Your Customer Id is: {_new.Id}");
             }
             catch (DuplicateCustomerDetailsException ex)
             {

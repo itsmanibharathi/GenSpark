@@ -25,7 +25,8 @@ namespace Pizza_Store_App
         {
             try
             {
-                _pizzaBL.AddPizza();
+                Pizza _new = _pizzaBL.AddPizza();
+                Console.WriteLine($"The Id for {_new.Name} Pizza is {_new.Id}");
             }
             catch (DuplicatePizzaDetailsException ex)
             {
