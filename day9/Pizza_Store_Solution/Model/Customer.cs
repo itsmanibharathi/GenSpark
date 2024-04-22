@@ -49,5 +49,53 @@ namespace Model
         {
             return $"Id: {Id}, Name: {Name}, Address: {Address}, Phone: {Phone}, Age: {Age}, CreateAt: {CreateAt}, UpdateAt: {UpdateAt}";
         }
+        public static int GetCustomerId()
+        {
+            Console.Write("Enter Customer Id: ");
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int id))
+                {
+                    if(id > 100 && id < 999)
+                        return id;
+                }
+                Console.Write("Invalid Id, Enter again: ");
+            }
+        }
+        public void BuildCustomerFromConsole()
+        {
+            Console.WriteLine("Enter Customer Name: ");
+            Name = Console.ReadLine();
+            Console.WriteLine("Enter Customer Address: ");
+            Address = Console.ReadLine();
+            Console.Write("Enter Customer Phone: ");
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int phone))
+                {
+                    if (phone.ToString().Length != 10)
+                    {
+                        Console.Write("Phone number should be 10 digits long : ");
+                        continue;
+                    }
+                    Phone = phone;
+                    break;
+                }
+            }
+            Console.Write("Enter Customer Age: ");
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int age))
+                {
+                    if (age < 10)
+                    {
+                        Console.Write("Age should be greater than 10 : ");
+                        continue;
+                    }
+                    Age = age;
+                    break;
+                }
+            }
+        }
     }
 }
