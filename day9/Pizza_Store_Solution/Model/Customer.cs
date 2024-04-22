@@ -64,9 +64,9 @@ namespace Model
         }
         public void BuildCustomerFromConsole()
         {
-            Console.WriteLine("Enter Customer Name: ");
+            Console.Write("Enter Customer Name: ");
             Name = Console.ReadLine();
-            Console.WriteLine("Enter Customer Address: ");
+            Console.Write("Enter Customer Address: ");
             Address = Console.ReadLine();
             Console.Write("Enter Customer Phone: ");
             while (true)

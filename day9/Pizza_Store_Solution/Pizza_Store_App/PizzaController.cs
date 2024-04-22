@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccessLib;
+using BusinessLogics;
 using Model;
 
-namespace BusinessLogins
+namespace Pizza_Store_App
 {
     /// <summary>
     /// Pizza Controller

@@ -17,8 +17,6 @@ namespace DataAccessLib
         }
         public Pizza Add(Pizza item)
         {
-            if (_repository.Count == 0)
-                throw new EmptyDBException();
             if (_repository.ContainsValue(item))
             {
                 throw new DuplicatePizzaDetailsException();

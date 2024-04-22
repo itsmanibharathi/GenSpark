@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Model;
-using BusinessLogins;
-using DataAccessLib;
+using BusinessLogics;
 
 
 namespace Pizza_Store_App

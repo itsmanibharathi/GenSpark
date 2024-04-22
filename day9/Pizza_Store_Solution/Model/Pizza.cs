@@ -8,7 +8,7 @@ namespace Model
     public struct PizzaPriceCount
     {
         public double Price;
-        public int Count=0;
+        public int Count;
         public bool isAvailable;
         public PizzaPriceCount(double price, int count)
         {
@@ -83,7 +83,7 @@ namespace Model
                 sb.Append($"\nSize: {entry.Key}, Price: {entry.Value.Price}, Count {entry.Value.Count} ,");
                 if(entry.Value.isAvailable)
                 {
-                    sb.Append("vailable");
+                    sb.Append("Available");
                 }
                 else
                 {

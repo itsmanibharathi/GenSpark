@@ -3,6 +3,8 @@ using Model;
 
 namespace BusinessLogics
 {
+
+
     public class CustomerBL
     {
         readonly IRepository<int, Customer> _repository;

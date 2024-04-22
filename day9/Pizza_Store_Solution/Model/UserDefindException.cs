@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLib
+namespace Model
 {
-
     public class EmptyDBException : Exception
     {
         string msg;

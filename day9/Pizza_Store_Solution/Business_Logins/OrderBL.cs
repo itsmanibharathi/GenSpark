@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogins
+namespace BusinessLogics
 {
     public class OrderBL
     {
@@ -52,5 +52,17 @@ namespace BusinessLogins
                 throw new OrderNotFoundException();
             }
         }
+        public List<Order> GetOrderByCustomerId(int id)
+        {
+            List<Order> orders = GetAllOrders();
+            orders = orders.FindAll(order => order.CustomerId == id);
+            if (orders == null)
+            {
+                throw new OrderNotFoundException();
+            }
+            return orders;
+        }
+
+
     }
 }

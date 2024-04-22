@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Pizza_Store_App/1.0.0": {
-        "dependencies": {
-          "BusinessLogics": "1.0.0"
-        },
-        "runtime": {
-          "Pizza_Store_App.dll": {}
-        }
-      },
       "BusinessLogics/1.0.0": {
         "dependencies": {
           "DataAccessLib": "1.0.0",
@@ -39,11 +31,6 @@
     }
   },
   "libraries": {
-    "Pizza_Store_App/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "BusinessLogics/1.0.0": {
       "type": "project",
       "serviceable": false,

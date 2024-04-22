@@ -3,9 +3,7 @@ C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Deb
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\Pizza_Store_App.runtimeconfig.json
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\Pizza_Store_App.dll
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\Pizza_Store_App.pdb
-C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\BusinessLogins.dll
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\Model.dll
-C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\BusinessLogins.pdb
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\Model.pdb
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\obj\Debug\net6.0\Pizza_Store_App.csproj.AssemblyReference.cache
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\obj\Debug\net6.0\Pizza_Store_App.GeneratedMSBuildEditorConfig.editorconfig
@@ -21,3 +19,5 @@ C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\obj\Deb
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\obj\Debug\net6.0\ref\Pizza_Store_App.dll
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\DataAccessLib.dll
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\DataAccessLib.pdb
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\BusinessLogics.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Pizza_Store_App\bin\Debug\net6.0\BusinessLogics.pdb

@@ -43,7 +43,7 @@ namespace Model
             this.size = size;
             this.quantity = quantity;
             this.price = price;
-            total = price * quantity;
+            this.total = price * quantity;
         }
         public override string ToString()
         {

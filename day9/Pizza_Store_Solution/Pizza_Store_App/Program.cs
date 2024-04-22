@@ -1,4 +1,4 @@
-﻿using BusinessLogins;
+﻿using BusinessLogics;
 using Model;
 
 namespace Pizza_Store_App
@@ -113,7 +113,7 @@ namespace Pizza_Store_App
                             customerController.AddCustomer();
                             break;
                         case 4:
-                            orderController.GetOrder();
+                            orderController.GetOrderByCustomerId();
                             break;
                         case 5:
                             customerBL.UpdateCustomer();

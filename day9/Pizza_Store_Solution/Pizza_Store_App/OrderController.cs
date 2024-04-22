@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
-using BusinessLogins;
-using DataAccessLib;
+using BusinessLogics;
 namespace Pizza_Store_App
 {
     internal class OrderController
@@ -102,6 +101,30 @@ namespace Pizza_Store_App
                 Console.WriteLine(order);
             }
             catch (OrderNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void GetOrderByCustomerId()
+        {
+            try
+            {
+                int id = Customer.GetCustomerIdFromConsole();
+                List<Order> orders = _orderBL.GetOrderByCustomerId(id);
+                foreach (var order in orders)
+                {
+                    Console.WriteLine(order);
+                }
+            }
+            catch (OrderNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (CustomerNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (EmptyDBException ex)
             {
                 Console.WriteLine(ex.Message);
             }
