@@ -15,7 +15,6 @@ namespace BusinessLogins
         {
             _repository = new PizzaRepository();
         }
-
         public Pizza AddPizza()
         {
             try
@@ -70,8 +69,8 @@ namespace BusinessLogins
         {
             try
             {
-                Pizza Pizza = new Pizza();
-                Pizza.BuildPizzaFromConsole();
+                Pizza Pizza = GetPizza();
+                Pizza.UpdatePizzaCountFromConsole();
                 return _repository.Update(Pizza);
             }
             catch (PizzaNotFoundException)
@@ -79,5 +78,71 @@ namespace BusinessLogins
                 throw new PizzaNotFoundException();
             }
         }
+        public void PrintPizzaMenu()
+        {
+            try
+            {
+                foreach (var item in _repository.GetAll())
+                {
+                    Console.WriteLine("Pizza Menu:");
+                    Console.WriteLine(item);
+
+                }
+            }
+            catch (EmptyDBException)
+            {
+                throw new EmptyDBException();
+            }
+        }
+
+        public double GetPizzaPrice(int id,char size)
+        {
+            try
+            {
+                Pizza pizza = _repository.Get(id);
+                if (pizza.Pizza_info.ContainsKey(size))
+                {
+                    return pizza.Pizza_info[size].Price;
+                }
+                else
+                {
+                    throw new PizzaNotFoundException();
+                }
+            }
+            catch (PizzaNotFoundException)
+            {
+                throw new PizzaNotFoundException();
+            }
+        }
+        public int GetPizzaCount(int id, char size)
+        {
+            try
+            {
+                Pizza pizza = _repository.Get(id);
+                if (pizza.Pizza_info.ContainsKey(size))
+                {
+                    return pizza.Pizza_info[size].Count;
+                }
+                else
+                {
+                    throw new PizzaNotFoundException();
+                }
+            }
+            catch (PizzaNotFoundException)
+            {
+                throw new PizzaNotFoundException();
+            }
+        }
+
+        public void UpdatePizzaCountByOrder(Order order) 
+        {             
+            foreach (var orderDetails in order.OrderDetails)
+            {
+                Pizza pizza = _repository.Get(orderDetails.pizzaId);
+                pizza.UpdatePizzaCount(orderDetails.size, pizza.Pizza_info[orderDetails.size].Count - orderDetails.quantity);
+                _repository.Update(pizza);
+            }
+        }
+
     }
 }

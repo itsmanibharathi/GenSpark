@@ -36,17 +36,17 @@ namespace BusinessLogins
                 throw new EmptyDBException();
             }
         }
-        public Customer GetCustomer()
+        public Customer GetCustomer(int id)
         {
             try
             {
-                int id = Customer.GetCustomerIdFromConsole();
                 return _repository.Get(id);
             }
             catch (CustomerNotFoundException)
             {
                 throw new CustomerNotFoundException();
             }
+
         }
         public Customer RemoveCustomer()
         {

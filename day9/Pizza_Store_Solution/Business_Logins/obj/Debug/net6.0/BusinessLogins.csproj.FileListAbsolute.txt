@@ -14,3 +14,5 @@ C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Business_Logins\obj\Deb
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Business_Logins\obj\Debug\net6.0\refint\BusinessLogins.dll
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Business_Logins\obj\Debug\net6.0\BusinessLogins.pdb
 C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Business_Logins\obj\Debug\net6.0\ref\BusinessLogins.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Business_Logins\bin\Debug\net6.0\DataAccessLib.dll
+C:\Users\VC\codestack\GenSpark\day9\Pizza_Store_Solution\Business_Logins\bin\Debug\net6.0\DataAccessLib.pdb

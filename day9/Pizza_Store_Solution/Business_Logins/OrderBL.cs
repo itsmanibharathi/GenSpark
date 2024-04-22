@@ -16,19 +16,19 @@ namespace BusinessLogins
             _repository = new OrderRepository();
         }
 
-        public Order AddOrder()
+        public Order AddOrder(Order _new)
         {
             try
             {
-                Order Order = new Order();
-                //Order.BuildOrderFromConsole();
-                return _repository.Add(Order);
+                return _repository.Add(_new);
             }
             catch (DuplicateOrderDetailsException)
             {
                 throw new DuplicateOrderDetailsException();
             }
         }
+
+       
 
         public List<Order> GetAllOrders()
         {
@@ -41,38 +41,11 @@ namespace BusinessLogins
                 throw new EmptyDBException();
             }
         }
-        public Order GetOrder()
+        public Order GetOrder(int id)
         {
             try
             {
-                int id = Order.GetOrderIdFromConsole();
                 return _repository.Get(id);
-            }
-            catch (OrderNotFoundException)
-            {
-                throw new OrderNotFoundException();
-            }
-        }
-        public Order RemoveOrder()
-        {
-            try
-            {
-                int id = Order.GetOrderIdFromConsole();
-                return _repository.Delete(id);
-            }
-            catch (OrderNotFoundException)
-            {
-                throw new OrderNotFoundException();
-            }
-        }
-
-        public Order UpdateOrder()
-        {
-            try
-            {
-                Order Order = new Order();
-                //Order.BuildOrderFromConsole();
-                return _repository.Update(Order);
             }
             catch (OrderNotFoundException)
             {

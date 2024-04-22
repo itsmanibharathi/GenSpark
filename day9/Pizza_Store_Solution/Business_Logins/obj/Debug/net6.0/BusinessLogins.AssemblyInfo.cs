@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BusinessLogins")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b6a804ca31f8080efe3e88e8e03b1955d60534c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f36ec4bc40e61ca3696ca5fb5043587ec710bca")]
 [assembly: System.Reflection.AssemblyProductAttribute("BusinessLogins")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BusinessLogins")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
