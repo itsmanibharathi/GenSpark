@@ -21,6 +21,11 @@
                 isAvailable = false;
             }
         }
+
+        public override string ToString()
+        {
+            return $"Price: {Price}, Count: {Count}, isAvailable: {isAvailable}";
+        }
     }
     /// <summary>
     /// This class is used to store the details of a pizza
@@ -28,20 +33,19 @@
     public class Pizza
     {
     
-        public int pizzaId { get; set; }
-        public string pizzaName { get; set; }
-        public string pizzaDescription { get; set; }
-        bool isAvailable { get; set; }
-        public Dictionary<string, PizzaPriceCount> pizzaToppings { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public Dictionary<string, PizzaPriceCount> Toppings { get; set; }
         /// <summary>
         /// Pizza default constructor
         /// </summary>
         public Pizza()
         {
-            pizzaId = 0;
-            pizzaName = "";
-            pizzaDescription = "";
-            pizzaToppings = new Dictionary<string, PizzaPriceCount>();
+            Id = 0;
+            Name = "";
+            Description = "";
+            Toppings = new Dictionary<string, PizzaPriceCount>();
         }
         /// <summary>
         /// Pizza parameterized constructor
@@ -53,15 +57,15 @@
 
         public Pizza(int id, string name, string description, Dictionary<string, PizzaPriceCount> toppings)
         {
-            pizzaId = id;
-            pizzaName = name;
-            pizzaDescription = description;
-            pizzaToppings = toppings;
+            Id = id;
+            Name = name;
+            Description = description;
+            Toppings = toppings;
         }
 
         public override string ToString()
         {
-            return $"Pizza ID: {pizzaId}\nPizza Name: {pizzaName}\nPizza Description: {pizzaDescription}";  
+            return $"Id: {Id}, Name: {Name}, Description: {Description}, Toppings: {Toppings}";
         }
     }
 }
