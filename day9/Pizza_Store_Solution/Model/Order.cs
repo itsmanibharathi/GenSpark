@@ -12,7 +12,7 @@ namespace Model
     public struct OrderDetails
     {
         public int pizzaId;
-        public int size;
+        public char size;
         public int quantity;
         public double price;
         public double total;
@@ -23,7 +23,7 @@ namespace Model
         public OrderDetails()
         {
             pizzaId = 0;
-            size = 0;
+            size = ' ';
             quantity = 0;
             price = 0;
             total = 0;
@@ -36,7 +36,7 @@ namespace Model
         /// <param name="size"> Pizza size </param>
         /// <param name="quantity"> No of Pizzas </param>
         /// <param name="price"> Pice for one Pizza </param>
-        public OrderDetails(int pizzaId, int size, int quantity, double price)
+        public OrderDetails(int pizzaId, char size, int quantity, double price)
         {
             this.pizzaId = pizzaId;
             this.size = size;
@@ -91,5 +91,53 @@ namespace Model
         {
             return $"Id: {Id}, CustomerId: {CustomerId}, OrderDate: {OrderDate}, DeliveryDate: {DeliveryDate}";
         }
+        public static int GetOrderIdFromConsole()
+        {
+            Console.Write("Enter Order Id: ");
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int id))
+                {
+                    if (id > 1000 && id < 9999)
+                        return id;
+                }
+                Console.Write("Invalid Id, Enter again: ");
+            }
+        }
+        //public void BuildOrderFromConsole()
+        //{
+        //    Console.WriteLine("Enter Customer Id: ");
+        //    CustomerId = Customer.GetCustomerId();
+        //    Console.WriteLine("Enter Order Details: ");
+        //    OrderDetails = new List<OrderDetails>();
+        //    while (true)
+        //    {
+        //        OrderDetails orderDetails = new OrderDetails();
+        //        Console.WriteLine("Enter Pizza Id: ");
+        //        orderDetails.pizzaId = Pizza.GetPizzaId();
+        //        Console.WriteLine("Enter Pizza Size: ");
+        //        orderDetails.size = Pizza.GetPizzaSizeFromConsole();
+        //        Console.WriteLine("Enter Quantity: ");
+        //        while (true)
+        //        {
+        //            int quantity;
+        //            if (int.TryParse(Console.ReadLine(), out quantity))
+        //            {
+        //                if (quantity > 0)
+        //                {
+        //                    if()
+        //                    orderDetails.quantity = quantity;
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //        orderDetails.price = Pizza.GetPizzaPrice(orderDetails.pizzaId, orderDetails.size);
+        //        orderDetails.total = orderDetails.price * orderDetails.quantity;
+        //        OrderDetails.Add(orderDetails);
+        //        Console.WriteLine("Do you want to add more items (yes/no): ");
+        //        if (Console.ReadLine().ToLower() == "no")
+        //            break;
+        //    }
+        //}
     }
 }
