@@ -1,12 +1,12 @@
 ﻿using Model;
 namespace DataAccessLib
 {
-    public class PizzaRepository : IRepository<int, Pizza>
+    public class CustomerRepository : IRepository<int, Customer>
     {
-        readonly Dictionary<int, Pizza> _repository;
-        public PizzaRepository()
+        readonly Dictionary<int, Customer> _repository;
+        public CustomerRepository()
         {
-            _repository = new Dictionary<int, Pizza>();
+            _repository = new Dictionary<int, Customer>();
         }
         int GenerateId()
         {
@@ -15,46 +15,46 @@ namespace DataAccessLib
             int id = _repository.Keys.Max();
             return ++id;
         }
-        public Pizza Add(Pizza item)
+        public Customer Add(Customer item)
         {
             if (_repository.ContainsValue(item))
             {
-                throw new DuplicatePizzaDetailsException();
+                throw new DuplicateCustomerDetailsException();
             }
             item.Id = GenerateId();
             _repository.Add(item.Id, item);
             return item;
         }
-        public Pizza Get(int id)
+        public Customer Get(int id)
         {
-            return _repository[id] ?? throw new PizzaNotFoundException();
+            return _repository[id] ?? throw new CustomerNotFoundException();
         }
 
-        public List<Pizza> GetAll()
+        public List<Customer> GetAll()
         {
             if (_repository.Count == 0)
                 throw new EmptyDBException();
             return _repository.Values.ToList();
         }
 
-        public Pizza Update(Pizza item)
+        public Customer Update(Customer item)
         {
             if (_repository.ContainsKey(item.Id))
             {
                 _repository[item.Id] = item;
                 return item;
             }
-            throw new PizzaNotFoundException();
+            throw new CustomerNotFoundException();
         }
-        public Pizza Delete(int key)
+        public Customer Delete(int key)
         {
             if (_repository.ContainsKey(key))
             {
-                var Pizza = _repository[key];
+                var Customer = _repository[key];
                 _repository.Remove(key);
-                return Pizza;
+                return Customer;
             }
-            throw new PizzaNotFoundException();
+            throw new CustomerNotFoundException();
         }
 
     }

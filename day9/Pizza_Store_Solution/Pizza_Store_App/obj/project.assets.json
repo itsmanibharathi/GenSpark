@@ -6,6 +6,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "DataAccessLib": "1.0.0",
           "Model": "1.0.0"
         },
         "compile": {
@@ -13,6 +14,19 @@
         },
         "runtime": {
           "bin/placeholder/BusinessLogins.dll": {}
+        }
+      },
+      "DataAccessLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccessLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccessLib.dll": {}
         }
       },
       "Model/1.0.0": {
@@ -32,6 +46,11 @@
       "type": "project",
       "path": "../Business_Logins/BusinessLogins.csproj",
       "msbuildProject": "../Business_Logins/BusinessLogins.csproj"
+    },
+    "DataAccessLib/1.0.0": {
+      "type": "project",
+      "path": "../DataAccessLib/DataAccessLib.csproj",
+      "msbuildProject": "../DataAccessLib/DataAccessLib.csproj"
     },
     "Model/1.0.0": {
       "type": "project",

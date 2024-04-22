@@ -11,7 +11,7 @@ namespace DataAccessLib
         int GenerateId()
         {
             if (_repository.Count == 0)
-                return 101;
+                return 1;
             int id = _repository.Keys.Max();
             return ++id;
         }
