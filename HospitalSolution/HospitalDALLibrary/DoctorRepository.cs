@@ -67,6 +67,8 @@ namespace HospitalDALLibrary
         /// <returns> return update details </returns>
         public Doctor Update(Doctor item)
         {
+            if (_doctors.Count == 0)
+                throw new EmptyDataBaseException("Doctor");
             if (_doctors.ContainsValue(item))
             {
                 throw new DuplicateDoctorDetailsException();
