@@ -87,7 +87,7 @@ namespace Pizza_Store_App
             Console.WriteLine("2. Place the Order");
             Console.WriteLine("3. New Customer Registration ");
             Console.WriteLine("4. View My Order");
-            Console.WriteLine("4. Update my Detils");
+            Console.WriteLine("5. Update my Detils");
             Console.WriteLine("0. Exit");
         }
         public void BuyPizza()

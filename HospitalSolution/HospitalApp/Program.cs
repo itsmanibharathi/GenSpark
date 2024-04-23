@@ -18,9 +18,6 @@ namespace HospitalApp
             //doctorRepository.Add(new Doctor("John Doe", "General Physician"));
 
             //doctorRepository.GetAll().ForEach(Console.WriteLine);
-
-            PatientRepository patientRepository = new PatientRepository();
-            patientRepository.Add(new Patient("John Doe", " "))
         }
     }
 }

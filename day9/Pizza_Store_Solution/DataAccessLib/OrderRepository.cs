@@ -1,6 +1,9 @@
 ﻿using Model;
 namespace DataAccessLib
 {
+    /// <summary>
+    /// Order repository
+    /// </summary>
     public class OrderRepository : IRepository<int, Order>
     {
         readonly Dictionary<int, Order> _repository;
@@ -15,6 +18,12 @@ namespace DataAccessLib
             int id = _repository.Keys.Max();
             return ++id;
         }
+        /// <summary>
+        /// Add Order
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        /// <exception cref="DuplicateOrderDetailsException"></exception>
         public Order Add(Order item)
         {
             if (_repository.ContainsValue(item))
@@ -25,12 +34,24 @@ namespace DataAccessLib
             _repository.Add(item.Id, item);
             return item;
         }
+        /// <summary>
+        /// Get Order by id
+        /// </summary>
+        /// <param name="id"> Order Id </param>
+        /// <returns></returns>
+        /// <exception cref="EmptyDBException"></exception>
+        /// <exception cref="OrderNotFoundException"></exception>
         public Order Get(int id)
         {
             if (_repository.Count == 0)
                 throw new EmptyDBException();
             return _repository[id] ?? throw new OrderNotFoundException();
         }
+        /// <summary>
+        /// Get all Orders
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="EmptyDBException"></exception>
 
         public List<Order> GetAll()
         {
@@ -40,6 +61,13 @@ namespace DataAccessLib
                 throw new EmptyDBException();
             return _repository.Values.ToList();
         }
+        /// <summary>
+        /// Update Order
+        /// </summary>
+        /// <param name="item">Order Object</param>
+        /// <returns></returns>
+        /// <exception cref="EmptyDBException"></exception>
+        /// <exception cref="OrderNotFoundException"></exception>
 
         public Order Update(Order item)
         {
@@ -52,6 +80,14 @@ namespace DataAccessLib
             }
             throw new OrderNotFoundException();
         }
+
+        /// <summary>
+        /// Delete Order
+        /// </summary>
+        /// <param name="key">Order id</param>
+        /// <returns></returns>
+        /// <exception cref="EmptyDBException"></exception>
+        /// <exception cref="OrderNotFoundException"></exception>
         public Order Delete(int key)
         {
             if (_repository.Count == 0)

@@ -15,6 +15,12 @@ namespace DataAccessLib
             int id = _repository.Keys.Max();
             return ++id;
         }
+        /// <summary>
+        /// Add Pizza
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        /// <exception cref="DuplicatePizzaDetailsException"></exception>
         public Pizza Add(Pizza item)
         {
             if (_repository.ContainsValue(item))
@@ -25,20 +31,37 @@ namespace DataAccessLib
             _repository.Add(item.Id, item);
             return item;
         }
+        /// <summary>
+        /// Get Pizza by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="EmptyDBException"></exception>
+        /// <exception cref="PizzaNotFoundException"></exception>
         public Pizza Get(int id)
         {
             if (_repository.Count == 0)
                 throw new EmptyDBException();
             return _repository[id] ?? throw new PizzaNotFoundException();
         }
-
+        /// <summary>
+        /// Get all Pizzas
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="EmptyDBException"></exception>
         public List<Pizza> GetAll()
         {
             if (_repository.Count == 0)
                 throw new EmptyDBException();
             return _repository.Values.ToList();
         }
-
+        /// <summary>
+        /// Update Pizza by id
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        /// <exception cref="EmptyDBException"></exception>
+        /// <exception cref="PizzaNotFoundException"></exception>
         public Pizza Update(Pizza item)
         {
             if (_repository.Count == 0)
@@ -50,6 +73,13 @@ namespace DataAccessLib
             }
             throw new PizzaNotFoundException();
         }
+        /// <summary>
+        /// Delete Pizza by id
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        /// <exception cref="EmptyDBException"></exception>
+        /// <exception cref="PizzaNotFoundException"></exception>
         public Pizza Delete(int key)
         {
             if (_repository.Count == 0)

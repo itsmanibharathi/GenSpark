@@ -3,8 +3,9 @@ using Model;
 
 namespace BusinessLogics
 {
-
-
+    /// <summary>
+    /// Customer Business Logic
+    /// </summary>
     public class CustomerBL
     {
         readonly IRepository<int, Customer> _repository;
@@ -12,7 +13,11 @@ namespace BusinessLogics
         {
             _repository = new CustomerRepository();
         }
-
+        /// <summary>
+        /// Add Customer
+        /// </summary>
+        /// <returns>Object</returns>
+        /// <exception cref="DuplicateCustomerDetailsException">Duplicate Customer Details Exception</exception>
         public Customer AddCustomer()
         {
             try
@@ -26,7 +31,11 @@ namespace BusinessLogics
                 throw new DuplicateCustomerDetailsException();
             }
         }
-
+        /// <summary>
+        /// Get All Customers
+        /// </summary>
+        /// <returns>Return list of customer</returns>
+        /// <exception cref="EmptyDBException"></exception>
         public List<Customer> GetAllCustomers()
         {
             try
@@ -38,6 +47,12 @@ namespace BusinessLogics
                 throw new EmptyDBException();
             }
         }
+        /// <summary>
+        /// Get Customer by Id
+        /// </summary>
+        /// <param name="id">customer id</param>
+        /// <returns></returns>
+        /// <exception cref="CustomerNotFoundException">Customer NotFound Exception</exception>
         public Customer GetCustomer(int id)
         {
             try
@@ -50,6 +65,11 @@ namespace BusinessLogics
             }
 
         }
+        /// <summary>
+        /// Remove Customer 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="CustomerNotFoundException">Customer NotFound Exception</exception>
         public Customer RemoveCustomer()
         {
             try
@@ -62,7 +82,11 @@ namespace BusinessLogics
                 throw new CustomerNotFoundException();
             }
         }
-
+        /// <summary>
+        /// Update Customer
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="CustomerNotFoundException">Customer NotFound Exception</exception>
         public Customer UpdateCustomer()
         {
             try

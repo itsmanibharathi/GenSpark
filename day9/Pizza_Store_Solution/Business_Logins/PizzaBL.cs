@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogics
 {
+    /// <summary>
+    /// Pizza Business Logic
+    /// </summary>
     public class PizzaBL
     {
         readonly IRepository<int, Pizza> _repository;
@@ -15,6 +18,11 @@ namespace BusinessLogics
         {
             _repository = new PizzaRepository();
         }
+        /// <summary>
+        /// Add Pizza
+        /// </summary>
+        /// <returns>New Pizza opject</returns>
+        /// <exception cref="DuplicatePizzaDetailsException"></exception>
         public Pizza AddPizza()
         {
             try
@@ -28,6 +36,11 @@ namespace BusinessLogics
                 throw new DuplicatePizzaDetailsException();
             }
         }
+        /// <summary>
+        /// Get All Pizzas
+        /// </summary>
+        /// <returns> List of Pizzas </returns>
+        /// <exception cref="EmptyDBException">Empty DB Exception</exception>
 
         public List<Pizza> GetAllPizzas()
         {
@@ -40,6 +53,12 @@ namespace BusinessLogics
                 throw new EmptyDBException();
             }
         }
+        /// <summary>
+        /// Get Pizza by Id
+        /// </summary>
+        /// <param name="id">Pizza id</param>
+        /// <returns></returns>
+        /// <exception cref="PizzaNotFoundException">Pizza NotFound Exception</exception>
         public Pizza GetPizza(int id)
         {
             try
@@ -51,6 +70,12 @@ namespace BusinessLogics
                 throw new PizzaNotFoundException();
             }
         }
+        /// <summary>
+        /// Remove Pizza from DB
+        /// </summary>
+        /// <param name="id">Pizza Id</param>
+        /// <returns></returns>
+        /// <exception cref="PizzaNotFoundException"></exception>
         public Pizza RemovePizza(int id)
         {
             try
