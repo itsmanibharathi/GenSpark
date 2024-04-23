@@ -1,4 +1,5 @@
 ﻿using HospitalModuleLibrary;
+using System.Diagnostics.CodeAnalysis;
 namespace HospitalDALLibrary
 {
     /// <summary>
@@ -11,7 +12,7 @@ namespace HospitalDALLibrary
         {
             _doctors = new Dictionary<int, Doctor>();
         }
-
+        [ExcludeFromCodeCoverage]
         int GenerateId()
         {
             if (_doctors.Count == 0)
@@ -28,7 +29,7 @@ namespace HospitalDALLibrary
         {
             if (_doctors.ContainsValue(item))
             {
-                return null;
+                throw new DuplicateDoctorDetailsException();
             }
             item.DoctorID = GenerateId();
             _doctors.Add(item.DoctorID, item);
@@ -41,9 +42,11 @@ namespace HospitalDALLibrary
         /// </summary>
         /// <param name="key"> Docter Id </param>
         /// <returns>return Docter details</returns>
-        public Doctor Get(int key)
+        public Doctor Get(int id)
         {
-            return _doctors[key]??null;
+            if (_doctors.Count == 0)
+                throw new EmptyDataBaseException("Doctor");
+            return _doctors[id] ?? throw new DoctorIdNotFoundException(id); 
         }
         /// <summary>
         /// Get all the doctors
@@ -53,7 +56,7 @@ namespace HospitalDALLibrary
         public System.Collections.Generic.List<Doctor> GetAll()
         {
             if (_doctors.Count == 0)
-                return null;
+                throw new EmptyDataBaseException("Doctor");
             return _doctors.Values.ToList();
         }
 
@@ -66,7 +69,7 @@ namespace HospitalDALLibrary
         {
             if (_doctors.ContainsValue(item))
             {
-                return null;
+                throw new DuplicateDoctorDetailsException();
             }
             foreach (var doctor in _doctors)
             {
@@ -76,23 +79,23 @@ namespace HospitalDALLibrary
                     return item;
                 }
             }
-            return null;
+            throw new DoctorIdNotFoundException(item.DoctorID);
         }
         /// <summary>
         /// Delete the doctor details by ID
         /// </summary>
         /// <param name="key"> ID </param>
         /// <returns>return deleted Status</returns>
-        public bool Delete(int key)
+        public bool Delete(int id)
         {
-            if (_doctors.ContainsKey(key))
+            if (_doctors.Count == 0)
+                throw new EmptyDataBaseException("Doctor");
+            if (_doctors.ContainsKey(id))
             {
-                _doctors.Remove(key);
+                _doctors.Remove(id);
                 return true;
             }
-            return false;
+            throw new DoctorIdNotFoundException(id);
         }
-
-
     }
 }

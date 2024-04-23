@@ -39,9 +39,9 @@ namespace HospitalDALLibrary
             return item;
         }
         
-        public Patient Get(int key)
+        public Patient Get(int id)
         {
-            return _patients[key] ?? null;
+            return _patients[id] ?? null;
         }
         public List<Patient> GetAll()
         {
@@ -60,11 +60,11 @@ namespace HospitalDALLibrary
             return null;
         }
 
-        public bool Delete(int key)
+        public bool Delete(int id)
         {
-            if (_patients.ContainsKey(key))
+            if (_patients.ContainsKey(id))
             {
-                _patients.Remove(key);
+                _patients.Remove(id);
                 return true;
             }
             return false;
