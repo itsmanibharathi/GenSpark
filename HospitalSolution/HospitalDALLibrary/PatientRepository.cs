@@ -9,7 +9,7 @@ namespace HospitalDALLibrary
 {
     public class PatientRepository : IRepository<int, Patient>
     {
-        readonly Dictionary<int, Patient> _patients = new Dictionary<int, Patient>();
+        readonly Dictionary<int, Patient> _patients;
         
         public PatientRepository()
         {
@@ -21,7 +21,7 @@ namespace HospitalDALLibrary
             if (_patients.Count == 0)
                 return 101;
             int id = _patients.Keys.Max();
-            return id + 101;
+            return ++id;
         }
         /// <summary>
         ///  Add a new patient

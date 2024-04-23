@@ -34,5 +34,45 @@ namespace HospitalModuleLibrary
             return $" Patient ID: {PatientID},\n Patient Name: {PatientName},\n Patient Age: {PatientAge},\n Patient Gender: {PatientGender},\n Patient Address: {PatientAddress},\n Patient Phone Number: {PatientPhoneNumber}";
         }
 
+        public void GetPatientDetailsFromConsole()
+        {
+            Console.Write("Enter Patient Name: ");
+            while (true)
+            {
+                string name = Console.ReadLine();
+                if (!string.IsNullOrEmpty(name))
+                {
+                    PatientName = name;
+                    break;
+                }
+                Console.Write("Patient Name cannot be empty.\nPlease enter a valid name: ");
+            }
+            Console.Write("Enter Patient Age: ");
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out int age))
+                {
+                    PatientAge = age;
+                    break;
+                }
+                Console.Write("Invalid Age.\nPlease enter a valid age: ");
+            }
+            Console.Write("Enter Patient Gender: (male, female, Other) ");
+            while (true)
+            {
+                string gender = Console.ReadLine();
+                if (gender != null && gender == "male" || gender == "femal" || gender == "Other")
+                {
+                    PatientGender = gender;
+                    break;
+                }
+                Console.WriteLine("Enter valied input: ");
+            }
+
+            Console.WriteLine("Enter Patient Address");
+            PatientAddress = Console.ReadLine();
+
+          
+        }
     }
 }
