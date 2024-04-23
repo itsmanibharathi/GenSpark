@@ -28,7 +28,7 @@ namespace HospitalDALLibrary
         {
             if (_Appointments.ContainsValue(item))
             {
-                return null;
+                throw new DuplicateAppointmentDetailsException();
             }
             item.AppointmentID = GenerateId();
             _Appointments.Add(item.AppointmentID, item);
@@ -38,33 +38,39 @@ namespace HospitalDALLibrary
         public List<Appointment> GetAll()
         {
             if (_Appointments.Count == 0)
-                return null;
+                throw new EmptyDataBaseException("Appointment");
             return _Appointments.Values.ToList();
         }
 
         public Appointment Get(int key)
         {
-            return _Appointments[key] ?? null;
+            if (_Appointments.Count == 0)
+                throw new EmptyDataBaseException("Appointment");
+            return _Appointments[key] ?? throw new AppointmentIdNotFoundException();
         }
 
         public Appointment Update(Appointment item)
         {
+            if (_Appointments.Count == 0)
+                throw new EmptyDataBaseException("Appointment");
             if (_Appointments.ContainsKey(item.AppointmentID))
             {
                 _Appointments[item.AppointmentID] = item;
                 return item;
             }
-            return null;
+            throw new AppointmentIdNotFoundException(item.AppointmentID);
         }
 
         public bool Delete(int key)
         {
+            if (_Appointments.Count == 0)
+                throw new EmptyDataBaseException("Appointment");
             if (_Appointments.ContainsKey(key))
             {
                 _Appointments.Remove(key);
                 return true;
             }
-            return false;
+            throw new AppointmentIdNotFoundException(key);
         }
     }
 }

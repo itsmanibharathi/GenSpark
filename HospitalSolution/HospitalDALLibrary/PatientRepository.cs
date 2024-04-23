@@ -32,7 +32,7 @@ namespace HospitalDALLibrary
         {
             if (_patients.ContainsValue(item))
             {
-                return null;
+                throw new DuplicatePatientDetailsException();
             }
             item.PatientID = GenerateId();
             _patients.Add(item.PatientID, item);
@@ -41,33 +41,40 @@ namespace HospitalDALLibrary
         
         public Patient Get(int id)
         {
-            return _patients[id] ?? null;
+            if (_patients.Count == 0)
+                throw new EmptyDataBaseException("Patient");
+            return _patients[id] ?? throw new PatientIdNotFoundException();
         }
         public List<Patient> GetAll()
         {
             if (_patients.Count == 0)
-                return null;
+                throw new EmptyDataBaseException("Patient");
             return _patients.Values.ToList();
         }
 
         public Patient Update(Patient item)
         {
+            if (_patients.Count == 0)
+                throw new EmptyDataBaseException("Patient");
             if (_patients.ContainsKey(item.PatientID))
             {
                 _patients[item.PatientID] = item;
                 return item;
             }
-            return null;
+            throw new PatientIdNotFoundException();
         }
 
         public bool Delete(int id)
         {
+            if (_patients.Count == 0)
+                throw new EmptyDataBaseException("Patient");
             if (_patients.ContainsKey(id))
             {
                 _patients.Remove(id);
                 return true;
             }
-            return false;
+            throw new PatientIdNotFoundException();
+
         }
     }
 }
