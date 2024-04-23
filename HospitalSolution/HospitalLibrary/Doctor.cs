@@ -49,5 +49,24 @@ namespace HospitalModuleLibrary
             }
         }
 
+        public static string GetDoctorSpecializationFromConsole()
+        {
+            Console.Write("Enter Doctor Specialization: ");
+            while (true)
+            {
+                string specialization = Console.ReadLine();
+                if (!string.IsNullOrEmpty(specialization))
+                {
+                    return specialization;
+                }
+                Console.Write("Doctor Specialization cannot be empty.\nPlease enter a valid specialization: ");
+            }
+        }
+        public void GetDoctorDetailsFromConsole()
+        {
+            DoctorName = GetDoctorNameFromConsole();
+            DoctorSpecialization = GetDoctorSpecializationFromConsole();
+        }
+
     }
 }

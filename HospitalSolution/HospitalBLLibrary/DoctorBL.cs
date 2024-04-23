@@ -1,36 +1,86 @@
-﻿using HospitalModuleLibrary;
+﻿using HospitalDALLibrary;
+using HospitalModuleLibrary;
 namespace HospitalBLLibrary
 {
-    public class DocterBL : IDoctor
+    public class DoctorBL 
     {
-        public DocterBL()
+        readonly IRepository<int, Doctor> _repository;
+        public DoctorBL(IRepository<int, Doctor> repository)
         {
+            _repository = repository;
         }
 
-        public Doctor AddDoctor(Doctor item)
+
+
+        public Doctor Add(Doctor doctor)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _repository.Add(doctor);
+            }
+            catch (DuplicateDoctorDetailsException)
+            {
+                throw new DuplicateDoctorDetailsException();
+            }
+        }
+        public Doctor Get(int id)
+        {
+            try
+            {
+                return _repository.Get(id);
+            }
+            catch (DoctorIdNotFoundException)
+            {
+                throw new DoctorIdNotFoundException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException("Doctor");
+            }
         }
 
-        public bool DeleteDoctor(int key)
+        public List<Doctor> GetAll()
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _repository.GetAll();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException("Doctor");
+            }
         }
 
-        public List<Doctor> GetAllDoctors()
+        public Doctor Update(Doctor doctor)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _repository.Update(doctor);
+            }
+            catch (DoctorIdNotFoundException)
+            {
+                throw new DoctorIdNotFoundException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException("Doctor");
+            }
         }
 
-        public Doctor GetDoctor(int key)
+        public bool Delete(int id)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _repository.Delete(id);
+            }
+            catch (DoctorIdNotFoundException)
+            {
+                throw new DoctorIdNotFoundException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException("Doctor");
+            }
         }
-
-        public Doctor UpdateDoctor(Doctor item)
-        {
-            throw new System.NotImplementedException();
-        }
-
     }
 }
