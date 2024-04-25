@@ -8,10 +8,11 @@ namespace ShoppingModelLib.Exceptions
 {
     public class NoCartWithGiveIdException : Exception
     {
-        public NoCartWithGiveIdException(string message) : base(message)
+        string message;
+        public NoCartWithGiveIdException()  
         {
             message = "No Cart with the given Id";
         }
-        public override string Message => base.Message;
+        public override string Message => message;
     }
 }

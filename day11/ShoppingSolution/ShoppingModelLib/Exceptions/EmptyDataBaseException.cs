@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ShoppingModelLib.Exceptions
 {
-    public class EmptyDataBase : Exception
+    public class EmptyDataBaseException : Exception
     {
-        public EmptyDataBase(string message) : base(message)
+        string message;
+        public EmptyDataBaseException()
         {
             message = "Database is empty";
         }
-        public override string Message => base.Message;
+        public override string Message => message;
     }
 }

@@ -8,10 +8,11 @@ namespace ShoppingModelLib.Exceptions
 {
     public class NoCustomerWithGiveIdException : Exception
     {
-        public NoCustomerWithGiveIdException(string message) : base(message)
+        string message;
+        public NoCustomerWithGiveIdException()
         {
             message = "No Customer with the given Id";
         }
-        public override string Message => base.Message;
+        public override string Message => message;
     }
 }
