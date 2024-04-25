@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShoppingDALLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85448936de5082e697de4c31428a8b0038dc093e")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d828ba9b877b140bae23d34c9da019fdd8e949f")]
->>>>>>> main
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba3d2de96e0802f2a2cdd748092499ac5ada2d47")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShoppingDALLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShoppingDALLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
