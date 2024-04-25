@@ -22,19 +22,19 @@ namespace ShoppingBLLib
             return _repository.GetByKey(id);
         }
 
-        public void Add(Product product)
+        public Product Add(Product product)
         {
-            _repository.Add(product);
+            return _repository.Add(product);
         }
 
-        public void Update(Product product)
+        public Product Update(Product product)
         {
-            _repository.Update(product);
+            return _repository.Update(product);
         }
 
-        public void Delete(int id)
+        public Product Delete(int id)
         {
-            _repository.Delete(id);
+            return _repository.Delete(id);
         }
     }
 }
