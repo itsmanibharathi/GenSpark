@@ -7,9 +7,7 @@ namespace ShoppingModelLib
         public int Id { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-
         public List<CartItem> CartItems { get; set; }
-
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
