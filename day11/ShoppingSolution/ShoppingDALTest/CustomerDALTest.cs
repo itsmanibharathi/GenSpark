@@ -4,7 +4,7 @@ using ShoppingModelLib.Exceptions;
 
 namespace ShoppingDALTest
 {
-    public class Tests
+    public class CustomerDALTest
     {
         IRepository<int, Customer> customerRepository;
         [SetUp]
@@ -49,6 +49,11 @@ namespace ShoppingDALTest
         }
 
         [Test]
+        public void GetCustomerByIDEmptyDataBaseExceptionTest()
+        {
+            Assert.Throws<EmptyDataBaseException>(() => new CustomerRepository().GetByKey(1));
+        }
+        [Test]
         public void UpdateCustomerTest()
         {
             Customer customer = new Customer { Id = 1, Name = "Jane" };
@@ -63,6 +68,13 @@ namespace ShoppingDALTest
         }
 
         [Test]
+        public void UpdateCustomerEmptyDataBaseExceptionTest()
+        {
+            Assert.Throws<EmptyDataBaseException>(() => new CustomerRepository().Update(new Customer { Id = 1, Name = "Jane" }));
+        }
+
+
+        [Test]
         public void DeleteCustomerTest()
         {
             Customer customer = customerRepository.Delete(1);
@@ -73,6 +85,11 @@ namespace ShoppingDALTest
         public void DeleteCustomerExceptionTest()
         {
             Assert.Throws<NoCustomerWithGiveIdException>(() => customerRepository.Delete(2));
+        }
+        [Test]
+        public void DeleteCustomerEmptyDataBaseExceptionTest()
+        {
+            Assert.Throws<EmptyDataBaseException>(() => new CustomerRepository().Delete(1));
         }
     }
 }
