@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "ShoppingApp/1.0.0": {
-        "dependencies": {
-          "ShoppingBLLib": "1.0.0"
-        },
-        "runtime": {
-          "ShoppingApp.dll": {}
-        }
-      },
       "ShoppingBLLib/1.0.0": {
         "dependencies": {
           "ShoppingDALLib": "1.0.0"
@@ -38,11 +30,6 @@
     }
   },
   "libraries": {
-    "ShoppingApp/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "ShoppingBLLib/1.0.0": {
       "type": "project",
       "serviceable": false,

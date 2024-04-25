@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingDALLib\ShoppingDALLib.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "ShoppingDALLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ShoppingModelLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ShoppingDALLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShoppingDALLib.dll": {}
+        }
+      },
+      "ShoppingModelLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ShoppingModelLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShoppingModelLib.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ShoppingDALLib/1.0.0": {
+      "type": "project",
+      "path": "../ShoppingDALLib/ShoppingDALLib.csproj",
+      "msbuildProject": "../ShoppingDALLib/ShoppingDALLib.csproj"
+    },
+    "ShoppingModelLib/1.0.0": {
+      "type": "project",
+      "path": "../ShoppingModelLib/ShoppingModelLib.csproj",
+      "msbuildProject": "../ShoppingModelLib/ShoppingModelLib.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "ShoppingDALLib >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\VC\\.nuget\\packages\\": {}
@@ -33,7 +70,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj": {
+              "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
