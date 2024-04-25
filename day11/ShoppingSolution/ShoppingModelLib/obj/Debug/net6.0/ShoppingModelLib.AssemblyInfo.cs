@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShoppingModelLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e5df72cba1a4f2cfb4307b0a8155f103630cc15")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eae0564e3472448e0ba00125881c82f8ffe892bf")]
+>>>>>>> main
 [assembly: System.Reflection.AssemblyProductAttribute("ShoppingModelLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShoppingModelLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
