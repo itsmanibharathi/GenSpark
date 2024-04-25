@@ -9,19 +9,42 @@ namespace ShoppingApp
     {
         static void Main(string[] args)
         {
-            try
-            {
+            CustomerRepository customerRepository = new CustomerRepository();
+            CustomerService customerService = new CustomerService(customerRepository);
+            ProductRepository productRepository = new ProductRepository();
+            ProductService productService = new ProductService(productRepository);
+            CartRepository cartRepository = new CartRepository();
+            CartService cartService = new CartService(cartRepository, productRepository, customerRepository);
 
-                var customerRepository = new CustomerRepository();
-                var customerService = new CustomerService(customerRepository);
-                var customer = customerService.Get(1);
-                System.Console.WriteLine(customer.Name);
-
-            }
-            catch (EmptyDataBaseException ex)
+            Customer customer = new Customer
             {
-                System.Console.WriteLine(ex.Message);
-            }
+                Id = 1,
+                Name = "John Doe",
+                Phone = "1234567890",
+                Age = 25
+            };
+            customerService.Add(customer);
+
+            Product product = new Product
+            {
+                Id = 1,
+                Name = "Laptop",
+                Price = 50000
+            };
+
+            productService.Add(product);
+
+            Cart cart = cartService.Add(1);
+            
+            CartItem cartItem = new CartItem
+            {
+                Product = product,
+                Quantity = 2,
+                Price = product.Price * 2
+            };
+            cart.CartItems.Add(cartItem);
+
+            Console.WriteLine(cart);
         }
     }
 }
