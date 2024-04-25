@@ -5,6 +5,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <StartupObject>ShoppingApp.TryLINQ</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingDALLib\ShoppingDALLib.csproj" />
+  </ItemGroup>
 
 </Project>
