@@ -31,12 +31,18 @@ namespace ShoppingBLTets
             Assert.AreEqual("John", customer.Name);
         }
         [Test]
+        public void GetAllCustomerTest()
+        {
+            var customers = customerService.GetAll();
+            Assert.AreEqual(1, customers.Count);
+        }
+        [Test]
         public void UpdateCustomerTest()
         {
             var customer = new Customer { Id = 1, Name = "Jane" };
-            //var result = customerService.Update(customer);
-           
-            //Assert.AreEqual("Jane", result.Name);
+            var result = customerService.Update(customer);
+
+            Assert.AreEqual("Jane", result.Name);
         }
         [Test]
         public void DeleteCustomerTest()
