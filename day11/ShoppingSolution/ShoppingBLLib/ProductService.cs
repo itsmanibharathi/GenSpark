@@ -22,6 +22,11 @@ namespace ShoppingBLLib
             return _repository.GetByKey(id);
         }
 
+        public List<Product> GetAll()
+        {
+            return (List<Product>)_repository.GetAll();
+        }
+
         public Product Add(Product product)
         {
             return _repository.Add(product);

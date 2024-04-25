@@ -17,6 +17,10 @@ namespace ShoppingBLLib
             return _repository.GetByKey(id);
         }
 
+        public List<Customer> GetAll()
+        {
+            return (List<Customer>) _repository.GetAll();
+        }
         public Customer Add(Customer customer)
         {
             return _repository.Add(customer);
@@ -30,6 +34,5 @@ namespace ShoppingBLLib
         public Customer Delete(int id)
         {
             return _repository.Delete(id);
-        }
     }
 }
