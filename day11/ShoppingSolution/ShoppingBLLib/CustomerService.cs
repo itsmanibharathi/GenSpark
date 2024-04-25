@@ -17,19 +17,19 @@ namespace ShoppingBLLib
             return _repository.GetByKey(id);
         }
 
-        public void Add(Customer customer)
+        public Customer Add(Customer customer)
         {
-            _repository.Add(customer);
+            return _repository.Add(customer);
         }
 
-        public void Update(Customer customer)
+        public Customer Update(Customer customer)
         {
-            _repository.Update(customer);
+            return _repository.Update(customer);
         }
 
-        public void Delete(int id)
+        public Customer Delete(int id)
         {
-            _repository.Delete(id);
+            return _repository.Delete(id);
         }
     }
 }
