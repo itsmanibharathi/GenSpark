@@ -1,47 +1,40 @@
 ﻿using ShoppingModelLib;
+using ShoppingModelLib.Exceptions;
 
 namespace ShoppingDALLib
 {
-    public class CustomerRepository : IRepository<int, Customer>
+    public class CustomerRepository : AbstractRepository<int, Customer>
     {
-        readonly Dictionary<int, Customer> _customers;
-
-        public CustomerRepository()
+        public override Customer Delete(int key)
         {
-            _customers = new Dictionary<int, Customer>();
-        }
-
-        int GenrateKey()
-        {
-            if (_customers.Count == 0)
+            Customer customer = GetByKey(key);
+            if (customer != null)
             {
-                return 100;
+                items.Remove(customer);
             }
-            return _customers.Keys.Max() + 1;
-        }   
-        public Customer Add(Customer item)
-        {
-            throw new NotImplementedException();
+            return customer;
         }
 
-        public Customer Delete(int key)
+        public override Customer GetByKey(int key)
         {
-            throw new NotImplementedException();
+            if(items.Count == 0)
+                throw new EmptyDataBaseException();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Id == key)
+                    return items[i];
+            }
+            throw new NoCustomerWithGiveIdException();
         }
 
-        public ICollection<Customer> GetAll()
+        public override Customer Update(Customer item)
         {
-            throw new NotImplementedException();
-        }
-
-        public Customer GetByKey(int key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Customer Update(Customer item)
-        {
-            throw new NotImplementedException();
+            Customer customer = GetByKey(item.Id);
+            if (customer != null)
+            {
+                customer = item;
+            }
+            return customer;
         }
     }
 }
