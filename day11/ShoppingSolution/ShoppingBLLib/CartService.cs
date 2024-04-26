@@ -26,7 +26,7 @@ namespace ShoppingBLLib
             try
             {
                 var customer = _customerRepository.GetByKey(customerID);
-                var cart = new Cart
+                var cart = new Cart 
                 {
                     Customer = customer,
                     CartItems = new List<CartItem>()
@@ -43,7 +43,7 @@ namespace ShoppingBLLib
             }
 
         }
-        public CartItem UpdateCat(int cartId, int productId, int quantity)
+        public CartItem UpdateCartItem(int cartId, int productId, int quantity)
         {
             try
             {
