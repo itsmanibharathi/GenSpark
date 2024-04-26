@@ -70,13 +70,9 @@ namespace ShoppingBLLib
                 var cart = _cartRepository.GetAll().FirstOrDefault(x => x.Customer.Id == customerId);
                 if (cart == null)
                 {
-                    throw new NoCartWithGiveIdException();
+                    throw new CustomerNotCreateCartException();
                 }
                 return cart;
-            }
-            catch (NoCartWithGiveIdException)
-            {
-                throw new NoCartWithGiveIdException();
             }
             catch (EmptyDataBaseException)
             {
@@ -178,7 +174,7 @@ namespace ShoppingBLLib
                 // product is not found in the cart
                 if (cart.CartItems.Find(x => x.Product.Id == productId) == null)
                 {
-                    throw new NoProductWithGiveIdException();
+                    throw new ProductNotInCartException();
                 }
 
                 foreach (var item in cart.CartItems)
@@ -196,10 +192,6 @@ namespace ShoppingBLLib
             catch (NoCartWithGiveIdException)
             {
                 throw new NoCartWithGiveIdException();
-            }
-            catch (NoProductWithGiveIdException)
-            {
-                throw new NoProductWithGiveIdException();
             }
             catch (EmptyDataBaseException)
             {
