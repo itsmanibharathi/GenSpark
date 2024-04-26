@@ -11,33 +11,36 @@ namespace ShoppingModelLib
 
         public List<CartItem>? CartItems { get; set; }
 
+        public double TotalPrice { get; set; }=0;
+        public double TotalDiscount { get; set; } = 0;
+        public double TotalPay { get; set; } = 0;
+
+
         public override string ToString()
-        {
+        { 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Cart Id: {Id}");
-            if(Name != null)
+            sb.AppendLine($"Cart Name: {Name}");
+            sb.AppendLine($"Customer Id: {CustomerId}");
+            sb.AppendLine($"Total Pay: {TotalPay}");
+            if (CartItems != null)
             {
-                sb.AppendLine($"Cart Name: {Name}");
-            }
-            if(Customer != null) {
-                sb.AppendLine($"Customer Id: {Customer.Id}");
-                sb.AppendLine($"Customer Name: {Customer.Name}");
-            }
-            if(CartItems != null)
-            {
-                sb.AppendLine("Cart Items:");
-                sb.AppendLine($"Cart Items Count: {CartItems.Count}");
+                sb.AppendLine("Cart Items: ");
                 foreach (var item in CartItems)
                 {
-                    sb.AppendLine("================================================");
+                    sb.AppendLine("---------------------------------");
                     sb.AppendLine(item.ToString());
                 }
+                sb.AppendLine("---------------------------------");
             }
             else
             {
-                sb.AppendLine("Cart Items: None");
+                sb.AppendLine("No Items in Cart");
             }
-
+            sb.AppendLine($"Total Price: {TotalPrice}");
+            sb.AppendLine($"Total Discount: {TotalDiscount}");
+            sb.AppendLine($"Total Pay: {TotalPay}");
+            sb.AppendLine($"Total Saved Amount: {TotalPrice - TotalPay}");
             return sb.ToString();
         }
     }
