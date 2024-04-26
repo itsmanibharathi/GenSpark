@@ -41,7 +41,7 @@ namespace ShoppingApp
 
             Console.WriteLine(cart);
 
-            Console.WriteLine(cartService.UpdateCartItem(cart.Id, product.Id, 5));
+            Console.WriteLine(cartService.UpdateCartItem(cart.Id, 2, 5));
         }
     }
 }

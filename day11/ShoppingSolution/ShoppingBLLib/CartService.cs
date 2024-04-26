@@ -48,6 +48,12 @@ namespace ShoppingBLLib
             try
             {
                 var cart = _cartRepository.GetByKey(cartId);
+                // product is not found in the cart
+                if (cart.CartItems.Find(x => x.Product.Id == productId) == null)
+                {
+                    throw new NoProductWithGiveIdException();
+                }
+               
                 foreach (var item in cart.CartItems)
                 {
                     if (item.Product.Id == productId)
