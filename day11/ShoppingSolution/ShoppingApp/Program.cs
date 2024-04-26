@@ -36,12 +36,12 @@ namespace ShoppingApp
 
             Cart cart = cartService.Add(1);
 
-            cartService.AddCartItem(cart.Id, product.Id , 3);
+            cartService.AddCartItem(cart.Id, product.Id , 5);
 
 
             Console.WriteLine(cart);
 
-            Console.WriteLine(cartService.UpdateCartItem(cart.Id, product.Id, 5));
+            Console.WriteLine(cartService.UpdateCartItem(cart.Id, product.Id, 2));
         }
     }
 }

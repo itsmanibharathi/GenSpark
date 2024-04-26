@@ -3,6 +3,7 @@ using ShoppingModelLib;
 using ShoppingModelLib.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Nodes;
@@ -12,6 +13,7 @@ namespace ShoppingBLLib
 {
     public class CartService
     {
+        
         readonly CartRepository _cartRepository;
         readonly ProductRepository _productRepository;
         readonly CustomerRepository _customerRepository;
@@ -44,7 +46,7 @@ namespace ShoppingBLLib
             }
 
         }
-
+        
         public Cart Get(int id)
         {
             try
@@ -68,13 +70,9 @@ namespace ShoppingBLLib
                 var cart = _cartRepository.GetAll().FirstOrDefault(x => x.Customer.Id == customerId);
                 if (cart == null)
                 {
-                    throw new NoCartWithGiveIdException();
+                    throw new CustomerNotCreateCartException();
                 }
                 return cart;
-            }
-            catch (NoCartWithGiveIdException)
-            {
-                throw new NoCartWithGiveIdException();
             }
             catch (EmptyDataBaseException)
             {
@@ -92,10 +90,10 @@ namespace ShoppingBLLib
             {
                 throw new EmptyDataBaseException();
             }
-
+            
         }
 
-        public Cart Update(int customerId, int cartId)
+        public Cart Update(int customerId,int cartId)
         {
             try
             {
@@ -143,12 +141,13 @@ namespace ShoppingBLLib
                 {
                     CartId = cartId,
                     Product = product,
-                    Quantity = quantity,
-                    Price = product.Price * quantity,
-                    Discount = 0
-
-
+                    Quantity = quantity
                 };
+                SetDiscount(cartItem);
+                Console.WriteLine($"Totla Price: {cartItem.TotalPrice}");
+                cart.TotalPrice += cartItem.TotalPrice;
+                cart.TotalDiscount += cartItem.DiscountPrice;
+                cart.TotalPay += cartItem.PayOnly;
                 cart.CartItems.Add(cartItem);
                 _cartRepository.Update(cart);
                 return cart.CartItems;
@@ -175,7 +174,7 @@ namespace ShoppingBLLib
                 // product is not found in the cart
                 if (cart.CartItems.Find(x => x.Product.Id == productId) == null)
                 {
-                    throw new NoProductWithGiveIdException();
+                    throw new ProductNotInCartException();
                 }
 
                 foreach (var item in cart.CartItems)
@@ -184,6 +183,7 @@ namespace ShoppingBLLib
                     {
                         item.Quantity = quantity;
                         item.Price = item.Product.Price * quantity;
+                        SetDiscount(item);
                     }
                 }
                 _cartRepository.Update(cart);
@@ -193,16 +193,38 @@ namespace ShoppingBLLib
             {
                 throw new NoCartWithGiveIdException();
             }
-            catch (NoProductWithGiveIdException)
-            {
-                throw new NoProductWithGiveIdException();
-            }
             catch (EmptyDataBaseException)
             {
                 throw new EmptyDataBaseException();
             }
         }
 
+
+        [ExcludeFromCodeCoverage]
+        public void SetDiscount(CartItem cartItem)
+        {
+            if(cartItem.Quantity >= 15)
+            {
+                cartItem.Discount = 3;
+                cartItem.PriceExpiryDate = DateTime.Now.AddDays(1);
+            }
+            else if(cartItem.Quantity >= 10)
+            {
+                cartItem.Discount = 2;
+                cartItem.PriceExpiryDate = DateTime.Now.AddDays(2);
+            }
+            else if(cartItem.Quantity >= 5)
+            {
+                cartItem.Discount = 1;
+                cartItem.PriceExpiryDate = DateTime.Now.AddDays(3);
+            }
+            else
+            {
+                cartItem.Discount = 0;
+                cartItem.PriceExpiryDate = DateTime.Now.AddDays(10);
+            }
+
+        }
         public List<CartItem> DeleteCartItem(int cartId, int productId)
         {
             try
@@ -220,6 +242,10 @@ namespace ShoppingBLLib
             catch (NoCartWithGiveIdException)
             {
                 throw new NoCartWithGiveIdException();
+            }
+            catch (NoProductWithGiveIdException)
+            {
+                throw new NoProductWithGiveIdException();
             }
             catch (NoProductWithGiveIdException)
             {
