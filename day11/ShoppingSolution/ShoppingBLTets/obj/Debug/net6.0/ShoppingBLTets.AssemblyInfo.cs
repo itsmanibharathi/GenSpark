@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShoppingBLTets")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b46bfd185b734cbe8087715d0d32bea26a816bb0")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70d1f0bdded37aef64a938bc3de6b160417deefa")]
->>>>>>> main
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7763ce227f34cd369e12b2ee6233f6fcbca85138")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShoppingBLTets")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShoppingBLTets")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

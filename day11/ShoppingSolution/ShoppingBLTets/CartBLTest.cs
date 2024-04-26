@@ -35,6 +35,8 @@ namespace ShoppingBLTets
 
             cartService.Add(1);
         }
+
+        // Cart Tests
         [Test]
         public void CreateCartTest()
         {
@@ -82,7 +84,7 @@ namespace ShoppingBLTets
         [Test]
         public void GetCartByCustomerFailTest()
         {
-            Assert.Throws<NoCartWithGiveIdException>(() => cartService.GetByCustomerId(2));
+            Assert.Throws<CustomerNotCreateCartException>(() => cartService.GetByCustomerId(2));
         }
 
         [Test]
@@ -120,6 +122,12 @@ namespace ShoppingBLTets
         public void UpdateCartFailTest2()
         {
             Assert.Throws<NoCartWithGiveIdException>(() => cartService.Update(2, 102));
+        }
+
+        [Test]
+        public void UpdateCartFailTest3()
+        {
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).Update(2, 102));
         }
 
         [Test]
@@ -190,6 +198,7 @@ namespace ShoppingBLTets
             Assert.Throws<NoCartWithGiveIdException>(() => cartService.GetAllCartItems(1));
         }
 
+
         [Test]
         public void GetAllCartItemsFailTest2()
         {
@@ -211,7 +220,7 @@ namespace ShoppingBLTets
         [Test]
         public void GetAllCartByCustomerIdFailTest()
         {
-            Assert.Throws<NoCartWithGiveIdException>(() => cartService.GetAllCartByCustomerId(2));
+            Assert.Throws<CustomerNotCreateCartException>(() => cartService.GetAllCartByCustomerId(2));
         }
 
         [Test]
@@ -237,7 +246,7 @@ namespace ShoppingBLTets
         {
             var cart = cartService.Add(2);
             cartService.AddCartItem(cart.Id, 1, 3);
-            Assert.Throws<NoProductWithGiveIdException>(() => cartService.UpdateCartItem(cart.Id, 3, 5));
+            Assert.Throws<ProductNotInCartException>(() => cartService.UpdateCartItem(cart.Id, 3, 5));
         }
         [Test]
         public void UpdateCartItemFailTest2()
@@ -245,6 +254,14 @@ namespace ShoppingBLTets
             var cart = cartService.Add(2);
             cartService.AddCartItem(cart.Id, 1, 3);
             Assert.Throws<NoCartWithGiveIdException>(() => cartService.UpdateCartItem(3, 1, 5));
+        }
+
+        [Test]
+        public void UpdateCartItemFailTest3()
+        {
+            var cart = cartService.Add(2);
+            cartService.AddCartItem(cart.Id, 1, 3);
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).UpdateCartItem(3, 1, 5));
         }
 
         [Test]
@@ -260,7 +277,7 @@ namespace ShoppingBLTets
         {
             var cart = cartService.Add(2);
             cartService.AddCartItem(cart.Id, 1, 3);
-            Assert.Throws<NoProductWithGiveIdException>(() => cartService.DeleteCartItem(cart.Id, 3));
+            Assert.Throws<ProductNotInCartException>(() => cartService.DeleteCartItem(cart.Id, 3));
         }
 
         [Test]
@@ -277,9 +294,20 @@ namespace ShoppingBLTets
             cartService.AddCartItem(cart.Id, 1, 3);
             Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).DeleteCartItem(3, 1));
         }
-      
 
 
+        // test cart price
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        public void GetCartPriceTest(int quantity)
+        {
+            var cart = cartService.Add(2);
+            var p2= productRepository.Add(new Product { Id = 2, Name = "Mobile", Price = 20000 });
+            var result = cartService.AddCartItem(cart.Id, p2.Id, quantity);
+            Console.WriteLine(result.Count);
+            Assert.AreEqual(p2.Price * quantity, result[0].TotalPrice);
+        }
     }
 
 

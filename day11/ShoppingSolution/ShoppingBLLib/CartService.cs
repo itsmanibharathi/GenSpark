@@ -13,7 +13,7 @@ namespace ShoppingBLLib
 {
     public class CartService
     {
-        
+
         readonly CartRepository _cartRepository;
         readonly ProductRepository _productRepository;
         readonly CustomerRepository _customerRepository;
@@ -24,6 +24,7 @@ namespace ShoppingBLLib
             _productRepository = productRepository;
             _customerRepository = customerRepository;
         }
+
         public Cart Add(int customerID)
         {
             try
@@ -46,7 +47,7 @@ namespace ShoppingBLLib
             }
 
         }
-        
+
         public Cart Get(int id)
         {
             try
@@ -90,10 +91,10 @@ namespace ShoppingBLLib
             {
                 throw new EmptyDataBaseException();
             }
-            
+
         }
 
-        public Cart Update(int customerId,int cartId)
+        public Cart Update(int customerId, int cartId)
         {
             try
             {
@@ -203,17 +204,17 @@ namespace ShoppingBLLib
         [ExcludeFromCodeCoverage]
         public void SetDiscount(CartItem cartItem)
         {
-            if(cartItem.Quantity >= 15)
+            if (cartItem.Quantity >= 15)
             {
                 cartItem.Discount = 3;
                 cartItem.PriceExpiryDate = DateTime.Now.AddDays(1);
             }
-            else if(cartItem.Quantity >= 10)
+            else if (cartItem.Quantity >= 10)
             {
                 cartItem.Discount = 2;
                 cartItem.PriceExpiryDate = DateTime.Now.AddDays(2);
             }
-            else if(cartItem.Quantity >= 5)
+            else if (cartItem.Quantity >= 5)
             {
                 cartItem.Discount = 1;
                 cartItem.PriceExpiryDate = DateTime.Now.AddDays(3);
@@ -233,7 +234,7 @@ namespace ShoppingBLLib
                 var cartItem = cart.CartItems.Find(x => x.Product.Id == productId);
                 if (cartItem == null)
                 {
-                    throw new NoProductWithGiveIdException();
+                    throw new ProductNotInCartException();
                 }
                 cart.CartItems.Remove(cartItem);
                 _cartRepository.Update(cart);
@@ -242,14 +243,6 @@ namespace ShoppingBLLib
             catch (NoCartWithGiveIdException)
             {
                 throw new NoCartWithGiveIdException();
-            }
-            catch (NoProductWithGiveIdException)
-            {
-                throw new NoProductWithGiveIdException();
-            }
-            catch (NoProductWithGiveIdException)
-            {
-                throw new NoProductWithGiveIdException();
             }
             catch (EmptyDataBaseException)
             {
@@ -281,13 +274,9 @@ namespace ShoppingBLLib
                 var cart = _cartRepository.GetAll().FirstOrDefault(x => x.Customer.Id == customerId);
                 if (cart == null)
                 {
-                    throw new NoCartWithGiveIdException();
+                    throw new CustomerNotCreateCartException();
                 }
                 return cart.CartItems;
-            }
-            catch (NoCartWithGiveIdException)
-            {
-                throw new NoCartWithGiveIdException();
             }
             catch (EmptyDataBaseException)
             {
