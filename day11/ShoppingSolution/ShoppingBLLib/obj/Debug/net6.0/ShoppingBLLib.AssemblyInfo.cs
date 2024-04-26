@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShoppingBLLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9841d0ba5aa95316601a788def51d615ec372b0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ea3061674373e909dd047a05f3ffce7bddf0778")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShoppingBLLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShoppingBLLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
