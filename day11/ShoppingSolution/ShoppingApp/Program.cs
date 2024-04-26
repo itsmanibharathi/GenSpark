@@ -35,16 +35,13 @@ namespace ShoppingApp
             productService.Add(product);
 
             Cart cart = cartService.Add(1);
-            
-            CartItem cartItem = new CartItem
-            {
-                Product = product,
-                Quantity = 2,
-                Price = product.Price * 2
-            };
-            cart.CartItems.Add(cartItem);
+
+            cartService.AddCartItem(cart.Id, product.Id , 3);
+
 
             Console.WriteLine(cart);
+
+            Console.WriteLine(cartService.UpdateCartItem(cart.Id, product.Id, 5));
         }
     }
 }

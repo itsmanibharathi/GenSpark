@@ -34,5 +34,6 @@ namespace ShoppingBLLib
         public Customer Delete(int id)
         {
             return _repository.Delete(id);
+        }
     }
 }
