@@ -73,7 +73,7 @@ namespace ShoppingBLLib
             }
         }
 
-        public List<CartItem> AddCartItem(int cartId, int productId, int quantity)
+        public CartItem AddCartItem(int cartId, int productId, int quantity)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace ShoppingBLLib
                 };
                 cart.CartItems.Add(cartItem);
                 _cartRepository.Update(cart);
-                return cart.CartItems;
+                return cart.CartItems.Find(x => x.Product.Id == productId);
             }
             catch (NoCartWithGiveIdException)
             {

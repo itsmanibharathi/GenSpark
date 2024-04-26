@@ -10,6 +10,18 @@ namespace ShoppingDALLib
 {
     public class CartRepository : AbstractRepository<int, Cart>
     {
+        int GenerateId()
+        {
+            if (items.Count == 0)
+                return 101;
+            return items.Max(x => x.Id) + 1;
+        }
+        public override Cart Add(Cart item)
+        {
+            item.Id = GenerateId();
+            items.Add(item);
+            return item;
+        }
         public override Cart Delete(int key)
         {
             Cart cart = GetByKey(key);
