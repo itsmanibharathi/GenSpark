@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace ShoppingBLLib
@@ -43,6 +44,129 @@ namespace ShoppingBLLib
             }
 
         }
+        
+        public Cart Get(int id)
+        {
+            try
+            {
+                return _cartRepository.GetByKey(id);
+            }
+            catch (NoCartWithGiveIdException)
+            {
+                throw new NoCartWithGiveIdException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException();
+            }
+        }
+
+        public Cart GetByCustomerId(int customerId)
+        {
+            try
+            {
+                var cart = _cartRepository.GetAll().FirstOrDefault(x => x.Customer.Id == customerId);
+                if (cart == null)
+                {
+                    throw new NoCartWithGiveIdException();
+                }
+                return cart;
+            }
+            catch (NoCartWithGiveIdException)
+            {
+                throw new NoCartWithGiveIdException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException();
+            }
+        }
+
+        public List<Cart> GetAll()
+        {
+            try
+            {
+                return (List<Cart>)_cartRepository.GetAll();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException();
+            }
+            
+        }
+
+        public Cart Update(int customerId,int cartId)
+        {
+            try
+            {
+                var customer = _customerRepository.GetByKey(customerId);
+                var cart = _cartRepository.GetByKey(cartId);
+                cart.Customer = customer;
+                return _cartRepository.Update(cart);
+            }
+            catch (NoCartWithGiveIdException)
+            {
+                throw new NoCartWithGiveIdException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException();
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                _cartRepository.Delete(id);
+                return true;
+            }
+            catch (NoCartWithGiveIdException)
+            {
+                throw new NoCartWithGiveIdException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException();
+            }
+        }
+
+
+
+        public List<CartItem> AddCartItem(int cartId, int productId, int quantity)
+        {
+            try
+            {
+                var cart = _cartRepository.GetByKey(cartId);
+                var product = _productRepository.GetByKey(productId);
+                var cartItem = new CartItem
+                {
+                    CartId = cartId,
+                    Product = product,
+                    Quantity = quantity,
+                    Price = product.Price * quantity,
+                    Discount = 0
+
+
+                };
+                cart.CartItems.Add(cartItem);
+                _cartRepository.Update(cart);
+                return cart.CartItems;
+            }
+            catch (NoCartWithGiveIdException)
+            {
+                throw new NoCartWithGiveIdException();
+            }
+            catch (NoProductWithGiveIdException)
+            {
+                throw new NoProductWithGiveIdException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException();
+            }
+
+        }
         public CartItem UpdateCartItem(int cartId, int productId, int quantity)
         {
             try
@@ -53,7 +177,7 @@ namespace ShoppingBLLib
                 {
                     throw new NoProductWithGiveIdException();
                 }
-               
+
                 foreach (var item in cart.CartItems)
                 {
                     if (item.Product.Id == productId)
@@ -79,20 +203,17 @@ namespace ShoppingBLLib
             }
         }
 
-        public List<CartItem> AddCartItem(int cartId, int productId, int quantity)
+        public List<CartItem> DeleteCartItem(int cartId, int productId)
         {
             try
             {
                 var cart = _cartRepository.GetByKey(cartId);
-                var product = _productRepository.GetByKey(productId);
-                var cartItem = new CartItem
+                var cartItem = cart.CartItems.Find(x => x.Product.Id == productId);
+                if (cartItem == null)
                 {
-                    CartId = cartId,
-                    Product = product,
-                    Quantity = quantity,
-                    Price = product.Price * quantity
-                };
-                cart.CartItems.Add(cartItem);
+                    throw new NoProductWithGiveIdException();
+                }
+                cart.CartItems.Remove(cartItem);
                 _cartRepository.Update(cart);
                 return cart.CartItems;
             }
@@ -108,30 +229,46 @@ namespace ShoppingBLLib
             {
                 throw new EmptyDataBaseException();
             }
-            
         }
 
-        public Cart Get(int id)
-        {
-            return _cartRepository.GetByKey(id);
-        }
-
-        public List<Cart> GetAll()
+        public List<CartItem> GetAllCartItems(int cartId)
         {
             try
             {
-                return (List<Cart>)_cartRepository.GetAll();
+                var cart = _cartRepository.GetByKey(cartId);
+                return cart.CartItems;
+            }
+            catch (NoCartWithGiveIdException)
+            {
+                throw new NoCartWithGiveIdException();
             }
             catch (EmptyDataBaseException)
             {
                 throw new EmptyDataBaseException();
             }
-            
         }
 
-        public void Delete(int id)
+        public List<CartItem> GetAllCartByCustomerId(int customerId)
         {
-            _cartRepository.Delete(id);
+            try
+            {
+                var cart = _cartRepository.GetAll().FirstOrDefault(x => x.Customer.Id == customerId);
+                if (cart == null)
+                {
+                    throw new NoCartWithGiveIdException();
+                }
+                return cart.CartItems;
+            }
+            catch (NoCartWithGiveIdException)
+            {
+                throw new NoCartWithGiveIdException();
+            }
+            catch (EmptyDataBaseException)
+            {
+                throw new EmptyDataBaseException();
+            }
         }
+
+
     }
 }

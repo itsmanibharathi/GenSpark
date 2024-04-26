@@ -2,6 +2,7 @@
 using ShoppingModelLib.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace ShoppingDALLib
 {
     public class CartRepository : AbstractRepository<int, Cart>
     {
+        [ExcludeFromCodeCoverage]
         int GenerateId()
         {
             if (items.Count == 0)
@@ -43,7 +45,6 @@ namespace ShoppingDALLib
             }
             throw new NoCartWithGiveIdException();
         }
-
         public override Cart Update(Cart item)
         {
             Cart cart = GetByKey(item.Id);
