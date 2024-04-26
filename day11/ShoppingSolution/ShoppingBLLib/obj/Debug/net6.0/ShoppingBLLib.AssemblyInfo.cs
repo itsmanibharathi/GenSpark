@@ -15,9 +15,13 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6dd55fee90a3460685e24a14e16e00e22ceaa5e0")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9841d0ba5aa95316601a788def51d615ec372b0d")]
+>>>>>>> main
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ea3061674373e909dd047a05f3ffce7bddf0778")]
 >>>>>>> main
 [assembly: System.Reflection.AssemblyProductAttribute("ShoppingBLLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShoppingBLLib")]

@@ -27,6 +27,7 @@ namespace ShoppingBLTets
             productService = new ProductService(productRepository);
             customerService = new CustomerService(customerRepository);
             cartService = new CartService(cartRepository, productRepository, customerRepository);
+<<<<<<< HEAD
             customerService.Add(new Customer { Id = 1, Name = "John" });
             productService.Add(new Product { Id = 1, Name = "Laptop", Price = 50000 });
             productService.Add(new Product { Id = 2, Name = "Mobile", Price = 20000 });
@@ -37,6 +38,21 @@ namespace ShoppingBLTets
         {
             var cart = cartService.Add(1);
             Assert.AreEqual(1, cart.Id);
+=======
+            customerService.Add(new Customer { Id = 1, Name = "Mani" });
+            customerService.Add(new Customer { Id = 2, Name = "Kiko" });
+            productService.Add(new Product { Id = 1, Name = "Laptop", Price = 50000 });
+            productService.Add(new Product { Id = 2, Name = "Mobile", Price = 20000 });
+            var cart = cartService.Add(1);
+            cartService.AddCartItem(cart.Id, 1, 3);
+
+        }
+        [Test]
+        public void CreateCartTest()
+        {
+            var cart = cartService.Add(2);
+            Assert.AreEqual(102, cart.Id);
+>>>>>>> main
         }
     }
 }
