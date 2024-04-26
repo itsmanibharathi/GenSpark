@@ -51,8 +51,8 @@ namespace ShoppingDALTest
         [Test]
         public void GetCartTest()
         {
-            var result = cartRepository.GetByKey(1);
-            Assert.AreEqual(1, result.Id);
+            var result = cartRepository.GetByKey(101);
+            Assert.AreEqual(101, result.Id);
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace ShoppingDALTest
         [Test]
         public void GetCartTestEmptyException()
         {
-            cartRepository.Delete(1);
+            cartRepository.Delete(101);
             Assert.Throws<EmptyDataBaseException>(() => cartRepository.GetByKey(1));
         }
 
@@ -79,7 +79,7 @@ namespace ShoppingDALTest
         [Test]
         public void GetAllCartsTestEmptyException()
         {
-            cartRepository.Delete(1);
+            cartRepository.Delete(101);
             Assert.Throws<EmptyDataBaseException>(() => cartRepository.GetAll());
         }
 
@@ -90,13 +90,13 @@ namespace ShoppingDALTest
             Product p1 = new Product { Id = 1, Name = "Apple", Price = 10 };
             Product p2 = new Product { Id = 2, Name = "Banana", Price = 20 };
             Product p3 = new Product { Id = 3, Name = "Orange", Price = 30 };
-            int id = 1;
 
+            Cart cart = new Cart { Id = 101, CustomerId = c1.Id, Customer = c1 };
             List<CartItem> cartItems = new List<CartItem>();
-            cartItems.Add(new CartItem { CartId = id, Product = p1, Quantity = 2, Price = 10, Discount = 0, PriceExpiryDate = DateTime.Now });
-            cartItems.Add(new CartItem { CartId = id, Product = p2, Quantity = 3, Price = 20, Discount = 0, PriceExpiryDate = DateTime.Now });
-            cartItems.Add(new CartItem { CartId = id, Product = p3, Quantity = 4, Price = 30, Discount = 0, PriceExpiryDate = DateTime.Now });
-            Cart cart = new Cart { Id = id, CustomerId = c1.Id, Customer = c1, CartItems = cartItems };
+            cartItems.Add(new CartItem { CartId = cart.Id, Product = p1, Quantity = 2, Price = 10, Discount = 0, PriceExpiryDate = DateTime.Now });
+            cartItems.Add(new CartItem { CartId = cart.Id, Product = p2, Quantity = 3, Price = 20, Discount = 0, PriceExpiryDate = DateTime.Now });
+            cartItems.Add(new CartItem { CartId = cart.Id, Product = p3, Quantity = 4, Price = 30, Discount = 0, PriceExpiryDate = DateTime.Now });
+            cart.CartItems = cartItems;
 
             var result = cartRepository.Update(cart);
             Assert.AreEqual(cart, result);
@@ -127,23 +127,18 @@ namespace ShoppingDALTest
             Product p1 = new Product { Id = 1, Name = "Apple", Price = 10 };
             Product p2 = new Product { Id = 2, Name = "Banana", Price = 20 };
             Product p3 = new Product { Id = 3, Name = "Orange", Price = 30 };
-            int id = 1;
-
+            Cart cart = new Cart { Id = 102, CustomerId = c1.Id, Customer = c1 };
             List<CartItem> cartItems = new List<CartItem>();
-            cartItems.Add(new CartItem { CartId = id, Product = p1, Quantity = 2, Price = 10, Discount = 0, PriceExpiryDate = DateTime.Now });
-            cartItems.Add(new CartItem { CartId = id, Product = p2, Quantity = 3, Price = 20, Discount = 0, PriceExpiryDate = DateTime.Now });
-            cartItems.Add(new CartItem { CartId = id, Product = p3, Quantity = 4, Price = 30, Discount = 0, PriceExpiryDate = DateTime.Now });
-            Cart cart = new Cart { Id = id, CustomerId = c1.Id, Customer = c1, CartItems = cartItems };
-
-            cartRepository.Delete(1);
+            cartItems.Add(new CartItem { CartId = cart.Id, Product = p1, Quantity = 2, Price = 10, Discount = 0, PriceExpiryDate = DateTime.Now });
+            cartRepository.Delete(101);
             Assert.Throws<EmptyDataBaseException>(() => cartRepository.Update(cart));
         }
 
         [Test]
         public void DeleteCartTest()
         {
-            var result = cartRepository.Delete(1);
-            Assert.AreEqual(1, result.Id);
+            var result = cartRepository.Delete(101);
+            Assert.AreEqual(101, result.Id);
         }
 
         [Test]
@@ -155,7 +150,7 @@ namespace ShoppingDALTest
         [Test]
         public void DeleteCartTestEmptyException()
         {
-            cartRepository.Delete(1);
+            cartRepository.Delete(101);
             Assert.Throws<EmptyDataBaseException>(() => cartRepository.Delete(1));
         }
     }
