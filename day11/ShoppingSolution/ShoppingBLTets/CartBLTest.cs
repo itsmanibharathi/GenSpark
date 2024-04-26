@@ -56,6 +56,97 @@ namespace ShoppingBLTets
         }
 
         [Test]
+        public void GetCartTest()
+        {
+            var cart = cartService.Get(101);
+            Assert.AreEqual(101, cart.Id);
+        }
+        [Test]
+        public void GetCartFailTest()
+        {
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.Get(102));
+        }
+
+        [Test]
+        public void GetCartFailTest2()
+        {
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).Get(102));
+        }
+
+        [Test]
+        public void GetCartByCustomerTest()
+        {
+            var cart = cartService.GetByCustomerId(1);
+            Assert.AreEqual(101, cart.Id);
+        }
+        [Test]
+        public void GetCartByCustomerFailTest()
+        {
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.GetByCustomerId(2));
+        }
+
+        [Test]
+        public void GetCartByCustomerFailTest2()
+        {
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).GetByCustomerId(2));
+        }
+        [Test]
+        public void GetAllCartTest()
+        {
+            var carts = cartService.GetAll();
+            Assert.AreEqual(1, carts.Count);
+        }
+        [Test]
+        public void GetAllCartFailTest()
+        {
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).GetAll());
+        }
+
+        [Test]
+        public void UpdateCartTest()
+        {
+            customerRepository.Add(new Customer { Id = 2, Name = "Kiko" });
+            var cart = cartService.Update(2, 101);
+            Assert.AreEqual(2, cart.Customer.Id);
+        }
+
+        [Test]
+        public void UpdateCartFailTest()
+        {
+            Assert.Throws<NoCustomerWithGiveIdException>(() => cartService.Update(3, 101));
+        }
+
+        [Test]
+        public void UpdateCartFailTest2()
+        {
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.Update(2, 102));
+        }
+
+        [Test]
+        public void DeleteCartTest()
+        {
+            var cart = cartService.Delete(101);
+            Assert.IsTrue(cart);
+        }
+        [Test]
+        public void DeleteCartFailTest()
+        {
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.Delete(102));
+        }
+
+        [Test]
+        public void DeleteCartFailTest2()
+        {
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).Delete(102));
+        }
+
+
+
+
+
+
+        // CartItem Tests
+        [Test]
         public void AddCartItemTest()
         {
             var cart = cartService.Add(2);
@@ -67,7 +158,7 @@ namespace ShoppingBLTets
         public void AddCartItemFailTest()
         {
             var cart = cartService.Add(2);
-            Assert.Throws<NoCartWithGiveIdException>(() => cartService.AddCartItem(1,1, 3));
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.AddCartItem(1, 1, 3));
         }
 
         [Test]
@@ -82,6 +173,52 @@ namespace ShoppingBLTets
         {
             var cart = cartService.Add(2);
             Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).AddCartItem(cart.Id, 1, 3));
+        }
+        [Test]
+        public void GetAllCartItemsTest()
+        {
+            var cart = cartService.Add(2);
+            cartService.AddCartItem(cart.Id, 1, 3);
+            var cartItems = cartService.GetAllCartItems(cart.Id);
+            Assert.AreEqual(1, cartItems.Count);
+        }
+
+        [Test]
+        public void GetAllCartItemsFailTest()
+        {
+            var cart = cartService.Add(2);
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.GetAllCartItems(1));
+        }
+
+        [Test]
+        public void GetAllCartItemsFailTest2()
+        {
+            var cart = cartService.Add(2);
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).GetAllCartItems(1));
+        }
+
+        // GetAllCartByCustomerId
+
+        [Test]
+        public void GetAllCartByCustomerIdTest()
+        {
+            var cart = cartService.Add(2);
+            cartService.AddCartItem(cart.Id, 1, 3);
+            var cartItems = cartService.GetAllCartByCustomerId(2);
+            Assert.AreEqual(1, cartItems.Count);
+        }
+
+        [Test]
+        public void GetAllCartByCustomerIdFailTest()
+        {
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.GetAllCartByCustomerId(2));
+        }
+
+        [Test]
+        public void GetAllCartByCustomerIdFailTest2()
+        {
+            var cart = cartService.Add(2);
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).GetAllCartByCustomerId(1));
         }
 
         [Test]
@@ -102,7 +239,13 @@ namespace ShoppingBLTets
             cartService.AddCartItem(cart.Id, 1, 3);
             Assert.Throws<NoProductWithGiveIdException>(() => cartService.UpdateCartItem(cart.Id, 3, 5));
         }
-
+        [Test]
+        public void UpdateCartItemFailTest2()
+        {
+            var cart = cartService.Add(2);
+            cartService.AddCartItem(cart.Id, 1, 3);
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.UpdateCartItem(3, 1, 5));
+        }
 
         [Test]
         public void DeleteCartItemTest()
@@ -121,16 +264,21 @@ namespace ShoppingBLTets
         }
 
         [Test]
-        public void GetCartTest()
+        public void DeleteCartItemFailTest2()
         {
-            var cart = cartService.Get(101);
-            Assert.AreEqual(101, cart.Id);
+            var cart = cartService.Add(2);
+            cartService.AddCartItem(cart.Id, 1, 3);
+            Assert.Throws<NoCartWithGiveIdException>(() => cartService.DeleteCartItem(3, 1));
         }
         [Test]
-        public void GetCartFailTest()
+        public void DeleteCartItemFailTest3()
         {
-            Assert.Throws<NoCartWithGiveIdException>(() => cartService.Get(102));
+            var cart = cartService.Add(2);
+            cartService.AddCartItem(cart.Id, 1, 3);
+            Assert.Throws<EmptyDataBaseException>(() => new CartService(new CartRepository(), new ProductRepository(), new CustomerRepository()).DeleteCartItem(3, 1));
         }
+      
+
 
     }
 
