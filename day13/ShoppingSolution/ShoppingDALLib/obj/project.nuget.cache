@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KjvToU9HmB9bTeB50JKBG+E1DmEcTfUsunD6sJl888ccNUQC9Jmktgj9tff+UcQEl4jwkAlbcM157B68hj+Y2Q==",
+  "dgSpecHash": "AIucr3jQXXVvBZMgyiff6T2So9PK14E0cxG6qQYjSCmZlS1CMj2GCvsp9XIts0Nvu24tzlQ5Ep0C5/deE2L9RA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj",
+  "projectFilePath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -10,3 +10,15 @@ C:\Users\VC\codestack\GenSpark\day11\ShoppingSolution\ShoppingModelLib\obj\Debug
 C:\Users\VC\codestack\GenSpark\day11\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\refint\ShoppingModelLib.dll
 C:\Users\VC\codestack\GenSpark\day11\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ShoppingModelLib.pdb
 C:\Users\VC\codestack\GenSpark\day11\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ref\ShoppingModelLib.dll
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\bin\Debug\net6.0\ShoppingModelLib.deps.json
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\bin\Debug\net6.0\ShoppingModelLib.dll
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\bin\Debug\net6.0\ShoppingModelLib.pdb
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ShoppingModelLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ShoppingModelLib.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ShoppingModelLib.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ShoppingModelLib.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ShoppingModelLib.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ShoppingModelLib.dll
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\refint\ShoppingModelLib.dll
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ShoppingModelLib.pdb
+C:\Users\VC\codestack\GenSpark\day11&12\ShoppingSolution\ShoppingModelLib\obj\Debug\net6.0\ref\ShoppingModelLib.dll

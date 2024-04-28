@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj",
+      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day11&12\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj",
       "projectName": "ShoppingModelLib",
-      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj",
+      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11&12\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj",
       "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\obj\\",
+      "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11&12\\ShoppingSolution\\ShoppingModelLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingBLLib\\ShoppingBLLib.csproj": {}
+    "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingBLLib\\ShoppingBLLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingBLLib\\ShoppingBLLib.csproj": {
+    "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingBLLib\\ShoppingBLLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingBLLib\\ShoppingBLLib.csproj",
+        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingBLLib\\ShoppingBLLib.csproj",
         "projectName": "ShoppingBLLib",
-        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingBLLib\\ShoppingBLLib.csproj",
+        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingBLLib\\ShoppingBLLib.csproj",
         "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingBLLib\\obj\\",
+        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingBLLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj": {
-                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj"
+              "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj": {
+                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj": {
+    "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj",
+        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj",
         "projectName": "ShoppingDALLib",
-        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj",
+        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingDALLib\\ShoppingDALLib.csproj",
         "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingDALLib\\obj\\",
+        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingDALLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,8 +92,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj": {
-                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj"
+              "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj": {
+                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj"
               }
             }
           }
@@ -132,14 +132,14 @@
         }
       }
     },
-    "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj": {
+    "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj",
+        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj",
         "projectName": "ShoppingModelLib",
-        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj",
+        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingModelLib\\ShoppingModelLib.csproj",
         "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ShoppingSolution\\ShoppingModelLib\\obj\\",
+        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day13\\ShoppingSolution\\ShoppingModelLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",
