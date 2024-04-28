@@ -24,17 +24,17 @@ namespace ShoppingBLLib
             _productRepository = productRepository;
             _customerRepository = customerRepository;
         }
-        public Cart Add(int customerID)
+        public async Task<int> Add(int customerID)
         {
             try
             {
-                var customer = _customerRepository.GetByKey(customerID);
+                var customer = await _customerRepository.GetByKey(customerID);
                 var cart = new Cart 
                 {
                     Customer = customer,
                     CartItems = new List<CartItem>()
                 };
-                return _cartRepository.Add(cart);
+                return (await _cartRepository.Add(cart)).Id;
             }
             catch (NoCustomerWithGiveIdException)
             {
@@ -47,11 +47,11 @@ namespace ShoppingBLLib
 
         }
         
-        public Cart Get(int id)
+        public async Task<Cart> Get(int id)
         {
             try
             {
-                return _cartRepository.GetByKey(id);
+                return await _cartRepository.GetByKey(id);
             }
             catch (NoCartWithGiveIdException)
             {
@@ -63,11 +63,11 @@ namespace ShoppingBLLib
             }
         }
 
-        public Cart GetByCustomerId(int customerId)
+        public async Task<Cart> GetByCustomerId(int customerId)
         {
             try
             {
-                var cart = _cartRepository.GetAll().FirstOrDefault(x => x.Customer.Id == customerId);
+                var cart = (await _cartRepository.GetAll()).FirstOrDefault(x => x.Customer.Id == customerId);
                 if (cart == null)
                 {
                     throw new CustomerNotCreateCartException();
@@ -80,11 +80,11 @@ namespace ShoppingBLLib
             }
         }
 
-        public List<Cart> GetAll()
+        public async Task<List<Cart>> GetAll()
         {
             try
             {
-                return (List<Cart>)_cartRepository.GetAll();
+                return await _cartRepository.GetAll();
             }
             catch (EmptyDataBaseException)
             {
@@ -93,14 +93,14 @@ namespace ShoppingBLLib
             
         }
 
-        public Cart Update(int customerId,int cartId)
+        public async Task<Cart> Update(int customerId,int cartId)
         {
             try
             {
-                var customer = _customerRepository.GetByKey(customerId);
-                var cart = _cartRepository.GetByKey(cartId);
+                var customer = await _customerRepository.GetByKey(customerId);
+                var cart = await _cartRepository.GetByKey(cartId);
                 cart.Customer = customer;
-                return _cartRepository.Update(cart);
+                return await _cartRepository.Update(cart);
             }
             catch (NoCartWithGiveIdException)
             {
@@ -112,12 +112,11 @@ namespace ShoppingBLLib
             }
         }
 
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             try
             {
-                _cartRepository.Delete(id);
-                return true;
+                return await _cartRepository.Delete(id)==null ? false : true;
             }
             catch (NoCartWithGiveIdException)
             {
@@ -131,7 +130,7 @@ namespace ShoppingBLLib
 
 
 
-        public List<CartItem> AddCartItem(int cartId, int productId, int quantity)
+        public async Task<List<CartItem>> AddCartItem(int cartId, int productId, int quantity)
         {
             try
             {
@@ -140,17 +139,16 @@ namespace ShoppingBLLib
                 var cartItem = new CartItem
                 {
                     CartId = cartId,
-                    Product = product,
+                    Product = product.Result,
                     Quantity = quantity
                 };
                 SetDiscount(cartItem);
                 Console.WriteLine($"Totla Price: {cartItem.TotalPrice}");
-                cart.TotalPrice += cartItem.TotalPrice;
-                cart.TotalDiscount += cartItem.DiscountPrice;
-                cart.TotalPay += cartItem.PayOnly;
-                cart.CartItems.Add(cartItem);
-                _cartRepository.Update(cart);
-                return cart.CartItems;
+                cart.Result.TotalPrice += cartItem.TotalPrice;
+                cart.Result.TotalDiscount += cartItem.DiscountPrice;
+                cart.Result.TotalPay += cartItem.PayOnly;
+                cart.Result.CartItems.Add(cartItem);
+                return _cartRepository.Update(cart.Result).Result.CartItems;
             }
             catch (NoCartWithGiveIdException)
             {
@@ -166,11 +164,11 @@ namespace ShoppingBLLib
             }
 
         }
-        public CartItem UpdateCartItem(int cartId, int productId, int quantity)
+        public async Task<CartItem> UpdateCartItem(int cartId, int productId, int quantity)
         {
             try
             {
-                var cart = _cartRepository.GetByKey(cartId);
+                var cart = await _cartRepository.GetByKey(cartId);
                 // product is not found in the cart
                 if (cart.CartItems.Find(x => x.Product.Id == productId) == null)
                 {
@@ -186,8 +184,7 @@ namespace ShoppingBLLib
                         SetDiscount(item);
                     }
                 }
-                _cartRepository.Update(cart);
-                return cart.CartItems.Find(x => x.Product.Id == productId);
+                return _cartRepository.Update(cart).Result.CartItems.Find(x => x.Product.Id == productId);
             }
             catch (NoCartWithGiveIdException)
             {
@@ -225,19 +222,18 @@ namespace ShoppingBLLib
             }
 
         }
-        public List<CartItem> DeleteCartItem(int cartId, int productId)
+        public async Task<List<CartItem>> DeleteCartItem(int cartId, int productId)
         {
             try
             {
-                var cart = _cartRepository.GetByKey(cartId);
+                var cart = await _cartRepository.GetByKey(cartId);
                 var cartItem = cart.CartItems.Find(x => x.Product.Id == productId);
                 if (cartItem == null)
                 {
                     throw new NoProductWithGiveIdException();
                 }
                 cart.CartItems.Remove(cartItem);
-                _cartRepository.Update(cart);
-                return cart.CartItems;
+                return _cartRepository.Update(cart).Result.CartItems;
             }
             catch (NoCartWithGiveIdException)
             {
@@ -253,12 +249,11 @@ namespace ShoppingBLLib
             }
         }
 
-        public List<CartItem> GetAllCartItems(int cartId)
+        public async Task<List<CartItem>> GetAllCartItems(int cartId)
         {
             try
             {
-                var cart = _cartRepository.GetByKey(cartId);
-                return cart.CartItems;
+                return (await _cartRepository.GetByKey(cartId)).CartItems;
             }
             catch (NoCartWithGiveIdException)
             {
@@ -270,11 +265,11 @@ namespace ShoppingBLLib
             }
         }
 
-        public List<CartItem> GetAllCartByCustomerId(int customerId)
+        public async Task<List<CartItem>> GetAllCartByCustomerId(int customerId)
         {
             try
             {
-                var cart = _cartRepository.GetAll().FirstOrDefault(x => x.Customer.Id == customerId);
+                var cart = (await _cartRepository.GetAll()).FirstOrDefault(x => x.Customer.Id == customerId);
                 if (cart == null)
                 {
                     throw new NoCartWithGiveIdException();

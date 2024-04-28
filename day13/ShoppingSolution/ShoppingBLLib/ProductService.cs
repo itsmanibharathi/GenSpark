@@ -1,5 +1,6 @@
 ﻿using ShoppingDALLib;
 using ShoppingModelLib;
+using ShoppingModelLib.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,29 +18,29 @@ namespace ShoppingBLLib
             _repository = productRepository;
         }
 
-        public Product Get(int id)
+        public Task<Product> Get(int id)
         {
             return _repository.GetByKey(id);
         }
 
-        public List<Product> GetAll()
+        public async Task<List<Product>> GetAll()
         {
-            return (List<Product>)_repository.GetAll();
+            return await _repository.GetAll();
         }
 
-        public Product Add(Product product)
+        public async Task<int> Add(Product product)
         {
-            return _repository.Add(product);
+            return (await _repository.Add(product)).Id;
         }
 
-        public Product Update(Product product)
+        public async Task<Product> Update(Product product)
         {
-            return _repository.Update(product);
+            return await _repository.Update(product);
         }
 
-        public Product Delete(int id)
+        public async Task<Product> Delete(int id)
         {
-            return _repository.Delete(id);
+            return await _repository.Delete(id);
         }
     }
 }

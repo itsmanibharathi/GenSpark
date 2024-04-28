@@ -12,28 +12,29 @@ namespace ShoppingBLLib
             _repository = customerRepository;
         }
 
-        public Customer Get(int id)
+        public async Task<int> Get(int id)
         {
-            return _repository.GetByKey(id);
+            return (await _repository.GetByKey(id)).Id;
+        }
+        
+        public async Task<Customer> GetCustomer(int id)
+        {
+            return await _repository.GetByKey(id);
         }
 
-        public List<Customer> GetAll()
+        public async Task<int> Add(Customer customer)
         {
-            return (List<Customer>) _repository.GetAll();
-        }
-        public Customer Add(Customer customer)
-        {
-            return _repository.Add(customer);
+            return (await _repository.Add(customer)).Id;
         }
 
-        public Customer Update(Customer customer)
+        public async Task<Customer> Update(Customer customer)
         {
-            return _repository.Update(customer);
+            return await _repository.Update(customer);
         }
 
-        public Customer Delete(int id)
+        public async Task<Customer> Delete(int id)
         {
-            return _repository.Delete(id);
+            return await _repository.Delete(id);
         }
     }
 }

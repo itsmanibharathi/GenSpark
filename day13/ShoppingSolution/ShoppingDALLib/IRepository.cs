@@ -10,7 +10,7 @@ namespace ShoppingDALLib
     {
         Task<T> Add(T item);
         Task<T> GetByKey(K key);
-        Task<ICollection<T>> GetAll();
+        Task<List<T>> GetAll();
         Task<T> Update(T item);
         Task<T> Delete(K key);
 

@@ -14,7 +14,7 @@ namespace ShoppingDALLib
             items.Add(item);
             return item;
         }
-        public virtual async Task<ICollection<T>> GetAll()
+        public virtual async Task<List<T>> GetAll()
         {
             if (items.Count == 0)
                 throw new EmptyDataBaseException();
