@@ -28,8 +28,7 @@ namespace ShoppingModelLib
         {
             return "Id : " + Id +
                 "\nName : " + Name +
-                "\nPrice : $" + Price +
-                "\nNos in Stock : " + QuantityInHand;
+                "\nPrice : $" + Price;
         }
 
         public bool Equals(Product? other)

@@ -12,6 +12,10 @@ namespace ShoppingBLLib
             _repository = customerRepository;
         }
 
+        public async Task<List<Customer>> GetAll()
+        {
+            return await _repository.GetAll();
+        }
         public async Task<int> Get(int id)
         {
             return (await _repository.GetByKey(id)).Id;
