@@ -1,0 +1,62 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ShoppingApp/1.0.0": {
+        "dependencies": {
+          "ShoppingBLLib": "1.0.0"
+        },
+        "runtime": {
+          "ShoppingApp.dll": {}
+        }
+      },
+      "ShoppingBLLib/1.0.0": {
+        "dependencies": {
+          "ShoppingDALLib": "1.0.0"
+        },
+        "runtime": {
+          "ShoppingBLLib.dll": {}
+        }
+      },
+      "ShoppingDALLib/1.0.0": {
+        "dependencies": {
+          "ShoppingModelLib": "1.0.0"
+        },
+        "runtime": {
+          "ShoppingDALLib.dll": {}
+        }
+      },
+      "ShoppingModelLib/1.0.0": {
+        "runtime": {
+          "ShoppingModelLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ShoppingApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ShoppingBLLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ShoppingDALLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ShoppingModelLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
