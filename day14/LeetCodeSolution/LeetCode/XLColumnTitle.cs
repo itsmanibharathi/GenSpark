@@ -11,6 +11,7 @@ namespace LeetCode
     {
         public async Task GetTitle(int colNum)
         { 
+            Thread.Sleep(colNum);
             Console.Write($"Title of {colNum}");
             if(colNum == 0)
             {

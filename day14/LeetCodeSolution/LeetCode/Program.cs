@@ -30,7 +30,14 @@
             return await minimumdepth.MinDepth(root);
         }
 
-
+        public async Task XLColumnTitle()
+        {
+            XLColumnTitle xlColumnTitle = new XLColumnTitle();
+            for (int i = 1; i <= 100; i += 3)
+            {
+                xlColumnTitle.GetTitle(i);
+            }
+        }
 
         static async Task Main(string[] args)
         {
@@ -42,6 +49,9 @@
 
             int result2 = await program.MinDepthTree2();
             Console.WriteLine($"Min depth Tree 2 : {result2}");
+
+            // XLColumnTitle
+            program.XLColumnTitle();
 
 
         }
