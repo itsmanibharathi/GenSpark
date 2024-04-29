@@ -32,6 +32,8 @@ namespace LeetCode
                 Console.WriteLine(number);
             }
 
+            var oddNumbers2 = numbers.Where(number => number % 2 != 0).OrderByDescending(number => number);
+
 
         }
     }
