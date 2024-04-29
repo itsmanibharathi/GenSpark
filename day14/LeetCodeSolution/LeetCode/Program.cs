@@ -39,10 +39,31 @@
             }
         }
 
+        public async Task FindCycle1()
+        {
+            FindCycle findCycle = new FindCycle();
+            ListNode head = new ListNode(3);
+            head.next = new ListNode(2);
+            head.next.next = new ListNode(0);
+            head.next.next.next = new ListNode(-4);
+            head.next.next.next.next = head.next;
+            bool result = await findCycle.FindCycles(head);
+            Console.WriteLine($"Cycle in the list : {result}");
+        }
+
+        public async Task FindCycle2()
+        {
+            FindCycle findCycle = new FindCycle();
+            ListNode head = new ListNode(1);
+            head.next = new ListNode(2);
+            bool result = await findCycle.FindCycles(head);
+            Console.WriteLine($"Cycle in the list : {result}");
+        }
+
         static async Task Main(string[] args)
         {
             Program program = new Program();
-            
+
             // Minimumdepth in Binary Tree
             int result1 = await program.MinDepthTree1();
             Console.WriteLine($"Min depth Tree 1 : {result1}");
@@ -51,8 +72,12 @@
             Console.WriteLine($"Min depth Tree 2 : {result2}");
 
             // XLColumnTitle
-            program.XLColumnTitle();
+            program.XLColumnTitle().Wait();
 
+            // FindCycle
+            program.FindCycle1();
+
+            program.FindCycle2();
 
         }
     }
