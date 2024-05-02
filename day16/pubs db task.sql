@@ -63,8 +63,13 @@ where type = 'business' and price < 20 and advance > 7000
 -- 13) Select those publisher id and number of books which have price between 15 to 25 and have 'It' in its name. 
 -- Print only those which have count greater than 2. Also sort the result in ascending order of count
 
-select pub_id,title from titles 
-where price between 15 and 25 and title like '%IT%'  
+select pub_id, COUNT(title_id) as book_count
+from titles
+where price between 15 and 25 and title like '%It%'
+group by pub_id
+having count(title_id) > 2
+order by count(title_id);
+
 
 -- 14) Print the Authors who are from 'CA'
 select * from authors where state = 'CA'
