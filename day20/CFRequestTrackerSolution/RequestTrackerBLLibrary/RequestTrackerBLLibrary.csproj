@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RequestTrackerDALLibrary\RequestTrackerDALLibrary.csproj" />
-    <ProjectReference Include="..\RequestTrakerModelLibrary\RequestTrakerModelLibrary.csproj" />
   </ItemGroup>
 
 </Project>

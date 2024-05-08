@@ -46,3 +46,5 @@ C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrackerDALL
 C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrackerDALLibrary\obj\Debug\net6.0\refint\RequestTrackerDALLibrary.dll
 C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrackerDALLibrary\obj\Debug\net6.0\RequestTrackerDALLibrary.pdb
 C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrackerDALLibrary\obj\Debug\net6.0\ref\RequestTrackerDALLibrary.dll
+C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrackerDALLibrary\bin\Debug\net6.0\RequestTrackerDALLibrary.runtimeconfig.json
+C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrackerDALLibrary\obj\Debug\net6.0\RequestTrackerDALLibrary.genruntimeconfig.cache

@@ -8,11 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.29">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RequestTrackerBLLibrary\RequestTrackerBLLibrary.csproj" />
+    <ProjectReference Include="..\RequestTrackerDALLibrary\RequestTrackerDALLibrary.csproj" />
     <ProjectReference Include="..\RequestTrakerModelLibrary\RequestTrakerModelLibrary.csproj" />
   </ItemGroup>
 

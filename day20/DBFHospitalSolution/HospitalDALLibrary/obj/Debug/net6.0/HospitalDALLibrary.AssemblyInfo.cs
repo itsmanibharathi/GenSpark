@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HospitalDALLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15b57ef2608082a08725a22d754cdcf272def183")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5c2746df3f5d60c95e1494c83d4014ef6b4bfb5")]
 [assembly: System.Reflection.AssemblyProductAttribute("HospitalDALLibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HospitalDALLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

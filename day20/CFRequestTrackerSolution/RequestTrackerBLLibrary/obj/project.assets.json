@@ -1940,8 +1940,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "RequestTrackerDALLibrary >= 1.0.0",
-      "RequestTrakerModelLibrary >= 1.0.0"
+      "RequestTrackerDALLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1973,9 +1972,6 @@
           "projectReferences": {
             "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj": {
               "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj"
-            },
-            "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj": {
-              "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj"
             }
           }
         }
