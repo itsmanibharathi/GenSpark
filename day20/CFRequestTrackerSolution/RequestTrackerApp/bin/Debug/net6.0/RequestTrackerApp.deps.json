@@ -486,6 +486,9 @@
         }
       },
       "RequestTrackerBLLibrary/1.0.0": {
+        "dependencies": {
+          "RequestTrackerDALLibrary": "1.0.0"
+        },
         "runtime": {
           "RequestTrackerBLLibrary.dll": {}
         }

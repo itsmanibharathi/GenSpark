@@ -31,6 +31,7 @@ create table Appointments(
 )
 
 select * from Doctors
+select * from Patients
 select * from  Appointments
 
 delete Appointments
