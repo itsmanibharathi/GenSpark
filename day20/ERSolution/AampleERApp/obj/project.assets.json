@@ -2017,11 +2017,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ERSolution\\AampleERApp\\AampleERApp.csproj",
+      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\ERSolution\\AampleERApp\\AampleERApp.csproj",
       "projectName": "AampleERApp",
-      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ERSolution\\AampleERApp\\AampleERApp.csproj",
+      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\ERSolution\\AampleERApp\\AampleERApp.csproj",
       "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day11\\ERSolution\\AampleERApp\\obj\\",
+      "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\ERSolution\\AampleERApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",
