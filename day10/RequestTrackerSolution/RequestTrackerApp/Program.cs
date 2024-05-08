@@ -4,11 +4,27 @@ using RequestTrackerBLLibrary;
 using System.Collections;
 using System.Globalization;
 using RequestTrackerDALLibrary;
+using System.Data.SqlClient;
 
 namespace RequestTrackerApp
 {
     internal class Program
     {
+
+        static void Main(string[] args)
+        {
+            //new Program().Run();
+
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=J9GCBX3\KIKO;Initial Catalog=dbEmployeeTracker;Integrated Security=True");
+            sqlConnection.Open();
+            Console.WriteLine("Connection Opened");
+
+            sqlConnection.Close();
+
+
+
+        }
+
         readonly DepartmentBL departmentBL;
         readonly EmployeeBL employeeBL;
         readonly RequestBL requestBL;
@@ -311,11 +327,6 @@ namespace RequestTrackerApp
                 }
             }
         }
-        static void Main(string[] args)
-        {
-            new Program().Run();
 
-
-        }
     }
 }
