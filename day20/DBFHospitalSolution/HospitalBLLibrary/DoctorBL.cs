@@ -1,5 +1,5 @@
 ﻿using HospitalDALLibrary;
-using HospitalModuleLibrary;
+using HospitalDALLibrary.Model;
 namespace HospitalBLLibrary
 {
     public class DoctorBL 
