@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalApp", "HospitalApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalDALLibrary", "HospitalDALLibrary\HospitalDALLibrary.csproj", "{091938BB-3337-428C-ABD7-411A5BFCA80F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalBLLibrary", "HospitalBLLibrary\HospitalBLLibrary.csproj", "{44708C3A-961E-497F-AA68-E1548690C241}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{091938BB-3337-428C-ABD7-411A5BFCA80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{091938BB-3337-428C-ABD7-411A5BFCA80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{091938BB-3337-428C-ABD7-411A5BFCA80F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44708C3A-961E-497F-AA68-E1548690C241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44708C3A-961E-497F-AA68-E1548690C241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44708C3A-961E-497F-AA68-E1548690C241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44708C3A-961E-497F-AA68-E1548690C241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,14 +8,12 @@ namespace HospitalDALLibrary.Model
         public Appointment()
         {
         }
-        public Appointment(Patient patient,Doctor doctor, DateTime? appointmentDate, DateTime? appointmentBookDateTime)
+        public Appointment(int? patientId, int? doctorId, DateTime? appointmentDate, DateTime? appointmentBookDateTime)
         {
-            PatientId = patient.PatientId;
-            DoctorId = doctor.DoctorId;
+            PatientId = patientId;
+            DoctorId = doctorId;
             AppointmentDate = appointmentDate;
             AppointmentBookDateTime = appointmentBookDateTime;
-            Patient=patient;
-            Doctor=doctor;
         }
         public int AppointmentId { get; set; }
         public int? PatientId { get; set; }
