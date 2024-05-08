@@ -33,9 +33,7 @@ namespace HospitalDALLibrary.Model
         {
             modelBuilder.Entity<Appointment>(entity =>
             {
-                entity.Property(e => e.AppointmentId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("AppointmentID");
+                entity.Property(e => e.AppointmentId).HasColumnName("AppointmentID");
 
                 entity.Property(e => e.AppointmentBookDateTime).HasColumnType("date");
 
@@ -60,9 +58,7 @@ namespace HospitalDALLibrary.Model
 
             modelBuilder.Entity<Doctor>(entity =>
             {
-                entity.Property(e => e.DoctorId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("DoctorID");
+                entity.Property(e => e.DoctorId).HasColumnName("DoctorID");
 
                 entity.Property(e => e.DoctorName)
                     .HasMaxLength(30)
@@ -75,9 +71,7 @@ namespace HospitalDALLibrary.Model
 
             modelBuilder.Entity<Patient>(entity =>
             {
-                entity.Property(e => e.PatientId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("PatientID");
+                entity.Property(e => e.PatientId).HasColumnName("PatientID");
 
                 entity.Property(e => e.PatientAddress)
                     .HasMaxLength(50)

@@ -9,6 +9,14 @@ namespace HospitalDALLibrary.Model
         {
             Appointments = new HashSet<Appointment>();
         }
+        public Patient(string? patientName, int? patientAge, string? patientGender, string? patientAddress, string? patientPhoneNumber)
+        {
+            PatientName = patientName;
+            PatientAge = patientAge;
+            PatientGender = patientGender;
+            PatientAddress = patientAddress;
+            PatientPhoneNumber = patientPhoneNumber;
+        }
 
         public int PatientId { get; set; }
         public string? PatientName { get; set; }
@@ -18,5 +26,10 @@ namespace HospitalDALLibrary.Model
         public string? PatientPhoneNumber { get; set; }
 
         public virtual ICollection<Appointment> Appointments { get; set; }
+
+        public override string ToString()
+        {
+            return $"PatientId: {PatientId}, PatientName: {PatientName}, PatientAge: {PatientAge}, PatientGender: {PatientGender}, PatientAddress: {PatientAddress}, PatientPhoneNumber: {PatientPhoneNumber}";
+        }
     }
 }

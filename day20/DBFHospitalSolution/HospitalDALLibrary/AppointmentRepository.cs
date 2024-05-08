@@ -7,7 +7,7 @@ using HospitalDALLibrary.Model;
 
 namespace HospitalDALLibrary
 {
-    internal class AppointmentRepository : IRepository<int, Appointment>
+    public class AppointmentRepository : IRepository<int, Appointment>
     {
         dbHospitalContext dbHospitalContext; 
         public AppointmentRepository()
@@ -22,8 +22,15 @@ namespace HospitalDALLibrary
             // check if appointment already exists  by doctor id and patient id and appointment date
             if (dbHospitalContext.Appointments.Any(a => a.DoctorId == item.DoctorId && a.PatientId == item.PatientId && a.AppointmentDate == item.AppointmentDate))
                 throw new DuplicateAppointmentDetailsException();
-            dbHospitalContext.Appointments.Add(item);
-            dbHospitalContext.SaveChanges();
+            try
+            {
+                dbHospitalContext.Appointments.Add(item);
+                dbHospitalContext.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return item;
         }
 
