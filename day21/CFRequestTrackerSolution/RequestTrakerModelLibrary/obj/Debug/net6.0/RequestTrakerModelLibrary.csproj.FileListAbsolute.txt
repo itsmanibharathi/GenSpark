@@ -46,3 +46,15 @@ C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrakerModel
 C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\refint\RequestTrakerModelLibrary.dll
 C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\RequestTrakerModelLibrary.pdb
 C:\Users\VC\codestack\GenSpark\day20\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\ref\RequestTrakerModelLibrary.dll
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\bin\Debug\net6.0\RequestTrakerModelLibrary.deps.json
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\bin\Debug\net6.0\RequestTrakerModelLibrary.dll
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\bin\Debug\net6.0\RequestTrakerModelLibrary.pdb
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\RequestTrakerModelLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\RequestTrakerModelLibrary.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\RequestTrakerModelLibrary.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\RequestTrakerModelLibrary.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\RequestTrakerModelLibrary.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\RequestTrakerModelLibrary.dll
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\refint\RequestTrakerModelLibrary.dll
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\RequestTrakerModelLibrary.pdb
+C:\Users\VC\codestack\GenSpark\day21\CFRequestTrackerSolution\RequestTrakerModelLibrary\obj\Debug\net6.0\ref\RequestTrakerModelLibrary.dll

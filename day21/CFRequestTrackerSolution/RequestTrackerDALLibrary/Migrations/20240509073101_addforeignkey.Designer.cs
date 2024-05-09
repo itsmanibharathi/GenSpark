@@ -12,8 +12,8 @@ using RequestTrackerDALLibrary.Context;
 namespace RequestTrackerDALLibrary.Migrations
 {
     [DbContext(typeof(dbRequstTrackerContext))]
-    [Migration("20240508131202_init")]
-    partial class init
+    [Migration("20240509073101_addforeignkey")]
+    partial class addforeignkey
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,26 +24,6 @@ namespace RequestTrackerDALLibrary.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("RequestTrackerDALLibrary.Models.Department", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Department_Head")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Departments");
-                });
-
             modelBuilder.Entity("RequestTrackerDALLibrary.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -52,26 +32,15 @@ namespace RequestTrackerDALLibrary.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("EmployeeDepartmentId")
-                        .HasColumnType("int");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Salary")
-                        .HasColumnType("float");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("EmployeeDepartmentId");
 
                     b.ToTable("Employees");
                 });
@@ -84,30 +53,53 @@ namespace RequestTrackerDALLibrary.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Closed_By")
+                    b.Property<int?>("ClosedBy")
                         .HasColumnType("int");
 
-                    b.Property<int>("Raised_By")
+                    b.Property<DateTime?>("ClosedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RaisedBy")
                         .HasColumnType("int");
 
-                    b.Property<string>("RequestText")
+                    b.Property<DateTime>("RaisedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RequestMsg")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClosedBy");
+
+                    b.HasIndex("RaisedBy");
+
                     b.ToTable("Requests");
+                });
+
+            modelBuilder.Entity("RequestTrackerDALLibrary.Models.Request", b =>
+                {
+                    b.HasOne("RequestTrackerDALLibrary.Models.Employee", "ClosedByEmployee")
+                        .WithMany("RequestsClosed")
+                        .HasForeignKey("ClosedBy");
+
+                    b.HasOne("RequestTrackerDALLibrary.Models.Employee", "Employee")
+                        .WithMany("RequestsRaised")
+                        .HasForeignKey("RaisedBy")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ClosedByEmployee");
+
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("RequestTrackerDALLibrary.Models.Employee", b =>
                 {
-                    b.HasOne("RequestTrackerDALLibrary.Models.Department", "EmployeeDepartment")
-                        .WithMany()
-                        .HasForeignKey("EmployeeDepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("RequestsClosed");
 
-                    b.Navigation("EmployeeDepartment");
+                    b.Navigation("RequestsRaised");
                 });
 #pragma warning restore 612, 618
         }

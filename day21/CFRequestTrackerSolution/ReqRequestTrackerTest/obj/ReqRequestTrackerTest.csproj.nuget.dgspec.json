@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\ReqRequestTrackerTest.csproj": {}
+    "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\ReqRequestTrackerTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\ReqRequestTrackerTest.csproj": {
+    "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\ReqRequestTrackerTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\ReqRequestTrackerTest.csproj",
+        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\ReqRequestTrackerTest.csproj",
         "projectName": "ReqRequestTrackerTest",
-        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\ReqRequestTrackerTest.csproj",
+        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\ReqRequestTrackerTest.csproj",
         "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\obj\\",
+        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\ReqRequestTrackerTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj": {
-                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj"
+              "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj": {
+                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj"
               },
-              "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj": {
-                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj"
+              "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj": {
+                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj"
               }
             }
           }
@@ -93,14 +93,14 @@
         }
       }
     },
-    "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj": {
+    "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj",
         "projectName": "RequestTrackerBLLibrary",
-        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj",
+        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj",
         "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\obj\\",
+        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerBLLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -117,8 +117,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj": {
-                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj"
+              "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj": {
+                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj"
               }
             }
           }
@@ -157,14 +157,14 @@
         }
       }
     },
-    "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj": {
+    "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj",
         "projectName": "RequestTrackerDALLibrary",
-        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj",
+        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\RequestTrackerDALLibrary.csproj",
         "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\obj\\",
+        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrackerDALLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -181,8 +181,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj": {
-                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj"
+              "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj": {
+                "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj"
               }
             }
           }
@@ -239,14 +239,14 @@
         }
       }
     },
-    "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj": {
+    "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj",
         "projectName": "RequestTrakerModelLibrary",
-        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj",
+        "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj",
         "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\obj\\",
+        "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",

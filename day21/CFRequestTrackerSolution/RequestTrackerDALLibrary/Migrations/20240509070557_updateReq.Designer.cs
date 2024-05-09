@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RequestTrackerDALLibrary.Context;
 
@@ -11,9 +12,10 @@ using RequestTrackerDALLibrary.Context;
 namespace RequestTrackerDALLibrary.Migrations
 {
     [DbContext(typeof(dbRequstTrackerContext))]
-    partial class dbRequstTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20240509070557_updateReq")]
+    partial class updateReq
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,9 +53,6 @@ namespace RequestTrackerDALLibrary.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("ClosedBy")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("ClosedDate")
                         .HasColumnType("datetime2");
 
@@ -69,8 +68,6 @@ namespace RequestTrackerDALLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClosedBy");
-
                     b.HasIndex("RaisedBy");
 
                     b.ToTable("Requests");
@@ -78,27 +75,18 @@ namespace RequestTrackerDALLibrary.Migrations
 
             modelBuilder.Entity("RequestTrackerDALLibrary.Models.Request", b =>
                 {
-                    b.HasOne("RequestTrackerDALLibrary.Models.Employee", "ClosedByEmployee")
-                        .WithMany("RequestsClosed")
-                        .HasForeignKey("ClosedBy")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("RequestTrackerDALLibrary.Models.Employee", "RaisedByEmployee")
-                        .WithMany("RequestsRaised")
+                    b.HasOne("RequestTrackerDALLibrary.Models.Employee", "Employee")
+                        .WithMany("Requests")
                         .HasForeignKey("RaisedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ClosedByEmployee");
-
-                    b.Navigation("RaisedByEmployee");
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("RequestTrackerDALLibrary.Models.Employee", b =>
                 {
-                    b.Navigation("RequestsClosed");
-
-                    b.Navigation("RequestsRaised");
+                    b.Navigation("Requests");
                 });
 #pragma warning restore 612, 618
         }

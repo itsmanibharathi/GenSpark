@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj",
       "projectName": "RequestTrakerModelLibrary",
-      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj",
+      "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\RequestTrakerModelLibrary.csproj",
       "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day20\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\obj\\",
+      "outputPath": "C:\\Users\\VC\\codestack\\GenSpark\\day21\\CFRequestTrackerSolution\\RequestTrakerModelLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RequestTrackerDALLibrary.Context;
 
@@ -11,9 +12,10 @@ using RequestTrackerDALLibrary.Context;
 namespace RequestTrackerDALLibrary.Migrations
 {
     [DbContext(typeof(dbRequstTrackerContext))]
-    partial class dbRequstTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20240509073926_updatePar")]
+    partial class updatePar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
