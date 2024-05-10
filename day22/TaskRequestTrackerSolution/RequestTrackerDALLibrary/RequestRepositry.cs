@@ -34,7 +34,7 @@ namespace RequestTrackerDALLibrary
 
         public async Task<IList<Request>> GetAll()
         {
-            return await _context.Requests.ToListAsync();
+            throw new NotImplementedException();
         }
 
         public Task<Request> Update(Request entity)

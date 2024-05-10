@@ -4,7 +4,7 @@
 
 namespace RequestTrackerModelLibrary.Migrations
 {
-    public partial class update_datasource : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

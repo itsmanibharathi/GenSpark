@@ -32,7 +32,7 @@ namespace RequestTrackerDALLibrary
 
         public async Task<Employee> Get(int key)
         {
-            var employee = _context.Employees.SingleOrDefault(e => e.Id == key);
+            var employee = _context.Employees.SingleOrDefault(e => e.EmployeeId == key);
             return employee;
         }
 
@@ -43,7 +43,7 @@ namespace RequestTrackerDALLibrary
 
         public async Task<Employee> Update(Employee entity)
         {
-            var employee = await Get(entity.Id);
+            var employee = await Get(entity.EmployeeId);
             if (employee != null)
             {
                 _context.Entry<Employee>(employee).State = EntityState.Modified;

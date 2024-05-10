@@ -8,7 +8,7 @@ namespace RequestTrackerFEAPP
     {
         async Task EmployeeLoginAsync(int username, string password)
         {
-            Employee employee = new Employee() { Password = password,Id=username };
+            Employee employee = new Employee() { Password = password,EmployeeId=username };
             IEmployeeLoginBL employeeLoginBL = new EmployeeLoginBL();
             var result = await employeeLoginBL.Login(employee);
             if (result)

@@ -9,7 +9,6 @@ namespace RequestTrackerModelLibrary
 {
     public class SolutionFeedback
     {
-        [Key]
         public int FeedbackId { get; set; }
         public float Rating { get; set; }
         public string? Remarks { get; set; }

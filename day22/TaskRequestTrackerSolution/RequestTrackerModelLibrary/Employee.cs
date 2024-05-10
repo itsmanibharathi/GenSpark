@@ -4,14 +4,13 @@ namespace RequestTrackerModelLibrary
 {
     public class Employee
     {
-        [Key]
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
         public override string ToString()
         {
-            return Id + " " + Name + " " + Role;
+            return EmployeeId + " " + Name + " " + Role;
         }
         public virtual bool PasswordCheck(string password)
         {

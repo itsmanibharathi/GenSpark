@@ -771,33 +771,6 @@
           }
         }
       },
-      "RequestTrackerBLLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "RequestTrackerDALLibrary": "1.0.0",
-          "RequestTrackerModelLibrary": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/RequestTrackerBLLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RequestTrackerBLLibrary.dll": {}
-        }
-      },
-      "RequestTrackerDALLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "RequestTrackerModelLibrary": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/RequestTrackerDALLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RequestTrackerDALLibrary.dll": {}
-        }
-      },
       "RequestTrackerModelLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2007,16 +1980,6 @@
         "version.txt"
       ]
     },
-    "RequestTrackerBLLibrary/1.0.0": {
-      "type": "project",
-      "path": "../RequestTrackerBLLibrary/RequestTrackerBLLibrary.csproj",
-      "msbuildProject": "../RequestTrackerBLLibrary/RequestTrackerBLLibrary.csproj"
-    },
-    "RequestTrackerDALLibrary/1.0.0": {
-      "type": "project",
-      "path": "../RequestTrackerDALLibrary/RequestTrackerDALLibrary.csproj",
-      "msbuildProject": "../RequestTrackerDALLibrary/RequestTrackerDALLibrary.csproj"
-    },
     "RequestTrackerModelLibrary/1.0.0": {
       "type": "project",
       "path": "../RequestTrackerModelLibrary/RequestTrackerModelLibrary.csproj",
@@ -2026,7 +1989,6 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.EntityFrameworkCore.Design >= 6.0.29",
-      "RequestTrackerBLLibrary >= 1.0.0",
       "RequestTrackerModelLibrary >= 1.0.0"
     ]
   },
@@ -2057,9 +2019,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\VC\\codestack\\GenSpark\\day22\\TaskRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj": {
-              "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day22\\TaskRequestTrackerSolution\\RequestTrackerBLLibrary\\RequestTrackerBLLibrary.csproj"
-            },
             "C:\\Users\\VC\\codestack\\GenSpark\\day22\\TaskRequestTrackerSolution\\RequestTrackerModelLibrary\\RequestTrackerModelLibrary.csproj": {
               "projectPath": "C:\\Users\\VC\\codestack\\GenSpark\\day22\\TaskRequestTrackerSolution\\RequestTrackerModelLibrary\\RequestTrackerModelLibrary.csproj"
             }
