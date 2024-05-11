@@ -89,7 +89,7 @@ namespace RequestTrackerApp
         {
             Employee employee = new Employee() { Password = password,Id=username };
             return await employeeLoginBL.Login(employee);
-        }
+        }   
 
 
         async Task EmployeeMenu()
@@ -168,62 +168,75 @@ namespace RequestTrackerApp
             while (true)
             {
                 Console.WriteLine("     Employee Menu");
+                Console.WriteLine("Employee Menu");
                 Console.WriteLine("1. Raise Request");
                 Console.WriteLine("2. View My Request Status");
-                Console.WriteLine("3. View Solutions");
-                Console.WriteLine("4. ReOpen My Requst");
-                Console.WriteLine("5. Colse My Request");
-                Console.WriteLine("6. Give Feedback for Solution");
-                Console.WriteLine("7. View All Feedbacks for me");
+                Console.WriteLine("3. View All My Request Status");
+                Console.WriteLine("4. View My Requst Solutions");
+                Console.WriteLine("5. View My Requst All Solutions");
+                Console.WriteLine("6. Respond to My Solution");
+                Console.WriteLine("7. ReOpen My Requst");
+                Console.WriteLine("8. Colse My Request");
+                Console.WriteLine("9. Give Feedback for Solution");
+                Console.WriteLine("10. View All Feedbacks for me");
                 Console.WriteLine("     Admin Menu");
-                Console.WriteLine("8. View All Reqeust");
-                Console.WriteLine("9. View All Open Request");
-                Console.WriteLine("10. Add Solution to Reqeust");
-                Console.WriteLine("11. Close the Request");
-                Console.WriteLine("12. View All Solutions");
-                Console.WriteLine("13. View All Feedbacks for my solution");    
+                Console.WriteLine("11. View All Reqeust");
+                Console.WriteLine("12. View All Open Request");
+                Console.WriteLine("13. Add Solution to Reqeust");
+                Console.WriteLine("14. Close the Request");
+                Console.WriteLine("15. View All Solutions");
+                Console.WriteLine("16. View All Feedbacks for my solution");    
                 Console.WriteLine("0. LogOut");
                 Console.Write("Enter your choice: ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
-                { 
+                {
                     case 1:
                         await RaiseRequest();
                         break;
                     case 2:
-                        //await ViewRequest();
+                        await ViewMyRequest();
                         break;
                     case 3:
-                        //await ViewSolutions();
+                        await ViewMyAllRequest();
                         break;
                     case 4:
-                        await ReOpenRequest();
+                        await ViewMyReqSolutions();
                         break;
                     case 5:
-                        await CloseRequest();
+                        await ViewMyAllReqSolutions();
                         break;
                     case 6:
-                        await Feedback();
+                        await RespondSolution();
                         break;
                     case 7:
-                        await ViewMyFeedbacks();
+                        await ReOpenRequest();
                         break;
                     case 8:
-                        await ViewAllRequest();
-                        break;
-                    case 9:
-                        await ViewAllRequest(RequestStatus.Open);
-                        break;
-                    case 10:
-                        await AddSolution();
-                        break;
-                    case 11:
                         await CloseRequest();
                         break;
+                    case 9:
+                        await Feedback();
+                        break;
+                    case 10:
+                        await ViewMyFeedbacks();
+                        break;
+                    case 11:
+                        await ViewAllRequest();
+                        break;
                     case 12:
-                        //await ViewAllSolutions();
+                        await ViewAllRequest(RequestStatus.Open);
                         break;
                     case 13:
+                        await AddSolution();
+                        break;
+                    case 14:
+                        await CloseRequest();
+                        break;
+                    case 15:
+                        await ViewAllSolutions();
+                        break;
+                    case 16:
                         await ViewAllFeedbacksForMySolution();
                         break;
                     case 0:
@@ -232,6 +245,7 @@ namespace RequestTrackerApp
                     default:
                         Console.WriteLine("Invalid choice");
                         break;
+
                 }
             }
         }
@@ -301,6 +315,17 @@ namespace RequestTrackerApp
         }
         private async Task ViewMyAllReqSolutions()
         {   
+
+            Console.WriteLine("ViewMyAllSolution under construction");
+            //var response = await requestSolutionBL.Get(requestNumber);
+            //foreach (var item in response)
+            //{
+            //    Console.WriteLine("\n" + item);
+            //}
+        }
+
+        private async Task ViewAllSolutions()
+        {
             Console.WriteLine("ViewMyAllSolution under construction");
             //var response = await requestSolutionBL.Get(requestNumber);
             //foreach (var item in response)
