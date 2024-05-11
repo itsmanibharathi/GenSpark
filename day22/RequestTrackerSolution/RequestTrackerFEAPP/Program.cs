@@ -1,4 +1,5 @@
-﻿using RequestTrackerBLLibrary;
+﻿using Microsoft.EntityFrameworkCore;
+using RequestTrackerBLLibrary;
 using RequestTrackerModelLibrary;
 using System;
 using System.Threading.Channels;
@@ -185,7 +186,7 @@ namespace RequestTrackerApp
                 Console.WriteLine("13. Add Solution to Reqeust");
                 Console.WriteLine("14. Close the Request");
                 Console.WriteLine("15. View All Solutions");
-                Console.WriteLine("16. View All Feedbacks for my solution");    
+                Console.WriteLine("16. View All Feedbacks");    
                 Console.WriteLine("0. LogOut");
                 Console.Write("Enter your choice: ");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -237,7 +238,7 @@ namespace RequestTrackerApp
                         await ViewAllSolutions();
                         break;
                     case 16:
-                        await ViewAllFeedbacksForMySolution();
+                        await ViewAllFeedbacks();
                         break;
                     case 0:
                         _employee = null;
@@ -314,24 +315,25 @@ namespace RequestTrackerApp
             }
         }
         private async Task ViewMyAllReqSolutions()
-        {   
-
-            Console.WriteLine("ViewMyAllSolution under construction");
-            //var response = await requestSolutionBL.Get(requestNumber);
-            //foreach (var item in response)
-            //{
-            //    Console.WriteLine("\n" + item);
-            //}
+        {
+            var requets = await employeeRequestBL.GetAllByEmpId(_employee.Id);
+            foreach (var item in requets)
+            {
+                var response = await requestSolutionBL.GetByReqID(item.RequestNumber);
+                foreach (var sol in response)
+                {
+                    Console.WriteLine("\n" + sol);
+                }
+            }
         }
 
         private async Task ViewAllSolutions()
         {
-            Console.WriteLine("ViewMyAllSolution under construction");
-            //var response = await requestSolutionBL.Get(requestNumber);
-            //foreach (var item in response)
-            //{
-            //    Console.WriteLine("\n" + item);
-            //}
+            var response = await requestSolutionBL.GetAll();
+            foreach (var item in response)
+            {
+                Console.WriteLine("\n" + item);
+            }
         }
 
         public async Task RespondSolution()
@@ -423,24 +425,23 @@ namespace RequestTrackerApp
                 }
             }
         }
-        private async Task ViewAllFeedbacksForMySolution()
-        {
-            Console.WriteLine("ViewAllFeedbacks is Under Construction");
-            //var response = await solutionFeedbackBL.GetAllByEmpId(_employee.Id);
-            //foreach (var item in response)
-            //{
-            //    Console.WriteLine("\n" + item);
-            //}
-        }
         private async Task ViewMyFeedbacks()
         {
-            Console.WriteLine("ViewMyFeedbacks is Under Construction");
-            //var response = await solutionFeedbackBL.GetAllByEmpId(_employee.Id);
-            //foreach (var item in response)
-            //{
-            //    Console.WriteLine("\n" + item);
-            //}
+            var response = await solutionFeedbackBL.GetAllByEmpId(_employee.Id);
+            foreach (var item in response)
+            {
+                Console.WriteLine("\n" + item);
+            }
         }
+        public async Task ViewAllFeedbacks()
+        {
+            var response  = await solutionFeedbackBL.GetAll();
+            foreach (var item in response)
+            {
+                Console.WriteLine("\n" + item);
+            }
+        }
+
 
 
     }

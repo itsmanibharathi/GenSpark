@@ -10,6 +10,8 @@ namespace RequestTrackerBLLibrary
     public interface ISolutionFeedbackBL
     {
         public Task<SolutionFeedback> Add(SolutionFeedback feedback);
+        public Task<IList<SolutionFeedback>> GetAllByEmpId(int empId);
+        public Task<IList<SolutionFeedback>> GetAll();
 
     }
 }

@@ -10,7 +10,7 @@ namespace RequestTrackerBLLibrary
 {
     public class SolutionFeedbackBL : ISolutionFeedbackBL
     {
-        readonly IRepository<int, SolutionFeedback> repository;
+        readonly SolutionFeedbackRepository repository;
 
         public SolutionFeedbackBL()
         {
@@ -20,6 +20,16 @@ namespace RequestTrackerBLLibrary
         public async Task<SolutionFeedback> Add(SolutionFeedback feedback)
         {
             return await repository.Add(feedback);
+        }
+
+        public async Task<IList<SolutionFeedback>> GetAllByEmpId(int empId)
+        {
+            return await repository.Get(empId);
+        }
+
+        public async Task<IList<SolutionFeedback>> GetAll()
+        {
+            return await repository.GetAll();
         }
     }
 }
