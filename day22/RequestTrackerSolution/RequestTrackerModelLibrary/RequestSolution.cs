@@ -30,7 +30,7 @@ namespace RequestTrackerModelLibrary
 
         public override string ToString()
         {
-            return $"Solution Id: {SolutionId} Request Id: {RequestId} Solution Description: {SolutionDescription} Solved By: {SolvedBy} Solved Date: {SolvedDate} Is Solved: {IsSolved}";
+            return $"Solution Id: {SolutionId} Request Id: {RequestId} Solution Description: {SolutionDescription} Solved By: {SolvedBy} Solved Date: {SolvedDate} Is Solved: {IsSolved}, RequestRaiserComment {RequestRaiserComment}";
         }
     }
 }

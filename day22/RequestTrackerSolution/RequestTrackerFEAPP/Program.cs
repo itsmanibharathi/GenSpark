@@ -122,13 +122,13 @@ namespace RequestTrackerApp
                         await ViewMyAllRequest();
                         break;
                     case 4:
-                        await ViewSolutions();
+                        await ViewMyReqSolutions();
                         break;
                     case 5:
-                        //await ViewAllRequest(RequestStatus.Answered);
+                        await ViewMyAllReqSolutions();
                         break;
                     case 6:
-                        await Feedback();
+                        await RespondSolution();
                         break;
                     case 7:
                         await ReOpenRequest();
@@ -194,7 +194,7 @@ namespace RequestTrackerApp
                         //await ViewRequest();
                         break;
                     case 3:
-                        await ViewSolutions();
+                        //await ViewSolutions();
                         break;
                     case 4:
                         await ReOpenRequest();
@@ -289,16 +289,48 @@ namespace RequestTrackerApp
 
         }
 
-        private async Task ViewSolutions()
+        private async Task ViewMyReqSolutions()
         {
             Console.Write("Enter the Request Number: ");
             int requestNumber = Convert.ToInt32(Console.ReadLine());
-            var response = await requestSolutionBL.Get(requestNumber);
+            var response = await requestSolutionBL.GetByReqID(requestNumber);
             foreach (var item in response)
             {
                 Console.WriteLine("\n" + item);
             }
         }
+        private async Task ViewMyAllReqSolutions()
+        {   
+            Console.WriteLine("ViewMyAllSolution under construction");
+            //var response = await requestSolutionBL.Get(requestNumber);
+            //foreach (var item in response)
+            //{
+            //    Console.WriteLine("\n" + item);
+            //}
+        }
+
+        public async Task RespondSolution()
+        {
+            Console.Write("Enter the Solution id: ");
+            int solutionId = Convert.ToInt32(Console.ReadLine());
+            RequestSolution requestSolution = await requestSolutionBL.Get(solutionId);
+            if(requestSolution != null)
+            {
+                Console.Write("Enter the Response: ");
+                string response = Console.ReadLine() ?? "No Response";
+                requestSolution.RequestRaiserComment = response;
+                var res = await requestSolutionBL.Update(requestSolution);
+                if (res != null)
+                {
+                    Console.WriteLine("Response added");
+                }
+            }
+
+            
+        }
+
+
+
 
 
 

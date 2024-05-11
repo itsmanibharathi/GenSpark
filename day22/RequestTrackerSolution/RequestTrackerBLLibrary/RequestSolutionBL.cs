@@ -22,7 +22,13 @@ namespace RequestTrackerBLLibrary
             return await _repository.Add(requestSolution);
         }
 
-        public async Task<IList<RequestSolution>> Get(int reqId)
+        public async Task<RequestSolution>Get(int solId)
+        {
+            return await _repository.Get(solId);
+        }
+
+
+        public async Task<IList<RequestSolution>> GetByReqID(int reqId)
         {
             var requestSolutions = await _repository.GetAll();
             return requestSolutions.Where(e => e.RequestId == reqId).ToList();
@@ -37,6 +43,11 @@ namespace RequestTrackerBLLibrary
         {
             var requestSolutions = await _repository.GetAll();
             return requestSolutions.Where(e => e.RequestId== reqId).ToList();
+        }
+
+        public async Task<RequestSolution> Update(RequestSolution requestSolution)
+        {
+            return await _repository.Update(requestSolution);
         }
     }
 }

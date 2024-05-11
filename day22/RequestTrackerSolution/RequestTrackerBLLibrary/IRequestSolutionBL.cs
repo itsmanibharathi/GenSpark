@@ -10,9 +10,12 @@ namespace RequestTrackerBLLibrary
     public interface IRequestSolutionBL
     {
         public Task<RequestSolution> Add(RequestSolution requestSolution);
-        public Task<IList<RequestSolution>> Get(int requstId);
+        public Task<RequestSolution> Get(int solId);
+        public Task<IList<RequestSolution>> GetByReqID(int requstId);
         public Task<IList<RequestSolution>> GetAll();
         public Task<IList<RequestSolution>> GetAllByReqId(int empId);
+
+        public Task<RequestSolution> Update(RequestSolution requestSolution);
 
     }
 }
