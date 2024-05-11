@@ -2,11 +2,16 @@ Request Tracker app
 Login
 |
 |___User
-    Raise Request
-    View Request Status
-       View Solutions
-    Give Feedback
-    Respond to Solution
+    1. Raise Request -- done
+    2. View my Request Status -- no
+    3. view all my request status -- no		
+    4. View my request Solutions -- done 
+    5. View my request all Solutions -- done 	
+    6. ReOpen My Requst  -- done
+    7. Close My Requst   -- done    
+    6. Give Feedback -- done
+    7. view my requst feedback -- no
+    8. Respond to Solution -- no
 |
 |___Admin
     Raise Request
