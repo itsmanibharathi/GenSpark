@@ -1,5 +1,6 @@
 ﻿using RequestTrackerDALLibrary;
 using RequestTrackerModelLibrary;
+using RequestTrackerModelLibrary.Exceptions;
 
 namespace RequestTrackerBLLibrary
 {
@@ -14,15 +15,15 @@ namespace RequestTrackerBLLibrary
 
         public async Task<Employee?> Login(Employee employee)
         {
-           
-           var emp = await _repository.Get(employee.Id);
+            var emp = await _repository.Get(employee.Id);
             if (emp != null)
             {
-                if(emp.PasswordCheck(employee.Password))
+                if (emp.PasswordCheck(employee.Password))
                     return emp;
             }
             return null;
         }
+
 
         public async Task<Employee> Register(Employee employee)
         {

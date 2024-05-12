@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RequestTrackerBLLibrary;
 using RequestTrackerModelLibrary;
+using RequestTrackerModelLibrary.Exceptions;
 using System;
 using System.Threading.Channels;
 
@@ -37,7 +38,7 @@ namespace RequestTrackerApp
                 }
                 else
                 {
-                    Console.WriteLine("Welcome " + _employee.Name);
+                    Console.WriteLine($"-----Welcome {_employee.Name}-----");
                     Console.WriteLine("2. LogOut");
                 }
                 Console.WriteLine("0. Exit");
@@ -49,7 +50,8 @@ namespace RequestTrackerApp
                         _employee =await Login();
                         if (_employee != null)
                         {
-                            Console.WriteLine("Welcome "+ _employee.Name);
+
+                            Console.WriteLine($"\n-----Welcome {_employee.Name}-----");
                             if (_employee.Role == EmployeeRoles.Admin)
                             {
                                 await AdminMenu();
@@ -83,13 +85,52 @@ namespace RequestTrackerApp
             Console.Write("Please enter Employee Id :");
             int id = Convert.ToInt32(Console.ReadLine());
             Console.Write("Please enter the Password: ");
-            string password = Console.ReadLine() ?? "";
-            return await EmployeeLoginAsync(id,password);
+            string password = "";
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
+                {
+                    password += key.KeyChar;
+                    Console.Write("*");
+                }
+                else
+                {
+                    if (key.Key == ConsoleKey.Backspace && password.Length > 0)
+                    {
+                        password = password[0..^1];
+                        Console.Write("\b \b");
+                    }
+                }
+            } while (key.Key != ConsoleKey.Enter);
+            Console.WriteLine();
+            try
+            {
+                return await EmployeeLoginAsync(id,password);
+            }
+            catch (EmployeeIdNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
         }
         async Task<Employee> EmployeeLoginAsync(int username, string password)
         {
             Employee employee = new Employee() { Password = password,Id=username };
-            return await employeeLoginBL.Login(employee);
+            try
+            {
+                return await employeeLoginBL.Login(employee);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }   
 
 
@@ -169,7 +210,6 @@ namespace RequestTrackerApp
             while (true)
             {
                 Console.WriteLine("     Employee Menu");
-                Console.WriteLine("Employee Menu");
                 Console.WriteLine("1. Raise Request");
                 Console.WriteLine("2. View My Request Status");
                 Console.WriteLine("3. View All My Request Status");
@@ -255,27 +295,67 @@ namespace RequestTrackerApp
         {
             Console.Write("Enter the Request Number: ");
             int requestNumber = Convert.ToInt32(Console.ReadLine());
-            Request request = await employeeRequestBL.Get(requestNumber);
-            Console.WriteLine(request);
+            try
+            {
+
+                Request request = await employeeRequestBL.Get(requestNumber);
+                Console.WriteLine(request);
+            }
+            catch (RequestIdNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
         }
         public async Task ViewMyAllRequest()
         {
-            var responses = await employeeRequestBL.GetAllByEmpId(_employee.Id);
-            foreach(var item in responses)
+            try
             {
-                Console.WriteLine("\n" + item);
+                var responses = await employeeRequestBL.GetAllByEmpId(_employee.Id);
+                if (responses ==null)
+                    Console.WriteLine("No Request Found");
+                else
+                { 
+                    foreach(var item in responses)
+                    {
+                        Console.WriteLine("\n" + item);
+                    }
+                }
+            }
+            catch (DatabaseEmptyException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
         public async Task ViewAllRequest(RequestStatus? requestStatus = null)
         {
-            var response = await employeeRequestBL.GetAll();
-            if(requestStatus != null)
+            try
             {
-                response = response.Where(e => e.Status == requestStatus).ToList();
+                var response = await employeeRequestBL.GetAll();
+                if(requestStatus != null)
+                {
+                    response = response.Where(e => e.Status == requestStatus).ToList();
+                }
+                foreach (var item in response)
+                {
+                    Console.WriteLine("\n" + item);
+                }
             }
-            foreach (var item in response)
+            catch (DatabaseEmptyException ex)
             {
-                Console.WriteLine("\n" + item);
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -285,54 +365,104 @@ namespace RequestTrackerApp
         {
             Console.Write("Enter the Request Number: ");
             int requestNumber = Convert.ToInt32(Console.ReadLine());
-            Request request = await employeeRequestBL.Get(requestNumber);
-            if (request.Status == RequestStatus.Open)
+            try
             {
-                Console.Write("Enter the Solution: ");
-                string solution = Console.ReadLine() ?? "No Solution ";
-                RequestSolution requestSolution = new RequestSolution() { RequestId = requestNumber, SolutionDescription = solution, SolvedBy = _employee.Id };
-                var response = await requestSolutionBL.Add(requestSolution);
-                Console.WriteLine("Solution added with Id: " + response.SolutionId);
-                request.Status = RequestStatus.Answered;
-                await employeeRequestBL.Update(request);
-                await Feedback(response.SolutionId);
+                Request request = await employeeRequestBL.Get(requestNumber);
+                if (request.Status == RequestStatus.Open)
+                {
+                    Console.Write("Enter the Solution: ");
+                    string solution = Console.ReadLine() ?? "No Solution ";
+                    RequestSolution requestSolution = new RequestSolution() { RequestId = requestNumber, SolutionDescription = solution, SolvedBy = _employee.Id };
+                    var response = await requestSolutionBL.Add(requestSolution);
+                    Console.WriteLine("Solution added with Id: " + response.SolutionId);
+                    request.Status = RequestStatus.Answered;
+                    await employeeRequestBL.Update(request);
+                    await Feedback(response.SolutionId);
+                }
+                else
+                {
+                    Console.WriteLine("Request is closed or answered");
+                }
             }
-            else
+            catch (RequestIdNotFoundException ex)
             {
-                Console.WriteLine("Request is closed or answered");
+                Console.WriteLine(ex.Message);
             }
-
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private async Task ViewMyReqSolutions()
         {
             Console.Write("Enter the Request Number: ");
             int requestNumber = Convert.ToInt32(Console.ReadLine());
-            var response = await requestSolutionBL.GetByReqID(requestNumber);
-            foreach (var item in response)
+            try
             {
-                Console.WriteLine("\n" + item);
+                var response = await requestSolutionBL.GetByReqID(requestNumber);
+                foreach (var item in response)
+                {
+                    Console.WriteLine("\n" + item);
+                }
+            }
+            catch(RequestIdNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
         private async Task ViewMyAllReqSolutions()
         {
-            var requets = await employeeRequestBL.GetAllByEmpId(_employee.Id);
-            foreach (var item in requets)
+            try
             {
-                var response = await requestSolutionBL.GetByReqID(item.RequestNumber);
-                foreach (var sol in response)
+                var requets = await employeeRequestBL.GetAllByEmpId(_employee.Id);
+                if (requets == null)
                 {
-                    Console.WriteLine("\n" + sol);
+                    Console.WriteLine("No Request Found");
                 }
+                else
+                { 
+                    foreach (var item in requets)
+                    {
+                        var response = await requestSolutionBL.GetByReqID(item.RequestNumber);
+                        foreach (var sol in response)
+                        {
+                            Console.WriteLine("\n" + sol);
+                        }
+                    }
+                }
+            }
+            catch (DatabaseEmptyException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
         private async Task ViewAllSolutions()
         {
-            var response = await requestSolutionBL.GetAll();
-            foreach (var item in response)
+            try
             {
-                Console.WriteLine("\n" + item);
+                var response = await requestSolutionBL.GetAll();
+                foreach (var item in response)
+                {
+                    Console.WriteLine("\n" + item);
+                }
+            }
+            catch (DatabaseEmptyException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -340,32 +470,42 @@ namespace RequestTrackerApp
         {
             Console.Write("Enter the Solution id: ");
             int solutionId = Convert.ToInt32(Console.ReadLine());
-            RequestSolution requestSolution = await requestSolutionBL.Get(solutionId);
-            if(requestSolution != null)
+            try
             {
-                Console.Write("Enter the Response: ");
-                string response = Console.ReadLine() ?? "No Response";
-                requestSolution.RequestRaiserComment = response;
-                var res = await requestSolutionBL.Update(requestSolution);
-                if (res != null)
+                RequestSolution requestSolution = await requestSolutionBL.Get(solutionId);
+                if(requestSolution != null)
                 {
-                    Console.WriteLine("Response added");
+                    Console.Write("Enter the Response: ");
+                    string response = Console.ReadLine() ?? "No Response";
+                    requestSolution.RequestRaiserComment = response;
+                    var res = await requestSolutionBL.Update(requestSolution);
+                    if (res != null)
+                    {
+                        Console.WriteLine("Response added");
+                    }
                 }
             }
-
-            
+            catch (RequestSolutionIdNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }   
         }
-
-
-
-
-
-
         public async Task ReOpenRequest()
         {
             Console.Write("Enter the Request Number: ");
             int requestNumber = Convert.ToInt32(Console.ReadLine());
             Request request = await employeeRequestBL.Get(requestNumber);
+            
+            if(request.RequestRaisedBy != _employee.Id)
+            {
+                Console.WriteLine("You are not authorized to reopen the request");
+                return;
+            }
+            
             if (request.Status == RequestStatus.Closed || request.Status == RequestStatus.Answered)
             {
                 request.Status = RequestStatus.ReOpen;
@@ -386,6 +526,12 @@ namespace RequestTrackerApp
             Console.Write("Enter the Request Number: ");
             int requestNumber = Convert.ToInt32(Console.ReadLine());
             Request request = await employeeRequestBL.Get(requestNumber);
+            if(request.RequestRaisedBy != _employee.Id && _employee.Role != EmployeeRoles.Admin)
+            {
+                Console.WriteLine("You are not authorized to close the request");
+                return;
+            }
+
             if (request.Status != RequestStatus.Closed)
             {
                 request.Status = RequestStatus.Closed;
@@ -427,18 +573,42 @@ namespace RequestTrackerApp
         }
         private async Task ViewMyFeedbacks()
         {
-            var response = await solutionFeedbackBL.GetAllByEmpId(_employee.Id);
-            foreach (var item in response)
+            try
             {
-                Console.WriteLine("\n" + item);
+                var response = await solutionFeedbackBL.GetAllByEmpId(_employee.Id);
+                foreach (var item in response)
+                {
+                    Console.WriteLine("\n" + item);
+                }
+            }
+
+            catch (EmployeeIdNotFoundException ex)
+            {
+                Console.WriteLine("You have 0 feedbacks");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
         public async Task ViewAllFeedbacks()
         {
-            var response  = await solutionFeedbackBL.GetAll();
-            foreach (var item in response)
+            try
             {
-                Console.WriteLine("\n" + item);
+
+                var response  = await solutionFeedbackBL.GetAll();
+                foreach (var item in response)
+                {
+                    Console.WriteLine("\n" + item);
+                }
+            }
+            catch (DatabaseEmptyException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 

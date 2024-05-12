@@ -26,8 +26,6 @@ namespace RequestTrackerBLLibrary
         {
             return await _repository.Get(solId);
         }
-
-
         public async Task<IList<RequestSolution>> GetByReqID(int reqId)
         {
             var requestSolutions = await _repository.GetAll();
