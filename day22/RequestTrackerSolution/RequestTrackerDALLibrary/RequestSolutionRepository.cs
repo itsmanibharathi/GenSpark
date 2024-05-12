@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using RequestTrackerModelLibrary;
+using RequestTrackerModelLibrary.Exceptions;
 
 namespace RequestTrackerDALLibrary
 {
@@ -22,12 +23,16 @@ namespace RequestTrackerDALLibrary
         public virtual async Task<RequestSolution> Get(int key)
         {
             var RequestSolution = _context.RequestSolutions.SingleOrDefault(e => e.SolutionId == key);
+            if (RequestSolution == null)
+            {
+                throw new RequestSolutionIdNotFoundException(key);
+            }
             return RequestSolution;
         }
 
         public virtual async Task<IList<RequestSolution>> GetAll()
         {
-            return await _context.RequestSolutions.ToListAsync();
+            return await _context.RequestSolutions.ToListAsync()?? throw new DatabaseEmptyException("Request Solution");
         }
 
         public async Task<RequestSolution> Update(RequestSolution entity)

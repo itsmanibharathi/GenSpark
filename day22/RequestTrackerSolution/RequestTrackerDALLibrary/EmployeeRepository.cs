@@ -1,27 +1,45 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using RequestTrackerModelLibrary;
+using RequestTrackerModelLibrary.Exceptions;
 
 namespace RequestTrackerDALLibrary
 {
     public class EmployeeRepository : IRepository<int, Employee>
     {
         protected readonly RequestTrackerContext _context;
-
+        /// <summary>
+        /// Employee Repository Constructor
+        /// </summary>
+        /// <param name="context">o </param>
         public EmployeeRepository(RequestTrackerContext context) 
         {
             _context = context;
         }
+        /// <summary>
+        /// Add Employee to the database
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public async Task<Employee> Add(Employee entity)
         {
             _context.Add(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
-
+        /// <summary>
+        /// Get Employee by Id
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        /// <exception cref="EmployeeIdNotFoundException"></exception>
         public virtual async Task<Employee> Get(int key)
         {
             var employee = _context.Employees.SingleOrDefault(e => e.Id == key);
+            if (employee == null)
+            {
+                throw new EmployeeIdNotFoundException(key);
+            }
             return employee;
         }
 
