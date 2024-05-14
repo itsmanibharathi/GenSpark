@@ -1,4 +1,8 @@
 using ClinicAPI.Contexts;
+using ClinicAPI.Interfaces;
+using ClinicAPI.Models;
+using ClinicAPI.Repositores;
+using ClinicAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicAPI
@@ -18,6 +22,10 @@ namespace ClinicAPI
 
             builder.Services.AddDbContext<DBClinicContext>(options =>
                            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<IRepository<int, Doctor>, DoctorRepository>();
+
+            builder.Services.AddScoped<IDoctorService, DoctorService>();
 
             var app = builder.Build();
 
