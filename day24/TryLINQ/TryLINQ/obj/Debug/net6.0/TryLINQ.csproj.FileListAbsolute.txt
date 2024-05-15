@@ -1,0 +1,15 @@
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\bin\Debug\net6.0\TryLINQ.exe
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\bin\Debug\net6.0\TryLINQ.deps.json
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\bin\Debug\net6.0\TryLINQ.runtimeconfig.json
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\bin\Debug\net6.0\TryLINQ.dll
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\bin\Debug\net6.0\TryLINQ.pdb
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\TryLINQ.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\TryLINQ.AssemblyInfoInputs.cache
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\TryLINQ.AssemblyInfo.cs
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\TryLINQ.csproj.CoreCompileInputs.cache
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\TryLINQ.sourcelink.json
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\TryLINQ.dll
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\refint\TryLINQ.dll
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\TryLINQ.pdb
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\TryLINQ.genruntimeconfig.cache
+C:\Users\VC\codestack\GenSpark\day24\TryLINQ\TryLINQ\obj\Debug\net6.0\ref\TryLINQ.dll
