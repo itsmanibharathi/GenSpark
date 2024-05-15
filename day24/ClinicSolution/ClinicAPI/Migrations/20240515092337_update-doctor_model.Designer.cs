@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicAPI.Migrations
 {
     [DbContext(typeof(DBClinicContext))]
-    [Migration("20240514090447_init")]
-    partial class init
+    [Migration("20240515092337_update-doctor_model")]
+    partial class updatedoctor_model
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,13 @@ namespace ClinicAPI.Migrations
                     b.Property<DateTime>("DateOfJoin")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Designation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Experience")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -46,6 +53,26 @@ namespace ClinicAPI.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Doctors");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DateOfJoin = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Designation = "Senior Doctor",
+                            Experience = 5,
+                            Name = "Dr. Mani",
+                            Specialization = "General Physician"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            DateOfJoin = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Designation = "Junior Doctor",
+                            Experience = 2,
+                            Name = "Dr. Kiko",
+                            Specialization = "Dentist"
+                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicAPI.Migrations
 {
     [DbContext(typeof(DBClinicContext))]
-    [Migration("20240514104431_add_seeding")]
-    partial class add_seeding
+    [Migration("20240515090949_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

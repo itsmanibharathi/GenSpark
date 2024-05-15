@@ -34,5 +34,9 @@ namespace ClinicAPI.Services
             throw new NoDoctorFoundInThisSpecializationException(specialization);
         }
 
+        public async Task<Doctor> Update(Doctor doctor)
+        {
+            return await _repository.Update(doctor);
+        }
     }
 }

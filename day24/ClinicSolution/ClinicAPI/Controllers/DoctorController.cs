@@ -44,6 +44,23 @@ namespace ClinicAPI.Controllers
                 return NotFound(ex.Message);
             }
         }
+        [Route("UpdateExperience/{id}/{experience}")]
+        [HttpGet]
+        public async Task<ActionResult<Doctor>> UpdateExperience(int id,int experience)
+        {
+            try
+            {
+                var doctor = await _doctorService.Get(id);
+                doctor.Experience = experience;
+                var res = await _doctorService.Update(doctor);
+                return Ok(res);
+            }
+            catch (NoDoctorFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
 
     }
 }

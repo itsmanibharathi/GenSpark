@@ -7,7 +7,6 @@ namespace ClinicAPI.Interfaces
         public Task<IEnumerable<Doctor>> Get();
         public Task<Doctor> Get(int id);
         public Task<IEnumerable<Doctor>> GetBySpecialization(string specialization);
-
-
+        public Task<Doctor> Update(Doctor doctor);
     }
 }

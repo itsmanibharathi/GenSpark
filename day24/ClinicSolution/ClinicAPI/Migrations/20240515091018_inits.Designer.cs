@@ -4,6 +4,7 @@ using ClinicAPI.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicAPI.Migrations
 {
     [DbContext(typeof(DBClinicContext))]
-    partial class DBClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20240515091018_inits")]
+    partial class inits
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,13 +35,6 @@ namespace ClinicAPI.Migrations
                     b.Property<DateTime>("DateOfJoin")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Designation")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Experience")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -57,8 +52,6 @@ namespace ClinicAPI.Migrations
                         {
                             ID = 1,
                             DateOfJoin = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Designation = "Senior Doctor",
-                            Experience = 5,
                             Name = "Dr. Mani",
                             Specialization = "General Physician"
                         },
@@ -66,8 +59,6 @@ namespace ClinicAPI.Migrations
                         {
                             ID = 2,
                             DateOfJoin = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Designation = "Junior Doctor",
-                            Experience = 2,
                             Name = "Dr. Kiko",
                             Specialization = "Dentist"
                         });

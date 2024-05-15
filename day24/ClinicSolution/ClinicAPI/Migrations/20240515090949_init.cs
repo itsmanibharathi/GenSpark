@@ -23,6 +23,16 @@ namespace ClinicAPI.Migrations
                 {
                     table.PrimaryKey("PK_Doctors", x => x.ID);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Doctors",
+                columns: new[] { "ID", "DateOfJoin", "Name", "Specialization" },
+                values: new object[] { 1, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dr. Mani", "General Physician" });
+
+            migrationBuilder.InsertData(
+                table: "Doctors",
+                columns: new[] { "ID", "DateOfJoin", "Name", "Specialization" },
+                values: new object[] { 2, new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dr. Kiko", "Dentist" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
