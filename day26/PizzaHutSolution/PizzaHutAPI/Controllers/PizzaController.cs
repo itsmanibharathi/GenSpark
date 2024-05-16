@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PizzaHutAPI.Exceptions;
 using PizzaHutAPI.Interfaces;
@@ -6,6 +7,7 @@ using PizzaHutAPI.Models;
 
 namespace PizzaHutAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PizzaController : ControllerBase
@@ -16,7 +18,6 @@ namespace PizzaHutAPI.Controllers
         {
             _pizzaService = pizzaService;
         }
-
         [ProducesResponseType(typeof(Pizza),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorMessage),StatusCodes.Status500InternalServerError)]
         [HttpPost]
@@ -33,10 +34,11 @@ namespace PizzaHutAPI.Controllers
             }
         }
 
+
+        [Authorize]
         [ProducesResponseType(typeof(Pizza),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorMessage),StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorMessage),StatusCodes.Status500InternalServerError)]
-        
         [HttpGet("{id}")]
         public async Task<ActionResult<Pizza>> GetPizza(int id)
         {
@@ -98,7 +100,6 @@ namespace PizzaHutAPI.Controllers
 
         [ProducesResponseType(typeof(Pizza),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorMessage),StatusCodes.Status500InternalServerError)]
-
         [Route("UpdateQty")]
         [HttpPut]
         public async Task<ActionResult<Pizza>> UpdatePizzaQty(int id, int count)
@@ -117,7 +118,6 @@ namespace PizzaHutAPI.Controllers
         [ProducesResponseType(typeof(Pizza),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status500InternalServerError)]
-
         [HttpPut("MakeAvalable/{id}")]
         public async Task<ActionResult<Pizza>> MakeAvalable(int id)
         {
@@ -135,6 +135,10 @@ namespace PizzaHutAPI.Controllers
             }
         }
 
+
+        [ProducesResponseType(typeof(Pizza),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status500InternalServerError)]
         [HttpPut("MakeUnAvalable/{id}")]
         public async Task<ActionResult<Pizza>> MakeUnAvalable(int id)
         {

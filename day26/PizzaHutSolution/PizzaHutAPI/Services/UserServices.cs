@@ -9,17 +9,21 @@ namespace PizzaHutAPI.Services
     public class UserServices : IUserServices
     {
         private readonly IRepository<int, User> _repository;
-        public UserServices(IRepository<int,User> repository) {
+        private readonly ITokenService _tokenService;
+
+        public UserServices(IRepository<int,User> repository , ITokenService tokenService) {
             _repository = repository;
+            _tokenService = tokenService;
         }
-        public async Task<UserDTO> Login(UserLogInDTO userLogInDTO)
+        public async Task<ReturnLoginUserDTO> Login(UserLogInDTO userLogInDTO)
         {
             var user = await _repository.Get(userLogInDTO.ID);
             if (user.Status == UserStatus.Active)
             {
                 if (user.AuthenticateUser(userLogInDTO.Password))
                 {
-                    return new UserDTO(user);
+                    var token = _tokenService.GenerateToken(user);
+                    return new ReturnLoginUserDTO(user, token);
                 }
                 else
                 {
@@ -33,18 +37,19 @@ namespace PizzaHutAPI.Services
             }
         }
 
-        public async Task<UserDTO> Register(UserRegisterDTO userRegisterDTO)
+        public async Task<ReturnRegisterUserDTO> Register(UserRegisterDTO userRegisterDTO)
         {
             User user = new User();
             user.SetPassword(userRegisterDTO.Password);
+            user.Role = userRegisterDTO.Role;
             user.UserInfo = new UserInfo()
             {
                 Name = userRegisterDTO.Name,
                 Email = userRegisterDTO.Email
             };
 
-            await _repository.Add(user);
-            return new UserDTO(user) { IsLoggedIn = true };
+            user = await _repository.Add(user);
+            return new ReturnRegisterUserDTO(user) ;
         }
     }
 }

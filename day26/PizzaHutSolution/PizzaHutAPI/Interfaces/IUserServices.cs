@@ -5,7 +5,7 @@ namespace PizzaHutAPI.Interfaces
 {
     public interface IUserServices
     {
-        public Task<UserDTO> Register(UserRegisterDTO user);
-        public Task<UserDTO> Login(UserLogInDTO user);
+        public Task<ReturnRegisterUserDTO> Register(UserRegisterDTO user);
+        public Task<ReturnLoginUserDTO> Login(UserLogInDTO user);
     }
 }

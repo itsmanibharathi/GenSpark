@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using PizzaHutAPI.Context;
@@ -7,6 +9,7 @@ using PizzaHutAPI.Models;
 using PizzaHutAPI.Repositories;
 using PizzaHutAPI.Services;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Text;
 using UserHutAPI.Repositories;
 
 namespace PizzaHutAPI
@@ -29,7 +32,45 @@ namespace PizzaHutAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "web server api", Version = "v1" });
                 c.SchemaFilter<EnumSchemaFilter>();
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
             });
+            #endregion
+
+            #region JWT
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
+                    };
+
+                });
             #endregion
 
             #region DBContext
@@ -44,6 +85,7 @@ namespace PizzaHutAPI
             #region Services
             builder.Services.AddScoped<IPizzaService, PizzaService>();
             builder.Services.AddScoped<IUserServices, UserServices>();
+            builder.Services.AddScoped<ITokenService, TokenService>();
             #endregion
 
 
@@ -55,6 +97,8 @@ namespace PizzaHutAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

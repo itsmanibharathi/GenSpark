@@ -11,7 +11,7 @@
 
         public UserNotActiveException(int key)
         {
-            message = $"User is not active: {key}";
+            message = $"User: {key} is not active";
         }
         public override string Message => message;
     }

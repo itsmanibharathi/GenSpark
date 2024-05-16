@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PizzaHutAPI.Context;
+using PizzaHutAPI.Exceptions;
 using PizzaHutAPI.Interfaces;
 using PizzaHutAPI.Models;
 using PizzaHutAPI.Models.DTOs;
@@ -18,32 +19,47 @@ namespace PizzaHutAPI.Controllers
             _userServices = userServices;
         }
 
+        [ProducesResponseType(typeof(ReturnRegisterUserDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status500InternalServerError)]
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserRegisterDTO user )
+        public async Task<ActionResult<ReturnRegisterUserDTO>> Register(UserRegisterDTO user )
         {
             try
             {
                 var result = await _userServices.Register(user);
-                return Ok(user);
+                return Ok(result);
+            }
+            catch (NoUserInThisID e)
+            {
+                return NotFound(new ErrorMessage(StatusCodes.Status400BadRequest , e.Message ));
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return NotFound(new ErrorMessage(StatusCodes.Status500InternalServerError , e.Message));
             }
         }
 
+        [ProducesResponseType(typeof(ReturnLoginUserDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status500InternalServerError)]
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserLogInDTO user)
+        public async Task<ActionResult<ReturnLoginUserDTO>> Login(UserLogInDTO user)
         {
             try
             {
                 var result = await _userServices.Login(user);
                 return Ok(result);
             }
+            catch (NoUserInThisID e)
+            {
+                return NotFound(new ErrorMessage(StatusCodes.Status400BadRequest, e.Message));
+            }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return Unauthorized(new ErrorMessage(StatusCodes.Status500InternalServerError ,e.Message));
             }
+
         }
     }
 }
