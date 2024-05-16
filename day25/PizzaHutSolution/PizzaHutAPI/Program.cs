@@ -7,6 +7,7 @@ using PizzaHutAPI.Models;
 using PizzaHutAPI.Repositories;
 using PizzaHutAPI.Services;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using UserHutAPI.Repositories;
 
 namespace PizzaHutAPI
 {
@@ -37,10 +38,12 @@ namespace PizzaHutAPI
 
             #region Repositories
             builder.Services.AddScoped<IRepository<int, Pizza>, PizzaRepository>();
+            builder.Services.AddScoped<IRepository<int, User>, UserRepository>();
             #endregion
 
             #region Services
             builder.Services.AddScoped<IPizzaService, PizzaService>();
+            builder.Services.AddScoped<IUserServices, UserServices>();
             #endregion
 
 
