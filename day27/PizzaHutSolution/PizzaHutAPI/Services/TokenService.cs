@@ -23,8 +23,8 @@ namespace PizzaHutAPI.Services
                 Audience = null,
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim("ID", user.Id.ToString()),
-                    new Claim("Role", user.Role.ToString())
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, user.Role.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(100),
                 SigningCredentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature)

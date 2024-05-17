@@ -34,8 +34,7 @@ namespace PizzaHutAPI.Controllers
             }
         }
 
-
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(Pizza),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorMessage),StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorMessage),StatusCodes.Status500InternalServerError)]
@@ -55,11 +54,10 @@ namespace PizzaHutAPI.Controllers
                 return NotFound(new ErrorMessage(StatusCodes.Status500InternalServerError, ex.Message));
             }
         }
-
         [ProducesResponseType(typeof(IEnumerable<Pizza>),StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ErrorMessage),StatusCodes.Status500InternalServerError)]
-
+        [Authorize(Roles = "User")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pizza>>> GetMenuItems()
         {
