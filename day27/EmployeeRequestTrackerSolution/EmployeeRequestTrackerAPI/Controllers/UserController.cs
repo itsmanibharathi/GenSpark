@@ -2,6 +2,7 @@
 using EmployeeRequestTrackerAPI.Models;
 using EmployeeRequestTrackerAPI.Models.DTOs;
 using EmployeeRequestTrackerAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,6 +40,22 @@ namespace EmployeeRequestTrackerAPI.Controllers
             try
             {
                 Employee result = await _userService.Register(userDTO);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ErrorModel(501, ex.Message));
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPut("Activate")]
+        [ProducesResponseType(typeof(Employee), StatusCodes.Status200OK)]
+
+        public async Task<ActionResult<Employee>> Activate(int id)
+        {
+            try
+            {
+                Employee result = await _userService.Activate(id);
                 return Ok(result);
             }
             catch (Exception ex)

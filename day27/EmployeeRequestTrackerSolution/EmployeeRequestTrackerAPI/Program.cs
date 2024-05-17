@@ -6,7 +6,9 @@ using EmployeeRequestTrackerAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Diagnostics;
 using System.Text;
 
@@ -21,11 +23,15 @@ namespace EmployeeRequestTrackerAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            #region Swagger
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(option =>
+
+            builder.Services.AddSwaggerGen(c =>
             {
-                option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "web server api", Version = "v1" });
+                c.SchemaFilter<EnumSchemaFilter>();
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
                     Name = "Authorization",
                     Type = SecuritySchemeType.ApiKey,
@@ -34,21 +40,24 @@ namespace EmployeeRequestTrackerAPI
                     In = ParameterLocation.Header,
                     Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
                 });
-                option.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
-                    new OpenApiSecurityScheme
                     {
-                        Reference = new OpenApiReference
+                        new OpenApiSecurityScheme
                         {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    },
-                    new string[] { }
-                }
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
             });
-            });
+            #endregion
+
+            #region JWT
             //Debug.WriteLine(builder.Configuration["TokenKey:JWT"]);
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -62,6 +71,8 @@ namespace EmployeeRequestTrackerAPI
                     };
 
                 });
+
+            #endregion
 
             #region contexts
             builder.Services.AddDbContext<RequestTrackerContext>(
@@ -95,6 +106,19 @@ namespace EmployeeRequestTrackerAPI
             app.MapControllers();
 
             app.Run();
+        }
+    }
+    public class EnumSchemaFilter : ISchemaFilter
+    {
+        public void Apply(OpenApiSchema model, SchemaFilterContext context)
+        {
+            if (context.Type.IsEnum)
+            {
+                model.Enum.Clear();
+                Enum.GetNames(context.Type)
+                    .ToList()
+                    .ForEach(name => model.Enum.Add(new OpenApiString($"{Convert.ToInt64(Enum.Parse(context.Type, name))} - {name}")));
+            }
         }
     }
 }

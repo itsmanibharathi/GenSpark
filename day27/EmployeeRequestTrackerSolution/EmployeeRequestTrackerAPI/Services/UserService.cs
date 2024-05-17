@@ -32,11 +32,11 @@ namespace EmployeeRequestTrackerAPI.Services
             if (isPasswordSame)
             {
                 var employee = await _employeeRepo.Get(loginDTO.UserId);
-                // if(userDB.Status =="Active")
-                //{
-                LoginReturnDTO loginReturnDTO = MapEmployeeToLoginReturn(employee);
-                return loginReturnDTO;
-                // }
+                if(userDB.Status =="Active")
+                {
+                    LoginReturnDTO loginReturnDTO = MapEmployeeToLoginReturn(employee);
+                    return loginReturnDTO;
+                }
 
                 throw new UserNotActiveException("Your account is not activated");
             }
@@ -108,5 +108,20 @@ namespace EmployeeRequestTrackerAPI.Services
             user.Password = hMACSHA.ComputeHash(Encoding.UTF8.GetBytes(employeeDTO.Password));
             return user;
         }
+
+        public async Task<Employee> Activate(int id)
+        {
+            var user = await _userRepo.Get(id);
+            if (user == null)
+            {
+                throw new NoSuchEmployeeException();
+            }
+            user.Status = "Active";
+            await _userRepo.Update(user);
+            var employee = await _employeeRepo.Get(id);
+            return employee;
+        }
+    
     }
+
 }

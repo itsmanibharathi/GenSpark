@@ -4,6 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EmployeeRequestTrackerAPI.Models
 {
+    public enum UserStatus
+    {
+        Active,
+        Inactive,
+        NewUser
+    }
     public class User
     {
         [Key]
@@ -13,8 +19,6 @@ namespace EmployeeRequestTrackerAPI.Models
 
         [ForeignKey("EmployeeId")]
         public Employee Employee { get; set; }
-
-        public string Status { get; set; }
-
+        public UserStatus Status { get; set; }
     }
-}
+}   
