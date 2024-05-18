@@ -34,6 +34,10 @@ namespace UserHutAPI.Repositories
             {
                 return (await _context.Users.SingleOrDefaultAsync(p => p.Id == key)) ?? throw new NoUserInThisID(key);
             }
+            catch (NoUserInThisID)
+            {
+                throw;
+            }
             catch (Exception ex)
             {
                 throw new UnableToDoneActionException("Unable to Get the User");
@@ -49,11 +53,12 @@ namespace UserHutAPI.Repositories
                     return res;
                 throw new EmptyDBException("User");
             }
-            catch (ArgumentNullException)
+
+            catch (EmptyDBException)
             {
-                throw new EmptyDBException("User");
+                throw;
             }
-            catch (OperationCanceledException ex)
+            catch (Exception ex)
             {
                 throw new UnableToDoneActionException("Unable to list All the User");
             }
@@ -69,6 +74,7 @@ namespace UserHutAPI.Repositories
                     return item;
                 throw new AlreadyUpToDateException(item.Id);
             }
+
             catch (Exception ex)
             {
                 throw new UnableToDoneActionException("Unable to Update the User");
@@ -76,15 +82,19 @@ namespace UserHutAPI.Repositories
         }
         public async Task<bool> Delete(int key)
         {
-            var piza = Get(key);
-            _context.Remove(piza);
             try
             {
+                var piza = Get(key);
+                _context.Remove(piza);
                 var res = await _context.SaveChangesAsync();
                 if (res > 0)
                     return true;
                 else
                     return false;
+            }
+            catch (NoUserInThisID)
+            {
+                throw;
             }
             catch (Exception ex)
             {

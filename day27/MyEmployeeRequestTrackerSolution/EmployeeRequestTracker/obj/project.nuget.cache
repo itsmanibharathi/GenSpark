@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "IUJRr+V6ODIIZzkxTNVjnduC1iX+A61LXyz4FILvVifJPNP71R2GvkMp2zz5G9KZoy12nKwyENoGIzQOQGyIdg==",
+  "dgSpecHash": "V5KCNr9se9J5BD4JbNAQKvHizCX8fFZeZhoMCt1NaTjNsGN4NTIh2/ZjjRZdmf9tmaK2SGgb8CLvqLGbTuPcHg==",
   "success": true,
   "projectFilePath": "C:\\Users\\VC\\codestack\\GenSpark\\day27\\MyEmployeeRequestTrackerSolution\\EmployeeRequestTracker\\EmployeeRequestTracker.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\VC\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\VC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\6.1.1\\automapper.extensions.microsoft.dependencyinjection.6.1.1.nupkg.sha512",
     "C:\\Users\\VC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\VC\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.29\\microsoft.aspnetcore.authentication.jwtbearer.6.0.29.nupkg.sha512",
     "C:\\Users\\VC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
