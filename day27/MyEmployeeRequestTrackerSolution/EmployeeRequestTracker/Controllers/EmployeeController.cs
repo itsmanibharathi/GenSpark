@@ -38,6 +38,7 @@ namespace EmployeeRequestTracker.Controllers
             }
         }
 
+
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<ReturnEmployeeDto>))]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ReturnError))]
