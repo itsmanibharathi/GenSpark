@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
+using RequestRequestTracker.Repositories;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
 using UserRequestTracker.Repositories;
@@ -88,12 +89,14 @@ namespace EmployeeRequestTracker
             #region Repositories
             builder.Services.AddScoped<IRepository<int, Employee>, EmployeeRepository>();
             builder.Services.AddScoped<IRepository<int, User>, UserRepository>();
+            builder.Services.AddScoped<IRepository<int, Request>, RequestRepository>();
             #endregion
 
             #region Services
             builder.Services.AddScoped<IEmployeeService, EmployeeService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
+            builder.Services.AddScoped<IRequestService, RequestService>();
             #endregion
 
             var app = builder.Build();

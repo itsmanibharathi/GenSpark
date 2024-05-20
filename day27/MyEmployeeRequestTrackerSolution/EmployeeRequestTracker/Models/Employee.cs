@@ -16,5 +16,9 @@
         public DateTime DateOfJoining { get; set; } = DateTime.Now;
         public DateTime? DateOfLeaving { get; set; } 
         public User? user { get; set; }
+        public ICollection<Request> RaiseRequests { get; set; }
+        public ICollection<Request> SolveRequests { get; set; }
+
+
     }
 }
