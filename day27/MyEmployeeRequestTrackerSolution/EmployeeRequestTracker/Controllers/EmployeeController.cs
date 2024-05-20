@@ -1,11 +1,13 @@
 ﻿using EmployeeRequestTracker.Exceptions;
 using EmployeeRequestTracker.Interfaces;
 using EmployeeRequestTracker.Models.ModelsDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeRequestTracker.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
