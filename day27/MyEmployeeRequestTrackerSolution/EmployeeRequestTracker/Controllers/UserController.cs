@@ -66,7 +66,7 @@ namespace EmployeeRequestTracker.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost("/Activate")]
         public async Task<IActionResult> Activate(int EmployeeId)
         {
@@ -88,6 +88,28 @@ namespace EmployeeRequestTracker.Controllers
                 return NotFound(new ReturnError(StatusCodes.Status500InternalServerError,ex.Message));
             }
         }
-      
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost("/Deactivate")]
+        public async Task<IActionResult> Deactivate(int EmployeeId)
+        {
+            try
+            {
+                var res = await _userService.Deactivate(EmployeeId);
+                return Ok(res);
+            }
+            catch (NoUserInThisID ex)
+            {
+                return NotFound(new ReturnError(StatusCodes.Status404NotFound,ex.Message));
+            }
+            catch (AlreadyUpToDateException ex)
+            {
+                return NotFound(new ReturnError(StatusCodes.Status409Conflict,ex.Message));
+            }
+            catch (Exception ex)
+            {
+                return NotFound(new ReturnError(StatusCodes.Status500InternalServerError,ex.Message));
+            }
+        }
     }
 }

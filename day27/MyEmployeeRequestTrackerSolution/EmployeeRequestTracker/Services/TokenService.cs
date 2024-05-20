@@ -24,7 +24,7 @@ namespace EmployeeRequestTracker.Services
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.EmployeeId.ToString()),
-                    new Claim(ClaimTypes.Role, user.employee?.Role.ToString() ?? EmployeeRole.Employee.ToString())
+                    new Claim(ClaimTypes.Role, user.employee.Role.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(100),
                 SigningCredentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature)

@@ -45,6 +45,8 @@ namespace EmployeeRequestTracker.Services
         public async Task<ReturnRegisterDto> Activate(int EmployeeId)
         {
             User user = _repository.Get(EmployeeId).Result;
+            if (user.Status == UserStatus.Active)
+                throw new AlreadyUpToDateException(EmployeeId);
             user.Status = UserStatus.Active;
             var res = await _repository.Update(user);
             return _mapper.Map<ReturnRegisterDto>(res);
@@ -53,6 +55,8 @@ namespace EmployeeRequestTracker.Services
         public async Task<ReturnRegisterDto> Deactivate(int EmployeeId)
         {
             User user = _repository.Get(EmployeeId).Result;
+            if (user.Status == UserStatus.Inactive)
+                throw new AlreadyUpToDateException(EmployeeId);
             user.Status = UserStatus.Inactive;
             var res = await _repository.Update(user);
             return _mapper.Map<ReturnRegisterDto>(res);

@@ -105,6 +105,8 @@ namespace EmployeeRequestTracker
                 app.UseSwaggerUI();
             }
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
 
