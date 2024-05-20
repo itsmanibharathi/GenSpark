@@ -4,9 +4,9 @@ namespace EmployeeRequestTracker.Interfaces
 {
     public interface IUserService
     {
-        public Task<RegisterLoginDto> SetUpPassword(RegisterLoginDto loginDto);
+        public Task<ReturnRegisterDto> SetUpPassword(RegisterLoginDto loginDto);
         public Task<ReturnLoginDto> Login(RegisterLoginDto loginDto);
-        public Task<ReturnEmployeeDto> Activate(int EmployeeId);
-        public Task<ReturnEmployeeDto> Deactivate(int EmployeeId);
+        public Task<ReturnRegisterDto> Activate(int EmployeeId);
+        public Task<ReturnRegisterDto> Deactivate(int EmployeeId);
     }
 }

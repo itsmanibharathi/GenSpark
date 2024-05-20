@@ -4,8 +4,15 @@ using EmployeeRequestTracker.Models;
 using EmployeeRequestTracker.Profiles;
 using EmployeeRequestTracker.Repositories;
 using EmployeeRequestTracker.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Text;
+using UserRequestTracker.Repositories;
 
 namespace EmployeeRequestTracker
 {
@@ -21,10 +28,55 @@ namespace EmployeeRequestTracker
 
 
             builder.Services.AddAutoMapper(typeof(MappingProfile));
-            
+
+            #region Swagger
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "web server api", Version = "v1" });
+                c.SchemaFilter<EnumSchemaFilter>();
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+            });
+            #endregion
+
+            #region JWT
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
+                    };
+
+                });
+            #endregion
 
             #region Context
             builder.Services.AddDbContext<DBEmpReqTrackerContext>(options =>
@@ -35,10 +87,13 @@ namespace EmployeeRequestTracker
 
             #region Repositories
             builder.Services.AddScoped<IRepository<int, Employee>, EmployeeRepository>();
+            builder.Services.AddScoped<IRepository<int, User>, UserRepository>();
             #endregion
 
             #region Services
             builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<ITokenService, TokenService>();
             #endregion
 
             var app = builder.Build();
@@ -56,6 +111,19 @@ namespace EmployeeRequestTracker
             app.MapControllers();
 
             app.Run();
+        }
+    }
+    public class EnumSchemaFilter : ISchemaFilter
+    {
+        public void Apply(OpenApiSchema model, SchemaFilterContext context)
+        {
+            if (context.Type.IsEnum)
+            {
+                model.Enum.Clear();
+                Enum.GetNames(context.Type)
+                    .ToList()
+                    .ForEach(name => model.Enum.Add(new OpenApiString($"{Convert.ToInt64(Enum.Parse(context.Type, name))} - {name}")));
+            }
         }
     }
 }

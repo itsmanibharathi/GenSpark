@@ -16,7 +16,7 @@ namespace EmployeeRequestTracker.Models
         public UserStatus Status { get; set; } = UserStatus.NewUser;
         public Employee? employee { get; set; }
 
-        public bool AuthenticateUser(string password)
+        public bool CheckPassword(string password)
         {
             HMACSHA256 hMACSHA = new HMACSHA256(PasswordHashKey);
             byte[] passwordHash = hMACSHA.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));

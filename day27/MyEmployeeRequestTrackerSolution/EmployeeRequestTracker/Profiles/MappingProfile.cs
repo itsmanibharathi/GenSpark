@@ -10,6 +10,9 @@ namespace EmployeeRequestTracker.Profiles
         {
             CreateMap<Employee, ReturnEmployeeDto>();
             CreateMap<EmployeeDto, Employee>();
+            CreateMap<RegisterDto, Employee>();
+            CreateMap<ReturnRegisterDto, User>();
+            CreateMap<RegisterLoginDto, User>();
         }
     }
 }

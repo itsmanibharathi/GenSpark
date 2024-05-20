@@ -1,8 +1,8 @@
 ﻿namespace EmployeeRequestTracker.Models.ModelsDTOs
 {
-    public class RegisterLoginDto
+    public class ReturnRegisterDto
     {
         public int EmployeeId { get; set; }
-        public string Password { get; set; }
+        public UserStatus Status { get; set; }
     }
 }
