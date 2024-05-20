@@ -1,0 +1,44 @@
+INFO  12:50:37 Now listening on: http://localhost:5029
+INFO  12:50:37 Application started. Press Ctrl+C to shut down.
+INFO  12:50:37 Hosting environment: Development
+INFO  12:50:37 Content root path: C:\Users\VC\codestack\GenSpark\day28\PizzaHutSolution\PizzaHutAPI\
+WARN  12:50:48 No store type was specified for the decimal property 'Price' on entity type 'Pizza'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+INFO  12:50:48 Entity Framework Core 6.0.30 initialized 'DBPizzaHutContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.30' with options: None
+INFO  12:50:48 Executed DbCommand (52ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[Password], [u].[PasswordHashKey], [u].[Role], [u].[Status]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__key_0
+FATAL 12:50:48 No User in this ID: 0
+INFO  02:04:41 Now listening on: http://localhost:5029
+INFO  02:04:41 Application started. Press Ctrl+C to shut down.
+INFO  02:04:41 Hosting environment: Development
+INFO  02:04:41 Content root path: C:\Users\VC\codestack\GenSpark\day28\PizzaHutSolution\PizzaHutAPI\
+WARN  02:04:51 No store type was specified for the decimal property 'Price' on entity type 'Pizza'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+INFO  02:04:51 Entity Framework Core 6.0.30 initialized 'DBPizzaHutContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.30' with options: None
+INFO  02:04:52 Executed DbCommand (108ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[Password], [u].[PasswordHashKey], [u].[Role], [u].[Status]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__key_0
+ERROR 02:04:52 No User in this ID: 0
+INFO  02:05:28 Now listening on: http://localhost:5029
+INFO  02:05:28 Application started. Press Ctrl+C to shut down.
+INFO  02:05:28 Hosting environment: Development
+INFO  02:05:28 Content root path: C:\Users\VC\codestack\GenSpark\day28\PizzaHutSolution\PizzaHutAPI\
+WARN  02:05:41 No store type was specified for the decimal property 'Price' on entity type 'Pizza'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+INFO  02:05:41 Entity Framework Core 6.0.30 initialized 'DBPizzaHutContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.30' with options: None
+INFO  02:05:42 Executed DbCommand (49ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[Password], [u].[PasswordHashKey], [u].[Role], [u].[Status]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__key_0
+INFO  02:06:02 Now listening on: http://localhost:5029
+INFO  02:06:02 Application started. Press Ctrl+C to shut down.
+INFO  02:06:02 Hosting environment: Development
+INFO  02:06:02 Content root path: C:\Users\VC\codestack\GenSpark\day28\PizzaHutSolution\PizzaHutAPI\
+WARN  02:06:17 No store type was specified for the decimal property 'Price' on entity type 'Pizza'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+INFO  02:06:17 Entity Framework Core 6.0.30 initialized 'DBPizzaHutContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.30' with options: None
+INFO  02:06:18 Executed DbCommand (95ms) [Parameters=[@__key_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[Password], [u].[PasswordHashKey], [u].[Role], [u].[Status]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__key_0
+ERROR 02:06:18 No User in this ID: 0
+INFO  02:06:29 Application is shutting down...
