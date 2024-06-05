@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mani's Resume</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            margin: 10px; 
+            padding: 5% 25%;
+        }
+        td{
+            padding: 2%;
+            border-bottom: 1px solid black;
+        }
+        .header-container{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .title-container{
+            display: flex;
+            flex-direction: column;
+        }
+        .title{
+            color: black;
+            font-size: 30px;
+        }
+        .sub{
+            color: gray;
+            top: 10px;
+        }
+        .img-profile{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        
+        @media(max-width: 768px){
+            body{
+                margin: 5px;
+                padding: 10%; 
+            }
+        }
+        
+        @media(max-width: 500px){
+            body{
+                margin: 5px;
+                padding: 5%; 
+            }
+            
+            .header-container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 20px ;
+            }
+            .title-container{
+                display: flex;
+                flex-direction: column;
+            }
+            .title{
+                color: black;
+                font-size: 30px;
+            }
+            .sub{
+                color: gray;
+                top: 10px;
+            }
+            .img-profile{
+                width: 100px;
+                height: 100px;
+                border-radius: 0%;
+            }
+        }
+    </style>
+</head >
+<body >
+
+    <header class="header-container" >
+        <div class="title-container">
+            <h2 class="title"><strong> Manibharathi M</strong></h2>
+            <h4 class="sub">Software Developer</h4>
+        </div>
+        <div align="right">
+            <img class="img-profile" src="./Asset/profile.jpg" alt="profile image">
+        </div>
+    </header>
+    <hr style="border-width: 2px; "  >
+    <dir>
+        <table>
+            <tr>
+                <td style="width: 25%; " >
+                    <h3>Objective</h3>
+                </td>
+                <td>
+                    <p>Seeking a challenging position in a reputable organization to expand my learnings, knowledge, and skills.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Education</h3>
+                </td>
+                <td>
+                    <h4> B.E. Computer Science and Engineering</h4>
+                    <p>Kongu Engineering College , Erode, TN</p>
+                    <p> <i>2021-2024 </i> </p>
+                    <h4>Diploma </h4>
+                    <p>Kongu Polytechnic College , Erode, TN</p>
+                    <p><i>2018-2021 </i> </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Skills</h3>
+                </td>
+                <td>
+                    <ul>
+                        <li>C#</li>
+                        <li>SQL</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Experience</h3>
+                </td>
+                <td>
+                    <h4>Associate Engineer </h4>
+                    <p>Presidio Solutions Private Limited, Coimbatore </p>
+                    <p><i>2024 - Pres</i></p>
+                    <p>Full Stack Software Developed </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Projects</h3>
+                </td>
+                <td>
+                    <h4>Project 1</h4>
+                    <p><i>2020-2021</i></p>
+                    <p>Developed a web application for a client to manage their employees</p>
+                    <h4>Project 2</h4>
+                    <p><i>2020-2021</i></p>
+                    <p>Developed a web application for a client to manage their employees</p>
+                    <h4>Project 3</h4>
+                    <p><i>2020-2021</i></p>
+                    <p>Developed a web application for a client to manage their employees</p>
+                    <h4>Project 4</h4>
+                    <p><i>2020-2021</i></p>
+                    <p>Developed a web application for a client to manage their employees</p>
+                </td>
+            </tr>
+        </table>
+
+        <dir>
+
+        </dir>
+    </dir>    
+</body>
+</html>
