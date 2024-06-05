@@ -48,29 +48,34 @@ section p{
 
 
 .empform{
-    padding: 10px;
+    padding: 10px 100px ;
 }
 
 .empform label{
     font-weight: bold;
+    font-size: 1.2em;
+    width: 30%;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
 }
 
 .empform input{
     padding: 5px;
     margin: 5px;
+    width: 60%;
 }
+
 
 .empform button{
+    background-color:deepskyblue;
+    color: white;
     padding: 5px;
     margin: 5px;
-    background-color: #333;
-    color: white;
+    margin-bottom: 0;
     border: none;
-    
-}
-
-.empform button:hover{
-    background-color: #555;
+    width: 100px;
+    right : 0;
 }
 
 
