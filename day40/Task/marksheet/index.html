@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Sheet</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .mainframe{
+            margin: 5% 20%; 
+            height: 100vh; 
+            border: 4px double rgb(235, 71, 71);
+        }
+
+        .img-left{
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        .img-mid{
+            width: 100px;
+            height: 100px;
+            margin-left: 27%;
+            margin-top: 30px;
+        }
+        .img-right{ 
+            float: right;
+            width: 100px;
+            height: 100px;
+        }
+
+        .mark-list{
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .mark-list th{
+            background-color:  rgb(235, 71, 71);
+            border: 1px solid black;
+            padding: 5px;
+        }
+        .mark-list td{
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            padding: 5px;
+        }
+        .mark-list tfoot{
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+
+        @media(max-width: 768px){
+            .mainframe{
+                margin: 5px; 
+                height: 100vh; 
+                border: 4px double rgb(235, 71, 71);
+            }
+
+            .img-left{
+                width: 70px;
+                height: 70px;
+                float: left;
+            }
+
+            .img-mid{
+                width: 70px;
+                height: 70px;
+                margin-left: 20%;
+                margin-top: 30px;
+            }
+
+            .img-right{ 
+                float: right;
+                width: 70px;
+                height: 70px;
+            }
+
+            .mark-list{
+                margin-top: 20px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            .mark-list th{
+                background-color:  rgb(235, 71, 71);
+                border: 1px solid black;
+                padding: 5px;
+            }
+
+            .mark-list td{
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+                padding: 5px;
+            }
+
+            .mark-list tfoot{
+                border: 1px solid black;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0px; padding: 0;" >
+    <div class="mainframe" >
+        <div style="padding: 10px; " >
+            <img src="./Asset/QR_Code_Example.svg" alt="NO qr" class="img-left" >
+            <img src="./Asset/University.jpg" alt="No University" class="img-mid">
+            <img src="./Asset/Profile.jpg" alt="no profile" class="img-right" >
+        </div>
+        <div style="padding: 10px; " >
+            <h2 style="text-align: center;">XYZ Engineering College</h2>
+            <h4 style="text-align: center;">AAA, Tamil Nadu</h4>
+        </div> 
+        <div style="margin: 2px 10%;">
+
+            <table style="width: 100%;" >
+                <tr>
+                    <td >Name : XXXX </td>
+                    <td >Roll No : 123456</td>
+                </tr>
+                <tr >
+                    <td>Branch : Computer Science and Engineering</td>
+                    <td >Batch : 2021-2025</td>
+                </tr>
+            </table>
+            <table class="mark-list">
+                <tr">
+                    <th>Subject</th>
+                    <th>Max Marks</th>
+                    <th>Mark</th>
+                    <th>Grad Point</th>
+                </tr>
+                <tr>
+                    <td>Maths</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Physics</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Chemistry</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Computer Science</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>100</td>
+                </tr>
+                <tfoot>
+                    <td>Total</td>
+                    <td>500</td>
+                    <td>500</td>
+                    <td>500</td>
+                </tfoot>
+            </table>
+            <table style="width: 100%; margin-top: 30px;">
+                <tr>
+                    <td>Percentage : 100%</td>
+                    <td>Grade : A+</td>
+                </tr>
+                <tr>
+                    <td>Result : Pass</td>
+                    <td>Rank : 1</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>
