@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    right: 0;
+    width: 65%;
+    z-index: 1000;
+    border-bottom-left-radius: 10rem;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content:space-around;
+    padding: 10px;
+}
+nav a {
+    display: flex;
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.home {
+    background-color: #e0f7fa;
+}
+.about {
+    background-color: #f1f8e9;
+}
+.journey {
+    background-color: #fff3e0;
+}
+.skills {
+    background-color: #fce4ec;
+}
+.projects {
+    background-color: #e8f5e9;
+}
+.contact {
+    background-color: #ede7f6;
+}
+.container {
+    text-align: center;
+}
+.profile {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.profile img {
+    max-width: 150px;
+    border-radius: 50%;
+    padding: 20px;
+}
+footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+}
+.contact label {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+.contact form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contact form button:hover {
+    background-color: #555;
+}
+
+dt {
+    font-weight: bold;
+}
+dd {
+    padding-left: 5%;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        width: 100%;
+        border-bottom-left-radius: 0;
+    }
+    nav {
+        flex-direction: column;
+    }
+    nav a {
+        margin: 10px 0;
+        justify-content: center;
+    }
+    .profile {
+        flex-direction: column;
+
+    }
+}
