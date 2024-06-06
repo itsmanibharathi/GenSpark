@@ -31,6 +31,8 @@ section {
     padding: 20px;
     box-sizing: border-box;
 }
+
+
 .home {
     background-color: #e0f7fa;
 }
@@ -62,6 +64,10 @@ section {
     border-radius: 50%;
     padding: 20px;
 }
+
+
+
+
 footer {
     background-color: #fff;
     text-align: center;
