@@ -26,6 +26,13 @@
             flex-direction: column;
             padding: 25px;
         }
+        .right{
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 0 25px;
+        }
 
         .blue-bold {
             font-family: 'Arial', sans-serif; 
@@ -52,29 +59,27 @@
             font-size: 20px;
         }
 
-        android{
+        .img-container{
             position: relative;
             flex-direction: row;
             width: 50%;
         }
-        iphone{
-            /* position: relative; */
-            flex-direction: row;
-            width: 50%;
-        }
+
         img{
-            position: absolute;
             width: 200px;
-            height: 400px;
+            height: auto;
         }
 
         .img1{
             position: absolute;
-            top : 70px;
+            top: 170px;
+            z-index: 2;
         }
         .img2{
-            position: absolute;
+            position:absolute;
             top : 130px;
+            margin-left: 45px;
+            z-index: 1;
         }
         
 
@@ -93,14 +98,16 @@
             </ul>
         </div>
         <div class="right">
-            <div class="android" >
-                <img src="./Assets/android1.webp" alt="no img" class="android-img img1" >
-                <img src="./Assets/android2.webp" alt="no img" class="android-img img2">
+            <div class="img-container" >
+                
+                <img src="./Assets/Android1.png" alt="no img" class="android-img img1" >
+                <img src="./Assets/Android2.png" alt="no img" class="android-img img2">
             </div>
 
-            <div class="iphone">
-                <img src="./Assets/iphone1.webp" alt="no img" class="iphone-img img1">
-                <img src="./Assets/iphone2.webp" alt="no img" class="iphone-img img2">
+            <div class="img-container">
+                
+                <img src="./Assets/iPhone1.png" alt="no img" class="iphone-img img1">
+                <img src="./Assets/iPhone2.png" alt="no img" class="iphone-img img2">
             </div>
         </div>
 
