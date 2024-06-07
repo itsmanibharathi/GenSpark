@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail UI Mobile Design Template</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: -webkit-linear-gradient(116deg, rgb(47, 128, 237) 50%, rgb(247, 248, 252) 50%);
+            height: 100vh; 
+        }
+
+        .container{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+        .left{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+        }
+
+        .blue-bold {
+            font-family: 'Arial', sans-serif; 
+            font-weight: 700;
+            color: #4285F4; 
+            font-size: 48px; 
+        }
+        .black-bold {
+            font-weight: 900; 
+            color: black;
+        }
+        .regular {
+            font-family: 'Arial', sans-serif; 
+            font-weight: 400;
+            color: black;
+            font-size: 55px; 
+        }
+
+        ul{
+            padding: 20px 0 0 20px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: black;
+            font-size: 20px;
+        }
+
+        android{
+            position: relative;
+            flex-direction: row;
+            width: 50%;
+        }
+        iphone{
+            /* position: relative; */
+            flex-direction: row;
+            width: 50%;
+        }
+        img{
+            position: absolute;
+            width: 200px;
+            height: 400px;
+        }
+
+        .img1{
+            position: absolute;
+            top : 70px;
+        }
+        .img2{
+            position: absolute;
+            top : 130px;
+        }
+        
+
+
+
+    </style>
+</head>
+<body >
+    <div class="container">
+        <div class="left">
+            <p class="blue-bold">FREE Gmail UI<br>IPhone & Andoid<br>Mockup <span class="black-bold">2024</span></p>
+            <p class="regular">Design template</p>
+            <ul>
+                <li>Android</li> 
+                <li>Iphone </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="android" >
+                <img src="./Assets/android1.webp" alt="no img" class="android-img img1" >
+                <img src="./Assets/android2.webp" alt="no img" class="android-img img2">
+            </div>
+
+            <div class="iphone">
+                <img src="./Assets/iphone1.webp" alt="no img" class="iphone-img img1">
+                <img src="./Assets/iphone2.webp" alt="no img" class="iphone-img img2">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
