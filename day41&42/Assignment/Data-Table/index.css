@@ -28,10 +28,15 @@
     display: flex;
     gap: 20px;
     flex-direction: row;
-
     padding: 20px;
-    background-color: rgb(247, 249, 253);
+    /* background-color: rgb(247, 249, 253); */
     width: 100%;
+}
+
+.header-bg {
+    background-color: rgb(247, 249, 253);
+    padding: 20px;
+    border-bottom: 2px solid rgb(197, 201, 208);
 }
 
 .filter{
@@ -61,7 +66,7 @@
 }
 
 .search-box::before {
-    content: "\f002"; /* Font Awesome code for the search icon */
+    content: "\f002"; 
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     position: absolute;
@@ -104,9 +109,6 @@ table {
     border-collapse: collapse;
 }
 
-thead {
-    background-color: rgb(247, 249, 253);
-}
 
 thead th {
     text-align: left;
