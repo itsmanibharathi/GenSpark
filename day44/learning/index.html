@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        console.log("Var" + v);
+        var v = 10;
+        console.log("Var" + v);
+
+        console.log("let" + l);
+        let l = 10;
+        console.log("let" + l);
+
+        function myFunction() {
+            let a = "10";
+            alert(a - 1);
+        }
+
+        function localscope() {
+            let a = 10;
+            console.log(a);
+        }
+
+        b;
+        function setB() {
+            b = 10;
+        }
+        function globalScope() {
+            setB();
+            console.log("global " + b);
+        }
+
+
+        // ---------------------------------------------------
+        var num1 = 90;//alternate is num1= 10;
+        var greet = () => alert("Hello");
+        var understandingVariables = () => {
+            let num1 = 200;
+            window.num1 = 300;//the global variable
+            console.log("The value of num1 in UnderstandingValriables " + num1);
+        }
+        var anotherMethod = () => {
+            understandingVariables();
+            console.log(num1);
+        }
+        function understandingNoValues() {
+            var name = null;
+            var age = undefined;
+            if (age === name)
+                console.log("yes")
+            else
+                console.log("no")
+        }
+
+
+        function understandingBoolean() {
+            var name = null;
+            var age;
+            var result = false;
+            if (!name)
+                console.log("No name given");
+            if (!age)
+                console.log("No age given")
+            if (!result)
+                console.log("No result given")
+
+            if (name === result)
+                console.log("Name and result are same")
+            else
+                console.log("not same")
+        }
+
+        function understandingJSON() {
+            var person = {
+                name: "John",
+                age: 30,
+                city: "New York"
+            }
+            console.log(person.name);
+            console.log(person["name"]);
+        }
+
+
+        function understandingMutidimenstionArry() {
+            const scores = [
+                [90, 89, 76],
+                [67, 92, 64]
+            ]
+            for (let index = 0; index < scores.length; index++) {
+                console.log(scores[index]);
+                for (let i = 0; i < scores[index].length; i++)
+                    console.log(scores[index][i])
+            }
+            var changedArray = scores.flat();
+            console.log(changedArray)
+        }
+
+        function understandingFilter() {
+            const scores = [100, 90, 89, 67, 70];
+            var topScores = scores.filter(n => n > 75);
+            console.log(topScores);
+        }
+
+        function understandingMap() {
+            const scores = [100, 90, 89, 67, 70];
+            var ranks = scores.map(n => Math.round(n / 10, 0));
+            console.log(ranks);
+
+            var stringNumbers = ["1", "2", "3", "4"];
+            console.log(stringNumbers.map(n => parseInt(n)));
+        }
+    </script>
+</head>
+
+<body>
+    hello world
+
+    <button onclick="myFunction()">Click me</button>
+
+    <button onclick="localscope()">local scope Click me</button>
+
+    <button onclick="globalScope()">global scope Click me</button>
+
+    <br>-------------------------------------------------------------- <br>
+
+    <button onclick="anotherMethod()">Try global variable</button>
+
+    <br>-------------------------------------------------------------- <br>
+
+    <button onclick="understandingNoValues()">Understanding No Values</button>
+
+
+    <br>-------------------------------------------------------------- <br>
+
+    <button onclick="understandingBoolean()">Understanding Boolean</button>
+
+    <br>-------------------------------------------------------------- <br>
+
+    <button onclick="understandingJSON()">Understanding JSON</button>
+
+
+    <br>-------------------------------------------------------------- <br>
+
+    <button onclick="understandingMutidimenstionArry()">Understanding Multidimensional Array</button>
+
+    <button onclick="understandingFilter()">Understanding Filter</button>
+
+    <button onclick="understandingMap()">Understanding Map</button>
+</body>
+
+</html>
