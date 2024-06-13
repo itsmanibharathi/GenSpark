@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Data</title>
+    <style>
+        form {
+            margin: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input {
+            width: 200px;
+            box-sizing: border-box;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            width: 100px;
+            margin-left: 100px;
+        }
+
+        button[type="reset"] {
+            width: 100px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        span.error {
+            color: red;
+            font-size: 12px;
+        }
+
+        span.error::before {
+            content: '*';
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Product Form</h1>
+
+    <form id="productForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span class="error" id="nameError"></span>
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price">
+            <span class="error" id="priceError"></span>
+        </div>
+        <div>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity">
+            <span class="error" id="quantityError"></span>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <h1>Product Data</h1>
+
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        var nameInput = document.getElementById('name');
+        var priceInput = document.getElementById('price');
+        var quantityInput = document.getElementById('quantity');
+
+        nameInput.addEventListener('change', validateName);
+        priceInput.addEventListener('change', validatePrice);
+        quantityInput.addEventListener('change', validateQuantity);
+
+        document.getElementById('productForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            if (validateForm()) {
+                var table = document.getElementById('productTable').getElementsByTagName('tbody')[0];
+                var newRow = table.insertRow(table.rows.length);
+                var cel0 = newRow.insertCell(0);
+                var cel1 = newRow.insertCell(1);
+                var cel2 = newRow.insertCell(2);
+                var cel3 = newRow.insertCell(3);
+                cel0.innerHTML = table.rows.length;
+                cel1.innerHTML = nameInput.value;
+                cel2.innerHTML = priceInput.value;
+                cel3.innerHTML = quantityInput.value;
+
+                nameInput.value = '';
+                priceInput.value = '';
+                quantityInput.value = '';
+            }
+        });
+
+        function validateForm() {
+            var isValid = true;
+
+            isValid = validateName() && isValid;
+            isValid = validatePrice() && isValid;
+            isValid = validateQuantity() && isValid;
+
+            return isValid;
+        }
+
+        function validateName() {
+            var name = nameInput.value.trim();
+            var nameError = document.getElementById('nameError');
+
+            if (name === '') {
+                nameError.textContent = 'Name is required';
+                return false;
+            } else if (name.length <= 3) {
+                nameError.textContent = 'Name must be longer than 3 characters';
+                return false;
+            } else {
+                nameError.textContent = '';
+                return true;
+            }
+        }
+
+        function validatePrice() {
+            var price = priceInput.value.trim();
+            var priceError = document.getElementById('priceError');
+
+            if (price === '') {
+                priceError.textContent = 'Price is required';
+                return false;
+            } else if (isNaN(price)) {
+                priceError.textContent = 'Price must be a number';
+                return false;
+            } else if (price <= 0 || price > 1000) {
+                priceError.textContent = 'Price must be between 1 and 1000';
+                return false;
+            } else {
+                priceError.textContent = '';
+                return true;
+            }
+        }
+
+        function validateQuantity() {
+            var quantity = quantityInput.value.trim();
+            var quantityError = document.getElementById('quantityError');
+
+            if (quantity === '') {
+                quantityError.textContent = 'Quantity is required';
+                return false;
+            } else if (isNaN(quantity)) {
+                quantityError.textContent = 'Quantity must be a number';
+                return false;
+            } else if (quantity <= 0 || quantity > 100) {
+                quantityError.textContent = 'Quantity must be between 1 and 100';
+                return false;
+            } else {
+                quantityError.textContent = '';
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>
