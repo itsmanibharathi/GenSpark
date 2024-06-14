@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        section {
+            width: 40%;
+            margin: auto;
+            border: 1px solid #333;
+            padding: 20px;
+            box-shadow: 2px 2px 5px #333;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin: 30px;
+
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+
+
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        span.error {
+            color: red;
+            font-size: 12px;
+        }
+
+        span.error::before {
+            content: '*';
+            vertical-align: top;
+        }
+
+        input.error {
+            border: red 2px solid;
+            box-shadow: 2px 2px 5px pink;
+        }
+
+        input.correct {
+            border: green 2px solid;
+            box-shadow: 2px 2px 5px lightgreen;
+        }
+
+        .qualification {
+            display: flex;
+            flex-direction: row;
+
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section>
+        <h1>User Registration</h1>
+        <form id="registrationForm">
+            <label for="name">Name: <span id="nameError" class="error"></span></label>
+            <input type="text" id="name" name="name" placeholder="Manibharathi" required onblur="checkName()">
+            <label for="email">Email: <span id="emailError" class="error"></span></label>
+            <input type="email" id="email" name="email" placeholder="manibarathi@gmail.com" required
+                onblur="checkEmail()">
+            <label for="phone">Phone: <span id="phoneError" class="error"></span></label>
+            <input type="tel" id="phone" name="phone" placeholder="9876543210" required onblur="checkPhone()">
+            <label for="dob">Date of Birth: <span id="dobError" class="error"></span></label>
+            <input type="date" id="dob" name="dob" required onblur="checkDob()">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" readonly>
+            <label>Gender <span id="genderError" class="error"></span></label>
+            <input type="radio" name="gender" id="genderMale" value="male" onblur="checkGender()"> Male
+            <input type="radio" name="gender" id="genderFemale" value="female" onblur="checkGender()"> Female
+
+            <div class="qualification">
+                <label for="qualification">Qualification:</label>
+                <input type="checkbox" name="qualification" value="10th"> 10th
+                <input type="checkbox" name="qualification" value="12th"> 12th
+                <input type="checkbox" name="qualification" value="Diploma"> Diploma
+                <input type="checkbox" name="qualification" value="Degree"> Degree
+                <input type="checkbox" name="qualification" value="PG"> PG
+            </div>
+
+            <label for="profession">Profession: <span class="error"></span></label>
+            <input list="professions" id="profession" name="profession" required>
+            <datalist id="professions">
+                <option value="Software Engineer">
+                <option value="Doctor">
+                <option value="Teacher">
+                <option value="Engineer">
+                <option value="Lawyer">
+                <option value="Accountant">
+            </datalist>
+            <input type="submit" id="submitBtn" value="Register">
+        </form>
+    </section>
+
+    <script>
+        const checkName = () => {
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            if (!name.value.trim()) {
+                nameError.textContent = 'Name should not be empty';
+                name.classList.remove('correct');
+                name.classList.add('error');
+                return false;
+            } else {
+                nameError.textContent = '';
+                name.classList.remove('error');
+                name.classList.add('correct');
+                return true;
+            }
+        }
+
+        const checkEmail = () => {
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            if (!email.value.trim()) {
+                emailError.textContent = 'Email should not be empty';
+                email.classList.remove('correct');
+                email.classList.add('error');
+                return false;
+            } else if (!email.value.includes('@')) {
+                emailError.textContent = 'Email should contain @';
+                email.classList.remove('correct');
+                email.classList.add('error');
+                return false;
+            } else {
+                emailError.textContent = '';
+                email.classList.remove('error');
+                email.classList.add('correct');
+                return true;
+            }
+        }
+
+        const checkPhone = () => {
+            const phone = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            if (!phone.value.trim()) {
+                phoneError.textContent = 'Phone should not be empty';
+                phone.classList.remove('correct');
+                phone.classList.add('error');
+                return false;
+            } else if (phone.value.length < 10) {
+                phoneError.textContent = 'Phone should be 10 digits';
+                phone.classList.remove('correct');
+                phone.classList.add('error');
+                return false;
+            } else {
+                phoneError.textContent = '';
+                phone.classList.remove('error');
+                phone.classList.add('correct');
+                return true;
+            }
+        }
+
+        const checkDob = () => {
+            const dob = document.getElementById('dob');
+            const dobError = document.getElementById('dobError');
+            const age = document.getElementById('age');
+            const dobValue = new Date(dob.value);
+            const today = new Date();
+            const ageDiff = today.getFullYear() - dobValue.getFullYear();
+            const monthDiff = today.getMonth() - dobValue.getMonth();
+            const dayDiff = today.getDate() - dobValue.getDate();
+
+
+
+            let calculatedAge = ageDiff;
+            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                calculatedAge--;
+            }
+
+            if (calculatedAge < 18) {
+                dobError.textContent = 'You must be at least 18 years old';
+                dob.classList.remove('correct');
+                dob.classList.add('error');
+                age.value = '';
+                return false;
+            } else {
+                dobError.textContent = '';
+                dob.classList.remove('error');
+                dob.classList.add('correct');
+                age.value = calculatedAge;
+                return true;
+            }
+        }
+
+        const checkGender = () => {
+            const genderMale = document.getElementById('genderMale');
+            const genderFemale = document.getElementById('genderFemale');
+            const genderError = document.getElementById('genderError');
+            if (!genderMale.checked && !genderFemale.checked) {
+                genderError.textContent = 'Please select your gender';
+                genderMale.classList.add('error');
+                genderFemale.classList.add('error');
+                return false;
+            } else {
+                genderError.textContent = '';
+                genderMale.classList.remove('error');
+                genderFemale.classList.remove('error');
+                return true;
+            }
+        }
+
+        const validateForm = () => {
+            const isNameValid = checkName();
+            const isEmailValid = checkEmail();
+            const isPhoneValid = checkPhone();
+            const isDobValid = checkDob();
+            const isGenderValid = checkGender();
+
+            if (isNameValid && isEmailValid && isPhoneValid && isDobValid && isGenderValid) {
+                document.getElementById('submitBtn').disabled = false;
+            } else {
+                document.getElementById('submitBtn').disabled = true;
+            }
+
+            return isNameValid && isEmailValid && isPhoneValid && isDobValid && isGenderValid;
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

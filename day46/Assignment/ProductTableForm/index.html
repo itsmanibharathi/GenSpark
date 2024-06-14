@@ -64,7 +64,7 @@
     <form id="productForm">
         <div>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" onblur="validateName()">
             <span class="error" id="nameError"></span>
         </div>
         <div>
@@ -105,7 +105,7 @@
         var priceInput = document.getElementById('price');
         var quantityInput = document.getElementById('quantity');
 
-        nameInput.addEventListener('change', validateName);
+        // nameInput.addEventListener('change', validateName);
         priceInput.addEventListener('change', validatePrice);
         quantityInput.addEventListener('change', validateQuantity);
 
