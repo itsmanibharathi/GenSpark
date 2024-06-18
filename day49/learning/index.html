@@ -5,6 +5,16 @@
     <title>Product Details</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        section {
+            margin: 20px;
+
+        }
+
+        button {
+            margin: 10px;
+        }
+    </style>
     <script>
         const clickButton = () => {
             alert('Button Clicked')
@@ -44,20 +54,70 @@
                 })
                 .then(console.log);
         };
+
+        const putMethod = () => {
+
+
+            const id = document.getElementById('Product-id').value;
+            const commants = document.getElementById('commants').value;
+
+            fetch(`https://dummyjson.com/comments/${id}`, {
+                method: 'PUT', /* or PATCH */
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    body: commants,
+                })
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                })
+                .then(console.log);
+        }
+
+        const updateMethod = () => {
+            const id = document.getElementById('Product-id').value;
+            const commants = document.getElementById('commants').value;
+
+            fetch(`https://dummyjson.com/comments/${id}`, {
+                method: 'PUT', /* or PATCH */
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    body: commants,
+                })
+            })
+                .then(res => res.json())
+                .then(console.log);
+        }
     </script>
 </head>
 
 <body>
-    <h2>Login</h2>
-    <div class="form">
-        <input class="form-control" type="email" id="txtUid" placeholder="user name" />
-        <input class="form-control" type="password" id="txtPass" placeholder="xxx" />
-        <button class="btn btn-success" onclick="clickButton()">Login</button>
-    </div>
+    <section>
+        <h2>Login</h2>
+        <div class="form">
+            <input class="form-control" type="email" id="txtUid" placeholder="user name" />
+            <input class="form-control" type="password" id="txtPass" placeholder="xxx" />
+            <button class="btn btn-success" onclick="clickButton()">Login</button>
+        </div>
+    </section>
 
-    <h2>Order Details</h2>
-    <button onclick="getOrders()"> Get Products </button>
+    <hr>
 
+    <section>
+        <h2>Order Details</h2>
+        <button onclick="getOrders()" class="btn btn-success"> Get Products </button>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Try Put and update method</h2>
+        <input type="number" name="Product-id" id="Product-id" placeholder="Product id">
+        <input type="text" name="commands" id="commants" placeholder="commant...">
+        <button onclick="putMethod()" class="btn btn-success">Put Method</button>
+        <button class="btn btn-success" onclick="updateMethod()"> Update </button>
+    </section>
 </body>
 
 </html>
