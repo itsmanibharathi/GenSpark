@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share quotes</title>
+    <link rel="icon" href="./assets/dark.svg" type="image/svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./main.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F7F7F7] flex flex-col min-h-screen">
+    <header>
+        <nav class="bg-gray-900 border-gray-700">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="./assets/light.svg" class="h-8" alt="Share quotes" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Share
+                        Quotes</span>
+                </a>
+                <div class="flex items-center space-x-10">
+                    <a href="./home.html" target="body" class="text-white hover:text-blue-800">Home</a>
+                    <a href="./quote.html" target="body" class="text-white hover:text-blue-800">Quotes</a>
+                    <a href="./search.html" target="body" class="text-white hover:text-blue-800">Search</a>
+                </div>
+        </nav>
+    </header>
+    <iframe name="body" class="flex-grow h-full w-screen" frameborder="0" src="./search.html"></iframe>
+
+    <footer class="bg-gray-900 text-white py-4 text-center">
+        <div class="container mx-auto">
+            &copy; 2024 Share Quotes. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>

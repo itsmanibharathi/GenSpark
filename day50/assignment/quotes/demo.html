@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: calc(33.33% - 10px);
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            color: #333;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        .pagination .prev,
+        .pagination .next {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+        }
+
+        .pagination .prev:hover,
+        .pagination .next:hover {
+            background-color: #ddd;
+        }
+
+        .pagination .prev {
+            order: 0; /* Ensure 'Prev' button comes first */
+        }
+
+        .pagination .next {
+            order: 6; /* Ensure 'Next' button comes last */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Content Page</h1>
+        
+        <!-- Content Items -->
+        <div class="content" id="content">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+            <div class="item">Item 6</div>
+            <div class="item">Item 7</div>
+            <div class="item">Item 8</div>
+            <div class="item">Item 9</div>
+            <div class="item">Item 10</div>
+            <div class="item">Item 11</div>
+            <div class="item">Item 12</div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <a href="#" class="prev" id="prev">&laquo; Prev</a>
+            <a href="#" class="page active" id="page1">1</a>
+            <a href="#" class="page" id="page2">2</a>
+            <a href="#" class="page" id="page3">3</a>
+            <a href="#" class="next" id="next">Next &raquo;</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.item');
+            const prevBtn = document.getElementById('prev');
+            const nextBtn = document.getElementById('next');
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            const page3 = document.getElementById('page3');
+
+            let currentPage = 1;
+
+            // Function to display items based on current page
+            function displayItems(page) {
+                items.forEach(item => {
+                    item.style.display = 'none';
+                });
+
+                const startIndex = (page - 1) * 4;
+                const endIndex = startIndex + 4;
+
+                for (let i = startIndex; i < endIndex; i++) {
+                    if (items[i]) {
+                        items[i].style.display = 'block';
+                    }
+                }
+            }
+
+            // Initial display
+            displayItems(currentPage);
+
+            // Click event for Previous button
+            prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    currentPage--;
+                    updatePagination();
+                    displayItems(currentPage);
+                }
+            });
+
+            // Click event for Next button
+            nextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentPage < 3) { // Adjust this based on the number of pages
+                    currentPage++;
+                    updatePagination();
+                    displayItems(currentPage);
+                }
+            });
+
+            // Click event for Page 1 button
+            page1.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentPage = 1;
+                updatePagination();
+                displayItems(currentPage);
+            });
+
+            // Click event for Page 2 button
+            page2.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentPage = 2;
+                updatePagination();
+                displayItems(currentPage);
+            });
+
+            // Click event for Page 3 button
+            page3.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentPage = 3;
+                updatePagination();
+                displayItems(currentPage);
+            });
+
+            // Function to update active page button
+            function updatePagination() {
+                // Reset all pages to not active
+                page1.classList.remove('active');
+                page2.classList.remove('active');
+                page3.classList.remove('active');
+
+                // Set current page to active
+                if (currentPage === 1) {
+                    page1.classList.add('active');
+                } else if (currentPage === 2) {
+                    page2.classList.add('active');
+                } else if (currentPage === 3) {
+                    page3.classList.add('active');
+                }
+
+                // Enable/disable Prev and Next buttons based on current page
+                if (currentPage === 1) {
+                    prevBtn.classList.add('disabled');
+                } else {
+                    prevBtn.classList.remove('disabled');
+                }
+
+                if (currentPage === 3) {
+                    nextBtn.classList.add('disabled');
+                } else {
+                    nextBtn.classList.remove('disabled');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

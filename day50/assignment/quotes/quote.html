@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share quotes</title>
+    <link rel="icon" href="./assets/dark.svg" type="image/svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./main.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex flex-col h-screen">
+    <!-- filter -->
+
+    <section class="max-w-3xl mx-auto mt-8 flex-grow">
+    </section>
+    <div id="pagination" class="flex justify-center mt-4">
+
+        <a id="Previous" href="#" class="p-2 border border-gray-300 rounded m-2 flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous
+        </a>
+        <div id="num" class="p-2 border border-gray-300 rounded m-2 flex items-center">
+
+        </div>
+
+        <a id="next" href="#" class="p-2 border border-gray-300 rounded m-2 flex items-center">
+            Next
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        fetch('https://dummyjson.com/quotes')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                quotesContainer(data.quotes);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        // Pagination
+        var quotesContainer = (data) => {
+            const quotes = data;
+            const quotesPerPage = 4;
+            let currentPage = 1;
+            const numPages = Math.ceil(quotes.length / quotesPerPage);
+            const pagination = document.getElementById('pagination');
+            const num = document.getElementById('num');
+            const previous = document.getElementById('Previous');
+            const next = document.getElementById('next');
+            const quotesContainer = document.querySelector('section');
+            const quotesList = quotes.map((quote, index) => {
+                return `<div class="px-4 border border-gray-300 rounded m-4">
+                <p class="text-lg font-semibold">${quote.quote}</p>
+                <span class="text-sm font-light block text-right mt-2 before:content-['—']">${quote.author}</span>
+            </div>`;
+            });
+            quotesContainer.innerHTML = quotesList.slice(0, quotesPerPage).join('');
+            num.textContent = `${currentPage} of ${numPages}`;
+            previous.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    quotesContainer.innerHTML = quotesList.slice((currentPage - 1) * quotesPerPage, currentPage * quotesPerPage).join('');
+                    num.textContent = `${currentPage} of ${numPages}`;
+                }
+            });
+            next.addEventListener('click', () => {
+                if (currentPage < numPages) {
+                    currentPage++;
+                    quotesContainer.innerHTML = quotesList.slice((currentPage - 1) * quotesPerPage, currentPage * quotesPerPage).join('');
+                    num.textContent = `${currentPage} of ${numPages}`;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
