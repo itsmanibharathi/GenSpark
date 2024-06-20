@@ -18,8 +18,12 @@
 
 <body class="bg-gray-100 flex flex-col h-screen">
     <!-- filter -->
-
+    <div class="flex space-x-4">
+        <button class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200" onclick="sortBy('asc')">A-Z</button>
+        <button class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200" onclick="sortBy('desc')">Z-A</button>
+    </div>    
     <section class="max-w-3xl mx-auto mt-8 flex-grow">
+
     </section>
     <div id="pagination" class="flex justify-center mt-4">
 
@@ -44,9 +48,28 @@
     </div>
 
     <script>
+        const sortBy = (order) => {
+            fetch('https://dummyjson.com/quotes')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if (order === 'asc') {
+                        data.quotes.sort((a, b) => a.author.localeCompare(b.author));
+                    } else {
+                        data.quotes.sort((a, b) => b.author.localeCompare(a.author));
+                    }
+                    console.log(data);
+                    quotesContainer(data.quotes);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
         fetch('https://dummyjson.com/quotes')
             .then(response => response.json())
             .then(data => {
+                console.log(data);
+                data.quotes.sort((a,b) => b.quote - a.quote );
                 console.log(data);
                 quotesContainer(data.quotes);
             })
