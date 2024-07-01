@@ -1,8 +1,4 @@
 import datetime
-import csv
-import os
-from fpdf import FPDF
-import pandas as pd
 
 class Person:
     def __new__(cls, *args, **kwargs):
@@ -29,38 +25,18 @@ class Person:
     def __repr__(self) -> str:
         return f'{{"name": "{self.name}", "age": {self.age}, "phone": "{self.phone}", "email": "{self.email}"}}'
 
+# person = Person.__new__(Person)
 
-def save_to_text(person, path):
-    with open(f'{path}/person_{person.name}.txt', 'w') as f:
-        f.write(str(person))
+# # Manually set the attributes
+# person.name = "John Doe"
+# person.dob = "10-10-1990"
+# person.phone = "123-456-7890"
+# person.email = "johndoe@example.com"
+# person.age = person.calculate_age()
 
-
-def save_to_csv(person, path):
-    with open(f'{path}/person_{person.name}.csv', 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(['Name', 'Age', 'Phone', 'Email'])
-        writer.writerow([person.name, person.age, person.phone, person.email])
-
-
-def save_to_pdf(person, path):
-    class PDF(FPDF):
-        def header(self):
-            self.set_font('Arial', 'B', 12)
-            self.cell(0, 10, 'Person Details', 0, 1, 'C')
-
-        def footer(self):
-            self.set_y(-15)
-            self.set_font('Arial', 'I', 8)
-            self.cell(0, 10, f'Page {self.page_no()}', 0, 0, 'C')
-
-    pdf = PDF()
-    pdf.add_page()
-    pdf.set_font('Arial', 'B', 12)
-    pdf.cell(0, 10, f'Name: {person.name}', 0, 1)
-    pdf.cell(0, 10, f'Age: {person.age}', 0, 1)
-    pdf.cell(0, 10, f'Phone: {person.phone}', 0, 1)
-    pdf.cell(0, 10, f'Email: {person.email}', 0, 1)
-    pdf.output(f'{path}/person_{person.name}.pdf')
+# # Now you can use the person object
+# print(person)
+# print(repr(person))
 
 
 def main():
@@ -104,17 +80,17 @@ def main():
         else:
             print('Email is required')
     data.age = data.calculate_age()
-    basepath = 'day58_py_Day3/Assignment/Datas'
-    os.makedirs(basepath, exist_ok=True)
-    store_format = input('Store in which format? (text, csv, pdf): ')
+    basepath = f'day58_py_Day3/Assignment/Datas/'
+    store_format = input('Store in which format? (text, xl, pdf): ')
     if store_format == 'text':
-        save_to_text(data, basepath)
-    elif store_format == 'csv':
-        save_to_csv(data, basepath)
+        with open(f'{basepath}/txt/person{data.name}.txt', 'w') as f:
+            f.write(str(data))
+    elif store_format == 'xl':
+        with open(f'{basepath}/csv/person{data.name}.csv', 'w') as f:
+            f.write(f'{data.name},{data.age},{data.phone},{data.email}')
     elif store_format == 'pdf':
-        save_to_pdf(data, basepath)
+        with open(f'{basepath}/pdf/person{data.name}.pdf', 'w') as f:
+            f.write(repr(data))
     else:
         print('Invalid format')
-
-if __name__ == '__main__':
-    main()
+main()

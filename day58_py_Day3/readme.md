@@ -9,7 +9,6 @@
 5) Exception Handling (Try Except)
 6) File handling - Read and Write
 
-
 > Assignment
 
 1) Create a application that will take the Employee details
