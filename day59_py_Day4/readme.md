@@ -1,15 +1,14 @@
-Part A
+# Day 4 python Learning
+
+## Part A
+
 1)https://www.hackerrank.com/skills-verification/python_basic
+
  
------------------------------------------------------------------------
- 
-Part B
+## Part B
 https://www.hackerrank.com/domains/python?filters%5Bskills%5D%5B%5D=Problem%20Solving%20%28Basic%29&filters%5Bskills%5D%5B%5D=Python%20%28Basic%29&filters%5Bskills%5D%5B%5D=Python%20%28Intermediate%29&filters%5Bsubdomains%5D%5B%5D=py-introduction&filters%5Bsubdomains%5D%5B%5D=py-basic-data-types&filters%5Bsubdomains%5D%5B%5D=py-strings&filters%5Bsubdomains%5D%5B%5D=py-sets&filters%5Bsubdomains%5D%5B%5D=py-math&filters%5Bsubdomains%5D%5B%5D=py-date-time&filters%5Bsubdomains%5D%5B%5D=py-collections&filters%5Bsubdomains%5D%5B%5D=errors-exceptions&filters%5Bsubdomains%5D%5B%5D=py-classes&filters%5Bsubdomains%5D%5B%5D=py-functionals&filters%5Bsubdomains%5D%5B%5D=py-regex
- 
--------------------------------------------------------------------------
- 
- 
-Part C
+
+## Part C
  
 1) https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 2) https://leetcode.com/problems/zigzag-conversion/description/
