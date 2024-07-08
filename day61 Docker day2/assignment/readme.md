@@ -1,4 +1,4 @@
-# Day 2 Docker Assignment 
+# Day 2 Docker Assignment [References](https://tomcam.github.io/postgres/)
 
 Pull postgres image
 
