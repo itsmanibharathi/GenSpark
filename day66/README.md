@@ -21,6 +21,11 @@ This ATM app provides two main functionalities: Deposit and Withdrawal. It inclu
 2. One person cannot withdraw more than 10,000 at one go.
 3. One person cannot deposit more than 20,000 at one go.
 
+## Repository Links
+
+- **Frontend**: [ATM App Frontend](https://github.com/Thunder7Inc/WebAPI-Frontend)
+- **Backend**: [ATM App Backend](https://github.com/Thunder7Inc/WebAPI)
+
 ## Hosted Links
 
 - **Frontend**: [ATM App Frontend](https://thunder7inc.github.io/WebAPI-Frontend/html/index.html)
