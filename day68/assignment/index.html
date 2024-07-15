@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <script src="./script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 flex justify-center mx-auto">
+    <section class="items-center flex flex-col gap-2">
+        <div class="flex flex-col">
+
+            <div id="row1" class=" flex flex-row">
+                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+            </div>
+            <div id="row2" class=" flex flex-row">
+                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+            </div>
+            <div id="row3" class=" flex flex-row">
+                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+            </div>
+            <div id="row4" class=" flex flex-row">
+                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+            </div>
+            <div id="row5" class=" flex flex-row">
+                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+            </div>
+            <div id="row6" class=" flex flex-row">
+                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+            </div>
+        </div>
+        <div id="keybord">
+            <div class="flex flex-col gap-2 mx-auto w-full">
+                <div class="flex flex-row gap-2">
+                    <div id="q" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">q</div>
+                    <div id="w" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">w</div>
+                    <div id="e" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">e</div>
+                    <div id="r" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">r</div>
+                    <div id="t" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">t</div>
+                    <div id="y" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">y</div>
+                    <div id="u" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">u</div>
+                    <div id="i" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">i</div>
+                    <div id="o" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">o</div>
+                    <div id="p" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">p</div>
+                </div>
+                <div class="flex flex-row gap-2 justify-center">
+                    <div id="a" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">a</div>
+                    <div id="s" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">s</div>
+                    <div id="d" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">d</div>
+                    <div id="f" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">f</div>
+                    <div id="g" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">g</div>
+                    <div id="h" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">h</div>
+                    <div id="j" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">j</div>
+                    <div id="k" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">k</div>
+                    <div id="l" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">l</div>
+                </div>
+                <div class="flex flex-row gap-2 justify-center">
+                    <div id="enter" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">enter</div>
+                    <div id="z" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">z</div>
+                    <div id="x" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">x</div>
+                    <div id="c" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">c</div>
+                    <div id="v" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">v</div>
+                    <div id="b" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">b</div>
+                    <div id="n" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">n</div>
+                    <div id="m" class="size-max bg-slate-300 px-5 py-3 rounded-lg hover:bg-gray-400">m</div>
+                </div>
+            </div>
+    </section>
+    <script>
+        // hilate the  keys when real keybord key is pressed
+
+
+    </script>
+</body>
+
+</html>
