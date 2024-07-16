@@ -7,53 +7,84 @@
     <title>Wordle</title>
     <script src="./script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @keyframes flip {
+            from {
+            transform: rotateX(250deg);
+            }
+            to {
+            transform: rotateX(360deg);
+            }
+        }
+
+        .animate-flip {
+            animation: flip 1s forwards;
+        }
+        .col {
+            @apply size-[50px] m-1 border-2 border-[#333] border-solid text-white text-lg font-bold flex items-center justify-center
+        }
+        .correct{
+            @apply bg-gray-800 text-green-300
+        }
+        .present{
+            @apply bg-gray-800 text-orange-300
+        }
+
+        
+    </style>
 </head>
 
 <body class="bg-slate-900 flex justify-center mx-auto">
+
+
     <section class="items-center flex flex-col gap-2">
-        <div class="flex flex-col">
+        <div id="row" class="flex flex-col">
 
             <div id="row1" class=" flex flex-row">
-                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <span id="row1col1" class="col"></span>
+                <span id="row1col2" class="col"></span>
+                <span id="row1col3" class="col"></span>
+                <span id="row1col4" class="col"></span>
+                <span id="row1col5" class="col"></span>
             </div>
             <div id="row2" class=" flex flex-row">
-                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <span id="row2col1" class="col"></span>
+                <span id="row2col2" class="col"></span>
+                <span id="row2col3" class="col"></span>
+                <span id="row2col4" class="col"></span>
+                <span id="row2col5" class="col"></span>
             </div>
+
             <div id="row3" class=" flex flex-row">
-                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <span id="row3col1" class="col"></span>
+                <span id="row3col2" class="col"></span>
+                <span id="row3col3" class="col"></span>
+                <span id="row3col4" class="col"></span>
+                <span id="row3col5" class="col"></span>
             </div>
+
             <div id="row4" class=" flex flex-row">
-                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <span id="row4col1" class="col"></span>
+                <span id="row4col2" class="col"></span>
+                <span id="row4col3" class="col"></span>
+                <span id="row4col4" class="col"></span>
+                <span id="row4col5" class="col"></span>
             </div>
+
             <div id="row5" class=" flex flex-row">
-                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+                <span id="row5col1" class="col"></span>
+                <span id="row5col2" class="col"></span>
+                <span id="row5col3" class="col"></span>
+                <span id="row5col4" class="col"></span>
+                <span id="row5col5" class="col"></span>
             </div>
-            <div id="row6" class=" flex flex-row">
-                <div id="col1" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col2" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col3" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col4" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
-                <div id="col5" class="size-[50px] m-1 border-2 border-[#333] border-solid"></div>
+
+            <div id="row6" class="flex flex-row">
+                <span id="row6col1" class="col"></span>
+                <span id="row6col2" class="col"></span>
+                <span id="row6col3" class="col"></span>
+                <span id="row6col4" class="col"></span>
+                <span id="row6col5" class="col"></span>
             </div>
         </div>
         <div id="keybord">
