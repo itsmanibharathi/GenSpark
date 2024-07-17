@@ -6,14 +6,13 @@ name: Deplyee Ekart-API
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'day70/Assignment/Ekart/API/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./server
+        working-directory: ./day70/Assignment/Ekart/API/
     steps:
       - uses: actions/checkout@v4
 
