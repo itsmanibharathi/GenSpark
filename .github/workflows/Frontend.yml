@@ -3,8 +3,6 @@ name: Frontend Deploy
 on:
   push:
     branches: [ "main" ]
-
-
 jobs:
   commit-and-push:
     runs-on: ubuntu-latest
@@ -12,6 +10,11 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+
+    - name: Set up Git
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
 
     - name: Create new branch if it doesn't exist
       run: |
