@@ -1,4 +1,5 @@
 ﻿using API.Models;
+using API.Models.Dtos;
 using API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,16 @@ namespace API.Controllers
         }
 
         [HttpPost]
-
-        public async Task<IActionResult> Add(Product item)
+        public async Task<IActionResult> Add([FromForm] ProductDto item)
         {
             try
             {
+                if (item.UploadImage == null && item.UploadImage.Length < 0)
+                {
+                    _logger.LogWarning("No file uploaded");
+                    return BadRequest("No file to uploaded");
+                }
+
                 var result = await _productService.Add(item);
                 var res = new Response<Product>(result, StatusCodes.Status201Created);
                 return Ok(res);
@@ -31,10 +37,11 @@ namespace API.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Unable to add product");
-                var res = new Response( StatusCodes.Status500InternalServerError, "Unable to add product");
+                var res = new Response(StatusCodes.Status500InternalServerError, "Unable to add product");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);
             }
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Get()

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 p-6">
+
+    <div class="max-w-7xl mx-auto">
+        <div id="productContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Product cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        const productContainer = document.getElementById('productContainer');
+
+        fetch('http://localhost:5046/api/v1/Product')
+            .then(response => response.json())
+            .then(products => {
+                products.data.forEach(product => {
+                    const card = document.createElement('div');
+                    card.classList.add('bg-white', 'p-4', 'rounded-lg', 'shadow-md');
+
+                    const image = document.createElement('img');
+                    image.classList.add('w-full', 'h-40', 'object-cover', 'rounded-md');
+                    image.src = product.imageUrl;
+                    image.alt = product.name;
+
+                    const name = document.createElement('h2');
+                    name.classList.add('text-xl', 'font-semibold', 'mt-2');
+                    name.textContent = product.name;
+
+                    const description = document.createElement('p');
+                    description.classList.add('text-gray-700', 'mt-2', 'overflow-ellipsis', 'line-clamp-3');
+                    description.textContent = product.description;
+
+                    const price = document.createElement('p');
+                    price.classList.add('text-gray-900', 'font-bold', 'mt-2');
+                    price.textContent = product.price.toFixed(2) + " ₹";
+
+                    const createdDate = document.createElement('p');
+                    createdDate.classList.add('text-gray-500', 'mt-2');
+                    createdDate.textContent = 'Created: ' + new Date(product.createdDate).toLocaleDateString();
+
+                    card.appendChild(image);
+                    card.appendChild(name);
+                    card.appendChild(description);
+                    card.appendChild(price);
+                    card.appendChild(createdDate);
+
+                    productContainer.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching products:', error);
+                alert('Failed to fetch products. Please try again later.');
+            });
+    </script>
+
+</body>
+
+</html>

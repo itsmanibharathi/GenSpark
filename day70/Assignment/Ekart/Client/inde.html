@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-green-500 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div>
+                <a href="#" onclick="navigateToRoute('listProduct.html')" class="text-white font-bold text-lg">Home</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" onclick="navigateToRoute('addProduct.html')" class="text-white hover:text-gray-200">Add
+                    Product </a>
+                <a href="#" onclick="navigateToRoute('listProduct.html')" class="text-white hover:text-gray-200">List
+                    Product</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4">
+        <iframe id="routeFrame" src="listProduct.html" class="w-full h-screen border-0"></iframe>
+    </div>
+
+    <script>
+        function navigateToRoute(route) {
+            const frame = document.getElementById('routeFrame');
+            frame.src = route;
+        }
+    </script>
+
+</body>
+
+</html>
+
