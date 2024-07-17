@@ -3,41 +3,33 @@ name: Frontend Deploy
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - "day70/Assignment/Ekart/Client/**"
+
 
 jobs:
-  build:
+  commit-and-push:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          ref: main
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Git
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+    - name: Create new branch if it doesn't exist
+      run: |
+        git fetch origin
+        if [ `git branch -r | grep "origin/gh-page" | wc -l` -eq 0 ]; then
+          git checkout -b gh-page
+        else
+          git checkout gh-page
+        fi
 
-      - name: Create gh-pages branch if it doesn't exist
-        run: |
-          if git show-ref refs/heads/gh-pages; then
-            echo "Branch gh-pages exists"
-          else
-            echo "Creating gh-pages branch"
-            git checkout --orphan gh-pages
-            git reset --hard
-            git commit --allow-empty -m "Initialize gh-pages branch"
-            git push origin gh-pages
-          fi
+    - name: Copy file to new branch
+      run: |
+        echo "New content" > my-file.txt
+        git add my-file.txt
+        git commit -m "Add my-file.txt to gh-page"
 
-      - name: Copy files to gh-pages branch
-        run: |
-          git checkout gh-pages
-          git pull origin gh-pages
-          cp -r day70/Assignment/Ekart/Client/* .
-          git add .
-          git commit -m "Deployed to gh-pages"
-          git push origin gh-pages
+    - name: Push changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git push origin gh-page
