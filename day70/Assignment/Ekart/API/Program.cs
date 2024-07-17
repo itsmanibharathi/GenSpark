@@ -10,8 +10,6 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using DotNetEnv;
 using Microsoft.Extensions.DependencyInjection;
-
-
 namespace API
 {
     public class Program
