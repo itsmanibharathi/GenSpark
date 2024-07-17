@@ -1,26 +1,43 @@
----
 name: Frontend Deploy
+
 on:
   push:
     branches: [ "main" ]
     paths:
       - "day70/Assignment/Ekart/Client/**"
+
 jobs:
-    # create gh-pages branch if it doesn't exist and copy the html files to it
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
-              with:
-                  ref: main
-            - name: Copy files to gh-pages branch
-              run: |
-                    git config --global user.email "action@github.com"
-                    git config --global user.name "GitHub Action"
-                    git checkout gh-pages
-                    git pull origin gh-pages
-                    cp -r day70/Assignment/Ekart/Client/* .
-                    git add .
-                    git commit -m "Deployed to gh-pages"
-                    git push origin gh-pages
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+      - name: Create gh-pages branch if it doesn't exist
+        run: |
+          if git show-ref refs/heads/gh-pages; then
+            echo "Branch gh-pages exists"
+          else
+            echo "Creating gh-pages branch"
+            git checkout --orphan gh-pages
+            git reset --hard
+            git commit --allow-empty -m "Initialize gh-pages branch"
+            git push origin gh-pages
+          fi
+
+      - name: Copy files to gh-pages branch
+        run: |
+          git checkout gh-pages
+          git pull origin gh-pages
+          cp -r day70/Assignment/Ekart/Client/* .
+          git add .
+          git commit -m "Deployed to gh-pages"
+          git push origin gh-pages

@@ -3,6 +3,8 @@ name: Deplyee Ekart-API
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "day70/Assignment/Ekart/API/**"
 
 jobs:
   build:
