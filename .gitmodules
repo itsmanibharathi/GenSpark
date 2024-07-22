@@ -1,3 +1,9 @@
 [submodule "day73/learning/sampleDotNetAPI"]
 	path = day73/learning/sampleDotNetAPI
 	url = https://github.com/itsmanibharathi/sampleDotNetAPI
+[submodule "day66/Frontend"]
+	path = day66/Frontend
+	url = https://github.com/Thunder7Inc/WebAPI-Frontend
+[submodule "day66/backend"]
+	path = day66/backend
+	url = https://github.com/Thunder7Inc/WebAPI
