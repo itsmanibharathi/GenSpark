@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-white p-10 h-screen">
+    <div class="flex flex-col md:flex-row h-full">
+        <div class="md:w-1/2 flex flex-col items-center">
+            <input type="text" class="px-4 py-2 mb-4 text-center cursor-text" id="word-input">
+            <div id="letter-container" class="hex-container">
+            </div>
+            <div class="mt-4 flex space-x-4">
+                <button id="delete-btn" class="px-4 py-2 border rounded-full">Delete</button>
+                <img src="./arrows-rotate-solid.svg" id="refresh-btn" class="w-14 h-10 px-4 py-2 border rounded-full"
+                    alt="refresh">
+                <button id="enter-btn" class="px-4 py-2 border rounded-full">Enter</button>
+            </div>
+        </div>
+        <div class="md:w-1/2">
+            <div class="flex items-center mb-4">
+                <span class="ml-4">Rank: <span id="rank" class="font-light">Beginner</span></span>
+                <span class="ml-4">Score: <span id="score" class="font-light">0</span></span>
+            </div>
+            <div class="rounded-lg border w-auto h-full px-5 py-2">
+                <p>You have found <span id="word_count">0</span> words</p>
+                <div id="words"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

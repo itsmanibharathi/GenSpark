@@ -1,0 +1,65 @@
+.hex-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.hex {
+    width: 80px;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E6E6E6;
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    padding: 10px;
+}
+
+
+
+.center {
+    top: 95px;
+    left: 60px;
+    background-color: #F59E0B;
+}
+
+.hex:nth-child(2) {
+    top: 0;
+    left: 60px;
+}
+
+.hex:nth-child(3) {
+    top: 50px;
+    left: 0;
+}
+
+.hex:nth-child(4) {
+    top: 50px;
+    left: 120px;
+}
+
+
+.hex:nth-child(5) {
+    top: 138px;
+    left: 0;
+}
+
+.hex:nth-child(6) {
+    top: 138px;
+    left: 120px;
+}
+
+.hex:nth-child(7) {
+    top: 184px;
+    left: 60px;
+}
